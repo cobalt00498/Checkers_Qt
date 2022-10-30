@@ -55,6 +55,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
      <widget class="QLabel" name="y9Label">
       <property name="geometry">
@@ -67,6 +70,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>y</string>
       </property>
      </widget>
      <widget class="QLabel" name="y8Label">
@@ -81,6 +87,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>y</string>
+      </property>
      </widget>
      <widget class="QLabel" name="y7Label">
       <property name="geometry">
@@ -93,6 +102,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>y</string>
       </property>
      </widget>
      <widget class="QLabel" name="y6Label">
@@ -107,6 +119,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>y</string>
+      </property>
      </widget>
      <widget class="QLabel" name="y5Label">
       <property name="geometry">
@@ -119,6 +134,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>y</string>
       </property>
      </widget>
      <widget class="QLabel" name="y4Label">
@@ -133,6 +151,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>y</string>
+      </property>
      </widget>
      <widget class="QLabel" name="y3Label">
       <property name="geometry">
@@ -145,6 +166,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>y</string>
       </property>
      </widget>
      <widget class="QLabel" name="y1Label">
@@ -159,6 +183,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>y</string>
+      </property>
      </widget>
      <widget class="QLabel" name="y2Label">
       <property name="geometry">
@@ -171,6 +198,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>y</string>
       </property>
      </widget>
      <widget class="QLabel" name="b10Label">
@@ -185,6 +215,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
      <widget class="QLabel" name="b8Label">
       <property name="geometry">
@@ -197,6 +230,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>b</string>
       </property>
      </widget>
      <widget class="QLabel" name="b11Label">
@@ -211,6 +247,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
      <widget class="QLabel" name="b12Label">
       <property name="geometry">
@@ -223,6 +262,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>b</string>
       </property>
      </widget>
      <widget class="QLabel" name="b7Label">
@@ -237,6 +279,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
      <widget class="QLabel" name="b6Label">
       <property name="geometry">
@@ -249,6 +294,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>b</string>
       </property>
      </widget>
      <widget class="QLabel" name="b5Label">
@@ -263,6 +311,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
      <widget class="QLabel" name="b3Label">
       <property name="geometry">
@@ -275,6 +326,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>b</string>
       </property>
      </widget>
      <widget class="QLabel" name="b2Label">
@@ -289,6 +343,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
      <widget class="QLabel" name="b1Label">
       <property name="geometry">
@@ -301,6 +358,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>b</string>
       </property>
      </widget>
      <widget class="QLabel" name="y12Label">
@@ -315,6 +375,9 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>y</string>
+      </property>
      </widget>
      <widget class="QLabel" name="y11Label">
       <property name="geometry">
@@ -327,6 +390,9 @@
       </property>
       <property name="text">
        <string>TextLabel</string>
+      </property>
+      <property name="color" stdset="0">
+       <string>y</string>
       </property>
      </widget>
      <widget class="QLabel" name="y10Label">
@@ -341,8 +407,11 @@
       <property name="text">
        <string>TextLabel</string>
       </property>
+      <property name="color" stdset="0">
+       <string>y</string>
+      </property>
      </widget>
-     <widget class="QPushButton" name="ResetButton">
+     <widget class="QPushButton" name="StopButton">
       <property name="geometry">
        <rect>
         <x>490</x>
@@ -360,7 +429,7 @@
 }</string>
       </property>
       <property name="text">
-       <string>Reset</string>
+       <string>Stop</string>
       </property>
      </widget>
      <widget class="QPushButton" name="HomeButton">
@@ -384,7 +453,7 @@
        <string>Home</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="b1Button">
+     <widget class="QPushButton" name="B_1_8">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -400,7 +469,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y1Button">
+     <widget class="QPushButton" name="B_1_1">
       <property name="geometry">
        <rect>
         <x>35</x>
@@ -419,7 +488,7 @@
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y10Button">
+     <widget class="QPushButton" name="B_2_3">
       <property name="geometry">
        <rect>
         <x>158</x>
@@ -435,7 +504,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y9Button">
+     <widget class="QPushButton" name="B_1_3">
       <property name="geometry">
        <rect>
         <x>35</x>
@@ -451,7 +520,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y3Button">
+     <widget class="QPushButton" name="B_3_1">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -467,7 +536,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y8Button">
+     <widget class="QPushButton" name="B_4_2">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -483,7 +552,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y6Button">
+     <widget class="QPushButton" name="B_2_2">
       <property name="geometry">
        <rect>
         <x>227</x>
@@ -499,7 +568,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y5Button">
+     <widget class="QPushButton" name="B_1_2">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -515,7 +584,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y4Button">
+     <widget class="QPushButton" name="B_4_1">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -531,7 +600,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b2Button">
+     <widget class="QPushButton" name="B_2_8">
       <property name="geometry">
        <rect>
         <x>227</x>
@@ -547,7 +616,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b3Button">
+     <widget class="QPushButton" name="B_3_8">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -563,7 +632,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b4Button">
+     <widget class="QPushButton" name="B_4_8">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -579,7 +648,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b5Button">
+     <widget class="QPushButton" name="B_1_7">
       <property name="geometry">
        <rect>
         <x>35</x>
@@ -595,7 +664,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b6Button">
+     <widget class="QPushButton" name="B_2_7">
       <property name="geometry">
        <rect>
         <x>163</x>
@@ -611,7 +680,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b7Button">
+     <widget class="QPushButton" name="B_3_7">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -627,7 +696,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b8Button">
+     <widget class="QPushButton" name="B_4_7">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -643,7 +712,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b9Button">
+     <widget class="QPushButton" name="B_1_6">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -659,7 +728,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b11Button">
+     <widget class="QPushButton" name="B_3_6">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -675,7 +744,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="b12Button">
+     <widget class="QPushButton" name="B_4_6">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -691,7 +760,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y2Button">
+     <widget class="QPushButton" name="B_2_1">
       <property name="geometry">
        <rect>
         <x>163</x>
@@ -707,7 +776,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y7Button">
+     <widget class="QPushButton" name="B_3_2">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -723,7 +792,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y12Button">
+     <widget class="QPushButton" name="B_4_3">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -739,7 +808,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="y11Button">
+     <widget class="QPushButton" name="B_3_3">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -770,12 +839,143 @@
       <property name="textFormat">
        <enum>Qt::MarkdownText</enum>
       </property>
+      <property name="color" stdset="0">
+       <string>b</string>
+      </property>
      </widget>
-     <widget class="QPushButton" name="b10Button">
+     <widget class="QPushButton" name="B_2_6">
       <property name="geometry">
        <rect>
         <x>227</x>
         <y>350</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_1_4">
+      <property name="geometry">
+       <rect>
+        <x>99</x>
+        <y>222</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_2_4">
+      <property name="geometry">
+       <rect>
+        <x>227</x>
+        <y>222</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_3_4">
+      <property name="geometry">
+       <rect>
+        <x>355</x>
+        <y>222</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_4_4">
+      <property name="geometry">
+       <rect>
+        <x>483</x>
+        <y>222</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_1_5">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>286</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_2_5">
+      <property name="geometry">
+       <rect>
+        <x>158</x>
+        <y>286</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_3_5">
+      <property name="geometry">
+       <rect>
+        <x>291</x>
+        <y>286</y>
+        <width>60</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="B_4_5">
+      <property name="geometry">
+       <rect>
+        <x>419</x>
+        <y>286</y>
         <width>60</width>
         <height>60</height>
        </rect>

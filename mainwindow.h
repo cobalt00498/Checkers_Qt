@@ -23,7 +23,7 @@ private slots:
 
     void on_StartButton_clicked();
 
-    void on_ResetButton_clicked();
+    void on_StopButton_clicked();
 
     void on_BackButton_clicked();
 
@@ -36,10 +36,7 @@ private:
 
     QList<QLabel*> bluePieceLabels;
     QList<QLabel*> yellowPieceLabels;
-    QList<QPushButton*> bluePieceButtons;
-    QList<QPushButton*> yellowPieceButtons;
-    QList<QLabel*> boardLabels;
-    QList<QPushButton*> buttons;
+    QList<QPushButton*> boardButtons;
 
 //    void on_slot_clicked();
     void on_button_clicked();
