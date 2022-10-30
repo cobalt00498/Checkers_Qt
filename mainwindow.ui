@@ -314,6 +314,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="isKing" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b3Label">
       <property name="geometry">
