@@ -198,19 +198,8 @@ void MainWindow::on_HomeButton_clicked()
 
 // connect함수로 다 이어줬기 때문에, yellow or blue piece button이 클릭되면, 어떤 일을 할 것인지 정해야 함.
 void MainWindow::on_button_clicked(){
-/* lift = true, fale를 둬서 처음 말을 들어올리는 것이 가능한 순서는 true, 내려놓는 것이 가능한 순서는 false로 정의.
- * 클릭했을 때,
- * if lift=true일 때,
- *     if 선택한 칸에 말이 있으면, map을 이용해서..?
- *          if 내 쪽 말이 아니면, {오류 메세지 보내기}
- *          else {잡아올린 말을 기억 (집는 행위, 여러번 잡을 수 있음) & lift = false로 바꾸기
- *      else {들어올릴 말이 없다고 에러 메세지를 띄움}
- * else
- *      if 선택한 위치에 말이있으면, {잡아올린 말을 바꿈}
- *      else if 선택한 위치가 움직일 수 있는 위치(대각선에 위치했는지)가 아니면, {에러 메세지를 띄움}.
- *            else if 기억하고 있는 말과 클릭한 곳 사이에 말을 딸 수 있으면, {점수를 증가시키고, lift는 0으로 만들고, 따먹힌 상대 piece는 화면에서 invisible하게 만들기}.
- *                else pass
-*/
+/* lift = true, fale를 둬서 처음 말을 들어올리는 것이 가능한 순서는 true, 내려놓는 것이 가능한 순서는 false로 정의.*/
+
     if (isBlueTurn){ /*blue 차례일 때 실행*/
         QObject* senderObj = sender(); //This will give sender object
 
