@@ -2,7 +2,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
-#include<map>
+#include <map>
 #include <string>
 using namespace std;
 
@@ -101,7 +101,7 @@ MainWindow::MainWindow(QWidget *parent)
     //set visible elements - page3
         //connect
     for(QPushButton* button: boardButtons) {
-        connect(button, &QPushButton::clicked, this, &MainWindow::on_button_clicked);connect(button, &QPushButton::clicked, this, &MainWindow::on_button_clicked);
+        connect(button, &QPushButton::clicked, this, &MainWindow::on_button_clicked);
     }
 
     for (QPushButton* button: boardButtons) {
@@ -146,6 +146,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_y.insert(pair<string, QLabel*>(ui->B_2_4->objectName().toStdString(), nullptr));
     m_y.insert(pair<string, QLabel*>(ui->B_3_4->objectName().toStdString(), nullptr));
     m_y.insert(pair<string, QLabel*>(ui->B_4_4->objectName().toStdString(), nullptr));
+
     m_b.insert(pair<string, QLabel*>(ui->B_1_3->objectName().toStdString(), ui->b9Label));
     m_b.insert(pair<string, QLabel*>(ui->B_2_3->objectName().toStdString(), ui->b10Label));
     m_b.insert(pair<string, QLabel*>(ui->B_3_3->objectName().toStdString(), ui->b11Label));
@@ -191,6 +192,7 @@ void MainWindow::on_StartButton_2_clicked()
 
 void MainWindow::on_HomeButton_clicked()
 {
+    //ui -> setupUi(this); // 값 초기화
     ui->stackedWidget->setCurrentWidget(ui->page);
     //값 초기화 TODO
 }
@@ -229,7 +231,9 @@ void MainWindow::on_button_clicked(){
                     lift = true;//lift는 다음 turn을 위해 true으로 만들고,
                     moveToButtonPtr= pickedButtonPtr; // 클릭한 버튼 Ptr을 기억
                     moveToLabelPtr = pickedLabelPtr;
-                    Move(moveFromLabelPtr, moveToLabelPtr); // 옮기기& 이전에 있던 버튼위 라벨은 지우기(invisible & map변경) TODO
+                    Move(moveFromLabelPtr, moveToLabelPtr); // 옮기기 & 이전에 있던 버튼위 라벨은 지우기(invisible & map변경) TODO
+                    moveFromLabelPtr->setVisible(false); // 원래있던 라벨을 지움
+                    m_y.insert(pair<string, QLabel*>(ui->B_1_5->objectName().toStdString(), pickedLabelPtr));
                     isBlueTurn = !isBlueTurn; // 상대방 차례로 바꾸기
                 }
             }
@@ -264,6 +268,7 @@ void MainWindow::on_button_clicked(){
                     moveToButtonPtr= pickedButtonPtr; // 클릭한 버튼 Ptr을 기억
                     moveToLabelPtr = pickedLabelPtr;
                     Move(moveFromLabelPtr, moveToLabelPtr); // 옮기기& 이전에 있던 버튼위 라벨은 지우기(invisible & map변경) TODO
+                    moveFromLabelPtr->setVisible(false);
                     isBlueTurn = !isBlueTurn; // 상대방 차례로 바꾸기
                     }
                 }
