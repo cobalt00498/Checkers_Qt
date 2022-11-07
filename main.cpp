@@ -7,21 +7,20 @@
 using namespace std;
 
 bool lift = true;
-QPushButton* moveFromButtonPtr= nullptr;
-QLabel* moveFromLabelPtr= nullptr;
+string moveFromButtonName;
+QLabel* movingLabelPtr= nullptr;
 QLabel* targetLabelPtr = nullptr;
-QPushButton* moveToButtonPtr = nullptr;
-QPushButton* moveToLabelPtr= nullptr;
+string moveToButtonName;
+//QPushButton* moveToLabelPtr= nullptr;
 
 QList<QLabel*> hitPiecePtrList_b;
-map<string, QLabel*> m_b;
-
+int hitPieceCount_b = 0;
 QList<QLabel*> hitPiecePtrList_y;
-map<string, QLabel*> m_y;
+int hitPieceCount_y = 0;
 bool endGameNow = false;
 bool isBlueTurn = true; // blue부터 시작
-
-
+bool moveDone = false;
+map<string, QLabel*> map_s_Q;
 
 int main(int argc, char *argv[])
 {

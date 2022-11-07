@@ -9,5 +9,6 @@
         <file>image/yellow_piece.png</file>
         <file>image/background.jpg</file>
         <file>image/crumpled_paper.jpg</file>
+        <file>image/celebrate.jpeg</file>
     </qresource>
 </RCC>
