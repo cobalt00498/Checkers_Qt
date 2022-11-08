@@ -99,7 +99,7 @@ MainWindow::MainWindow(QWidget *parent)
     //set elements visible - page3
         //connect
     for(QPushButton* button: boardButtons) {
-        connect(button, &QPushButton::clicked, this, &MainWindow::on_button_clicked);
+        connect(button, &QPushButton::pressed, this, &MainWindow::on_button_clicked);
         button->setVisible(true);
     }
 
@@ -233,19 +233,10 @@ void MainWindow::on_button_clicked(){
                 isLiftTurn = !isLiftTurn;
                 isBlueTurn = !isBlueTurn;
 
-                if (!isWinnerDecided()){return;}
-                ui->stackedWidget->setCurrentWidget(ui->page_4);
-                if (getWinner() == "blue"){
-                    ui->comment_4->setText("Blue had won the game!");
-                } else if (getWinner()=="yellow"){
-                    ui->comment_4->setText("Yellow had won the game!");
-                } else{//tie
-                    ui->comment_4->setText("Tie!");
+                CheckAndHandleWinCase(ui);
                 }
-            }
-        }
+    }
 }
-
 
 
 // Play screen- 'page_3'

@@ -105,3 +105,15 @@ string getWinner(){
     }
     return "yellow";
 }
+
+void CheckAndHandleWinCase(Ui::MainWindow* ui) {
+    if (!isWinnerDecided()){return;}
+    ui->stackedWidget->setCurrentWidget(ui->page_4);
+    if (getWinner() == "blue"){
+        ui->comment_4->setText("Blue had won the game!");
+    } else if (getWinner()=="yellow"){
+        ui->comment_4->setText("Yellow had won the game!");
+    } else{ //tie
+        ui->comment_4->setText("Tie!");
+    }
+}
