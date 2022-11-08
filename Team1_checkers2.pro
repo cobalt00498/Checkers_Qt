@@ -9,15 +9,10 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Board.cpp \
-    HumanPlayer.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    Board.h \
-    HumanPlayer.h \
-    Player.h \
     mainwindow.h \
     utils.h
 
@@ -32,12 +27,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     .gitignore \
     image/background.jpg \
-    image/blue_heart.png \
     image/blue_piece.png \
     image/board.jpeg \
-    image/orange_heart.png \
-    image/red_heart.png \
-    image/yellow_heart.png \
     image/yellow_piece.png
 
 RESOURCES += \

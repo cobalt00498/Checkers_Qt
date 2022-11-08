@@ -6,22 +6,18 @@
 #include <string>
 using namespace std;
 
-extern bool lift;
+extern bool isLiftTurn;
 extern string moveFromButtonName;
 extern QLabel* targetLabelPtr;
 extern QLabel* movingLabelPtr;
 extern string moveToButtonName;
-extern QList<QLabel*> hitPiecePtrList_b;
 extern int hitPieceCount_b;
 extern map<string, QLabel*> m_b;
 
-extern QList<QLabel*> hitPiecePtrList_y;
 extern int hitPieceCount_y;
 extern map<string, QLabel*> map_s_Q;
 extern bool endGameNow;
 extern bool isBlueTurn;
-extern bool moveDone;
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -199,126 +195,57 @@ void MainWindow::on_HomeButton_clicked()
     //값 초기화 TODO
 }
 
-// connect함수로 다 이어줬기 때문에, yellow or blue piece button이 클릭되면, 어떤 일을 할 것인지 정해야 함.
 void MainWindow::on_button_clicked(){
-/* lift = true, false를 둬서 처음 말을 들어올리는 것이 가능한 순서는 true, 내려놓는 것이 가능한 순서는 false로 정의.*/
-    if (endGameNow == false){
-        if (isBlueTurn){ /*blue 차례일 때 실행*/
-            QObject* senderObj = sender(); //This will give sender object
-            string pickedButtonName = senderObj->objectName().toStdString();
+    QObject* senderObj = sender();
+    string pickedButtonName = senderObj->objectName().toStdString();
+    QLabel* pickedLabelPtr;
+    pickedLabelPtr = map_s_Q.at(pickedButtonName);
 
-//            //check the button is really blue one.
-//            if (pickedButtonName.substr(0,1) == "y") {
-//                QMessageBox::warning(this,"Warn","This turn is blue's. You picked yellow one.");/*에러 메세지를 띄움*/
-//                return;
-//            }
-
-            QLabel* pickedLabelPtr;
-            pickedLabelPtr = map_s_Q.at(pickedButtonName);
-            if (lift) {
-                if (pickedLabelPtr != nullptr) { //label이 그 자리에 존재하면,
-                    if (pickedLabelPtr->objectName().toStdString().substr(0,1) == "y") {
-                        QMessageBox::warning(this,"Warn","This turn is blue's. You picked yellow one.");/*에러 메세지를 띄움*/
-                        return;
-                    } else {
-                        moveFromButtonName = pickedButtonName; //클릭된 Qobject의 button name을 기억
-                        movingLabelPtr = pickedLabelPtr;
-                        lift = false; //lift = false로 바꾸기
-                        return;
-                    }
-                } else {
-                    QMessageBox::warning(this,"Warn","Piece you're lifting does not exists. Please click other places.");
-                    return;
-                }
-            } else {
-                    if (pickedLabelPtr != nullptr) { //label이 그 자리에 존재하면,
-                        moveFromButtonName = pickedButtonName; //클릭한 button name을 기억(만약 들어올린 이미 있었다면, 교체됨)
-                        movingLabelPtr = pickedLabelPtr;
-                        return;
-                    } else if (!isMoveAllowed(isBlueTurn, moveFromButtonName, pickedButtonName)){
-                        QMessageBox::warning(this,"Warn","This piece is not yours. Please move yours.");/*에러 메세지를 띄움*/
-                        return;
-                    } else {
-                        lift = true;//lift는 다음 turn을 위해 true으로 만들고,
-                        moveToButtonName= pickedButtonName; // 클릭한 버튼 이름을 기억
-                        int type = MoveAndGetMoveType(movingLabelPtr, moveFromButtonName, moveToButtonName); // 옮기기& 이전에 있던 버튼위 라벨은 지우기(invisible & map변경) TODO
-                        if (type==2){
-                            RemoveLabelInBetween(isBlueTurn, moveFromButtonName, moveToButtonName);
-                        }
-                        isBlueTurn = !isBlueTurn; // 상대방 차례로 바꾸기
-                        if (isWinnerDecided()){ // Winner 이름 page에 띄워진 라벨에 넣기
-                            ui->stackedWidget->setCurrentWidget(ui->page_4);
-                            if (getWinner() == "blue"){
-                                ui->comment_4->setText("Blue had won the game!");
-                            } else if (getWinner()=="yellow"){
-                                ui->comment_4->setText("Yellow had won the game!");
-                            } else{//tie
-                                ui->comment_4->setText("Tie!");
-                            }
-                        }
-                        return;
-                    }
-                }
-        }else{
-            /*yellow 차례일 때 실행*/
-            QObject* senderObj = sender(); //This will give sender object
-            string pickedButtonName = senderObj->objectName().toStdString();
-
-//            //check the button is really blue one.
-//            if (pickedButtonName.substr(0,1) == "b") {
-//                QMessageBox::warning(this,"Warn","This turn is yello's. You picked blue one.");/*에러 메세지를 띄움*/
-//                return;
-//            }
-
-            QLabel* pickedLabelPtr;
-            pickedLabelPtr = map_s_Q.at(pickedButtonName);
-            if (lift) {
-                if (pickedLabelPtr != nullptr) { //label이 그 자리에 존재하면,
-                    if (pickedLabelPtr->objectName().toStdString().substr(0,1) == "b") {
-                        QMessageBox::warning(this,"Warn","This turn is yello's. You picked blue one.");/*에러 메세지를 띄움*/
-                        return;
-                    } else {
-                        moveFromButtonName = pickedButtonName; //클릭된 Qobject의 button name을 기억
-                        movingLabelPtr = pickedLabelPtr;
-                        lift = false; //lift = false로 바꾸기
-                        return;
-                    }
-                } else {
-                    QMessageBox::warning(this,"Warn","Piece you're lifting does not exists. Please click other places.");
-                    return;
-                }
-            } else {
-                    if (pickedLabelPtr != nullptr) { //label이 그 자리에 존재하면,
-                        moveFromButtonName = pickedButtonName; //클릭한 button name을 기억(만약 들어올린 이미 있었다면, 교체됨)
-                        movingLabelPtr = pickedLabelPtr;
-                        return;
-                    } else if (!isMoveAllowed(isBlueTurn, moveFromButtonName, pickedButtonName)){
-                        QMessageBox::warning(this,"Warn","This piece is not yours. Please move yours.");/*에러 메세지를 띄움*/
-                        return;
-                    } else {
-                        lift = true;//lift는 다음 turn을 위해 true으로 만들고,
-                        moveToButtonName= pickedButtonName; // 클릭한 버튼 이름을 기억
-                        int type = MoveAndGetMoveType(movingLabelPtr, moveFromButtonName, moveToButtonName); // 옮기기& 이전에 있던 버튼위 라벨은 지우기(invisible & map변경) TODO
-                        if (type==2){
-                            RemoveLabelInBetween(isBlueTurn, moveFromButtonName, moveToButtonName);
-                        }
-                        isBlueTurn = !isBlueTurn; // 상대방 차례로 바꾸기
-                        if (isWinnerDecided()){ // Winner 이름 page에 띄워진 라벨에 넣기
-                            ui->stackedWidget->setCurrentWidget(ui->page_4);
-                            if (getWinner() == "blue"){
-                                ui->comment_4->setText("Blue had won the game!");
-                            } else if (getWinner()=="yellow"){
-                                ui->comment_4->setText("Yellow had won the game!");
-                            } else{//tie
-                                ui->comment_4->setText("Tie!");
-                            }
-                        }
-                        return;
-                    }
-                }
+    if (isLiftTurn) {
+        try {
+            Pick(pickedButtonName, pickedLabelPtr);
+            isLiftTurn = !isLiftTurn;
+            return;
+        } catch (invalid_argument& e) {
+            QMessageBox::warning(this, "Warn", e.what());
+        } catch (logic_error& e) {
+            QMessageBox::warning(this, "Warn", e.what());
         }
-    }
+    } else {
+            if (pickedLabelPtr != nullptr) {
+                try {
+                    Pick(pickedButtonName, pickedLabelPtr);
+                } catch (invalid_argument& e) {
+                    QMessageBox::warning(this, "Warn", e.what());
+                } catch (logic_error& e) {
+                    QMessageBox::warning(this, "Warn", e.what());
+                }
+            } else{
+                try {
+                  moveToButtonName = pickedButtonName;
+                  Move(isBlueTurn, movingLabelPtr, moveFromButtonName, moveToButtonName);
+                } catch (invalid_argument& e) {
+                    QMessageBox::warning(this, "Warn", e.what());
+                } catch (range_error& e) {
+                    QMessageBox::warning(this, "Warn", e.what());
+                }
+
+                isLiftTurn = !isLiftTurn;
+                isBlueTurn = !isBlueTurn;
+
+                if (!isWinnerDecided()){return;}
+                ui->stackedWidget->setCurrentWidget(ui->page_4);
+                if (getWinner() == "blue"){
+                    ui->comment_4->setText("Blue had won the game!");
+                } else if (getWinner()=="yellow"){
+                    ui->comment_4->setText("Yellow had won the game!");
+                } else{//tie
+                    ui->comment_4->setText("Tie!");
+                }
+            }
+        }
 }
+
 
 
 // Play screen- 'page_3'

@@ -1,14 +1,18 @@
 <RCC>
     <qresource prefix="/">
-        <file>image/blue_heart.png</file>
         <file>image/board.jpeg</file>
-        <file>image/orange_heart.png</file>
-        <file>image/red_heart.png</file>
-        <file>image/yellow_heart.png</file>
         <file>image/blue_piece.png</file>
         <file>image/yellow_piece.png</file>
         <file>image/background.jpg</file>
         <file>image/crumpled_paper.jpg</file>
         <file>image/celebrate.jpeg</file>
+        <file>.gitignore</file>
+        <file>main.cpp</file>
+        <file>mainwindow.cpp</file>
+        <file>mainwindow.h</file>
+        <file>mainwindow.ui</file>
+        <file>resource2.qrc</file>
+        <file>Team1_checkers2.pro</file>
+        <file>utils.h</file>
     </qresource>
 </RCC>
