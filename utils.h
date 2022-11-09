@@ -9,14 +9,18 @@
 #include <stdexcept>
 
 namespace Ui { class MainWindow; }
-
 using namespace std;
-extern map<string, QLabel*> map_s_Q;
+
+extern bool isLiftTurn;
+extern bool isBlueTurn;
+extern bool endGameNow;
 extern int hitPieceCount_b;
 extern int hitPieceCount_y;
+
 extern string moveFromButtonName;
 extern QLabel* movingLabelPtr;
-extern bool isBlueTurn;
+
+extern map<string, QLabel*> map_s_Q;
 
 void Pick(string pickedButtonName, QLabel*& pickedLabelPtr) {
     if (pickedLabelPtr != nullptr) {
@@ -28,7 +32,6 @@ void Pick(string pickedButtonName, QLabel*& pickedLabelPtr) {
         } else {
             moveFromButtonName = pickedButtonName;
             movingLabelPtr = pickedLabelPtr;
-            return;
         }
     } else {
         throw logic_error("USER_CLICKED_EMPTY_PLACE");
@@ -36,12 +39,13 @@ void Pick(string pickedButtonName, QLabel*& pickedLabelPtr) {
 }
 
 
-void Move(bool isBlueTurn, QLabel* &movingLabelPtr, string moveFromButtonName, string moveToButtonName){
+void Move(bool isBlueTurn, QLabel* movingLabelPtr, string moveFromButtonName, string moveToButtonName){
     int fromX = stoi(moveFromButtonName.substr(2,1));
     int fromY = stoi(moveFromButtonName.substr(4,1));
 
     int toX = stoi(moveToButtonName.substr(2,1));
     int toY = stoi(moveToButtonName.substr(4,1));
+
     if (abs(toX-fromX) ==1 && abs(toY-fromY)==1) {
         movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
         QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);

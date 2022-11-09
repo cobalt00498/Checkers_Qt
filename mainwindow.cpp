@@ -3,21 +3,19 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <map>
-#include <string>
 using namespace std;
 
-extern bool isLiftTurn;
-extern string moveFromButtonName;
-extern QLabel* targetLabelPtr;
-extern QLabel* movingLabelPtr;
-extern string moveToButtonName;
-extern int hitPieceCount_b;
-extern map<string, QLabel*> m_b;
+bool isLiftTurn = true;
+bool isBlueTurn = true;
+bool endGameNow = false;
+int hitPieceCount_b = 0;
+int hitPieceCount_y = 0;
 
-extern int hitPieceCount_y;
-extern map<string, QLabel*> map_s_Q;
-extern bool endGameNow;
-extern bool isBlueTurn;
+string moveFromButtonName;
+string moveToButtonName;
+
+QLabel* movingLabelPtr;
+map<string, QLabel*> map_s_Q;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
