@@ -1,3 +1,4 @@
+#include <windows.h>
 #include "utils.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -10,7 +11,7 @@ bool isBlueTurn = true;
 bool endGameNow = false;
 int hitPieceCount_b = 0;
 int hitPieceCount_y = 0;
-
+bool isComputerPlayer = true:
 string moveFromButtonName;
 string moveToButtonName;
 
@@ -215,19 +216,21 @@ void MainWindow::on_button_clicked(){
                     Pick(pickedButtonName, pickedLabelPtr);
                 } catch (invalid_argument& e) {
                     QMessageBox::warning(this, "Warn", e.what());
-                } catch (logic_error& e) {
-                    QMessageBox::warning(this, "Warn", e.what());
                 }
             } else{
                 try {
                   moveToButtonName = pickedButtonName;
-                  Move(isBlueTurn, movingLabelPtr, moveFromButtonName, moveToButtonName);
+                  Move(movingLabelPtr, moveFromButtonName, moveToButtonName);
+                  handleKingPiece(movingLabelPtr, moveToButtonName);
+                  if (isComputerPlayer) {
+                      Sleep(10*1000); // sleep 10 seconds
+                      computerMove(ui);
+                  }
+
                 } catch (invalid_argument& e) {
                     QMessageBox::warning(this, "Warn", e.what());
-                } catch (range_error& e) {
-                    QMessageBox::warning(this, "Warn", e.what());
+                    return;
                 }
-
                 isLiftTurn = !isLiftTurn;
                 isBlueTurn = !isBlueTurn;
 

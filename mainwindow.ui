@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="King" stdset="0">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true"/>
@@ -58,6 +61,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y9Label">
       <property name="geometry">
@@ -73,6 +79,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y8Label">
@@ -90,6 +99,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y7Label">
       <property name="geometry">
@@ -105,6 +117,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y6Label">
@@ -122,6 +137,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y5Label">
       <property name="geometry">
@@ -137,6 +155,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y4Label">
@@ -154,6 +175,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y3Label">
       <property name="geometry">
@@ -169,6 +193,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y1Label">
@@ -186,6 +213,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y2Label">
       <property name="geometry">
@@ -201,6 +231,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b10Label">
@@ -218,6 +251,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b8Label">
       <property name="geometry">
@@ -233,6 +269,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b11Label">
@@ -250,6 +289,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b12Label">
       <property name="geometry">
@@ -265,6 +307,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b7Label">
@@ -282,6 +327,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b6Label">
       <property name="geometry">
@@ -297,6 +345,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b5Label">
@@ -317,6 +368,9 @@
       <property name="isKing" stdset="0">
        <bool>false</bool>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b3Label">
       <property name="geometry">
@@ -332,6 +386,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b2Label">
@@ -349,6 +406,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b1Label">
       <property name="geometry">
@@ -364,6 +424,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y12Label">
@@ -381,6 +444,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y11Label">
       <property name="geometry">
@@ -397,6 +463,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y10Label">
       <property name="geometry">
@@ -412,6 +481,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="StopButton">
@@ -486,9 +558,6 @@
       </property>
       <property name="flat">
        <bool>true</bool>
-      </property>
-      <property name="fakeDynamicProperty" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="B_3_3">
@@ -724,6 +793,11 @@
         <height>60</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -844,6 +918,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QPushButton" name="B_4_6">
@@ -990,6 +1067,65 @@
        <bool>true</bool>
       </property>
      </widget>
+     <zorder>Board1</zorder>
+     <zorder>b4Label</zorder>
+     <zorder>y9Label</zorder>
+     <zorder>y8Label</zorder>
+     <zorder>y7Label</zorder>
+     <zorder>y6Label</zorder>
+     <zorder>y5Label</zorder>
+     <zorder>y4Label</zorder>
+     <zorder>y3Label</zorder>
+     <zorder>y1Label</zorder>
+     <zorder>y2Label</zorder>
+     <zorder>b10Label</zorder>
+     <zorder>b8Label</zorder>
+     <zorder>b11Label</zorder>
+     <zorder>b12Label</zorder>
+     <zorder>b7Label</zorder>
+     <zorder>b6Label</zorder>
+     <zorder>b5Label</zorder>
+     <zorder>b3Label</zorder>
+     <zorder>b2Label</zorder>
+     <zorder>b1Label</zorder>
+     <zorder>y12Label</zorder>
+     <zorder>y11Label</zorder>
+     <zorder>y10Label</zorder>
+     <zorder>StopButton</zorder>
+     <zorder>HomeButton</zorder>
+     <zorder>B_2_8</zorder>
+     <zorder>B_1_1</zorder>
+     <zorder>B_3_3</zorder>
+     <zorder>B_1_3</zorder>
+     <zorder>B_5_1</zorder>
+     <zorder>B_8_2</zorder>
+     <zorder>B_4_2</zorder>
+     <zorder>B_2_2</zorder>
+     <zorder>B_7_1</zorder>
+     <zorder>B_4_8</zorder>
+     <zorder>B_6_8</zorder>
+     <zorder>B_8_8</zorder>
+     <zorder>B_1_7</zorder>
+     <zorder>B_3_7</zorder>
+     <zorder>B_5_7</zorder>
+     <zorder>B_7_7</zorder>
+     <zorder>B_6_6</zorder>
+     <zorder>B_8_6</zorder>
+     <zorder>B_3_1</zorder>
+     <zorder>B_6_2</zorder>
+     <zorder>B_7_3</zorder>
+     <zorder>B_5_3</zorder>
+     <zorder>b9Label</zorder>
+     <zorder>B_4_6</zorder>
+     <zorder>B_2_4</zorder>
+     <zorder>B_4_4</zorder>
+     <zorder>B_6_4</zorder>
+     <zorder>B_8_4</zorder>
+     <zorder>B_1_5</zorder>
+     <zorder>B_3_5</zorder>
+     <zorder>B_5_5</zorder>
+     <zorder>B_7_5</zorder>
+     <zorder>B_2_6</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">

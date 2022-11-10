@@ -13,6 +13,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    Move.h \
     mainwindow.h \
     utils.h
 
