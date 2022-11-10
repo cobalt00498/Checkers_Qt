@@ -134,6 +134,7 @@ void CheckAndHandleWinCase(Ui::MainWindow* ui) {
 
 
 QList<QLabel*> getAllPossibleComputerMove(Ui::MainWindow* ui) {
+    vector<Move> possibleMoves;
     for (auto [key, value]: map_s_Q) {
         if (value->objectName().toStdString().substr(0,1) == "b" || value == nullptr) {
             continue;
@@ -143,6 +144,7 @@ QList<QLabel*> getAllPossibleComputerMove(Ui::MainWindow* ui) {
             int fromY = stoi(key.substr(4,1));
             if (fromY == 8) { continue; } // 맨아랫줄에 있으면 움직일 수가 없음
             if (fromX == 8) {
+                if (fromY==7) {}
                 int toX = fromX-1;
                 int toY = fromY+1;
                 string toButtonName = "B_";
@@ -151,7 +153,8 @@ QList<QLabel*> getAllPossibleComputerMove(Ui::MainWindow* ui) {
                 toButtonName.append(to_string(toY));
                 bool isJumped = false;
                 if (map_s_Q[toButtonName] == nullptr) {
-                    class Move tempMove(fromX, fromY, toX, toY, isJumped);
+                    class Move possibleMove(fromX, fromY, toX, toY, isJumped);
+                    possibleMoves.push_back(possibleMove);
                 }
             } else if (){}
         }
