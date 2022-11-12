@@ -118,8 +118,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->StopButton->setVisible(true);
 
+    ui -> yturnlabel -> setVisible(false);
+    ui -> bturnlabel -> setVisible(true);
+
     //set elements visible - page4
-    QPixmap celebrating_background = QPixmap(":/image/celebrate.jpeg");
+    QPixmap celebrating_background = QPixmap(":/image/celebrate.jpg");
     ui->page_4->setVisible(true);
     ui->BackgroundLabel_4->setPixmap(celebrating_background);
 
@@ -199,17 +202,18 @@ void MainWindow::on_button_clicked(){
     QLabel* pickedLabelPtr;
     pickedLabelPtr = map_s_Q.at(pickedButtonName);
 
-    if (isLiftTurn) {
+    if (isLiftTurn) { // when user lifts a piece
         try {
-            Pick(pickedButtonName, pickedLabelPtr);
+            Pick(pickedButtonName, pickedLabelPtr); // throw the exception to catch
             isLiftTurn = !isLiftTurn;
             return;
+          // show the exception message
         } catch (invalid_argument& e) {
             QMessageBox::warning(this, "Warn", e.what());
         } catch (logic_error& e) {
             QMessageBox::warning(this, "Warn", e.what());
         }
-    } else {
+    } else { // when user put down a piece
             if (pickedLabelPtr != nullptr) {
                 try {
                     Pick(pickedButtonName, pickedLabelPtr);
@@ -228,8 +232,11 @@ void MainWindow::on_button_clicked(){
                     QMessageBox::warning(this, "Warn", e.what());
                 }
 
+                // change the turn
                 isLiftTurn = !isLiftTurn;
                 isBlueTurn = !isBlueTurn;
+                ui -> yturnlabel -> setVisible(!isBlueTurn);
+                ui -> bturnlabel -> setVisible(isBlueTurn);
 
                 CheckAndHandleWinCase(ui);
                 }
