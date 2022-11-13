@@ -17,5 +17,6 @@
         <file>image/blue_king.png</file>
         <file>image/celebrate2.jpg</file>
         <file>image/yellow_king.png</file>
+        <file>image/message.png</file>
     </qresource>
 </RCC>

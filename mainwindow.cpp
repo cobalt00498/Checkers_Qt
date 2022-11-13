@@ -289,7 +289,7 @@ void resetGameStatus(Ui::MainWindow* ui){
 void MainWindow::on_HomeButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page);
-   resetGameStatus(ui);
+    resetGameStatus(ui);
 }
 
 void MainWindow::on_button_clicked(){
@@ -305,8 +305,6 @@ void MainWindow::on_button_clicked(){
             return;
           // show the exception message
         } catch (invalid_argument& e) {
-            QMessageBox::warning(this, "Warn", e.what());
-        } catch (logic_error& e) {
             QMessageBox::warning(this, "Warn", e.what());
         }
     } else { // when user put down a piece
@@ -333,8 +331,8 @@ void MainWindow::on_button_clicked(){
                 // change the turn
                 isLiftTurn = !isLiftTurn;
                 isBlueTurn = !isBlueTurn;
-                ui -> yturnlabel -> setVisible(!isBlueTurn);
-                ui -> bturnlabel -> setVisible(isBlueTurn);
+                ui->yturnlabel->setVisible(!isBlueTurn);
+                ui->bturnlabel->setVisible(isBlueTurn);
 
                 CheckAndHandleWinCase(ui);
                 }

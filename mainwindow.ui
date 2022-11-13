@@ -1253,6 +1253,25 @@
        <string>Blue Turn</string>
       </property>
      </widget>
+     <widget class="QLabel" name="message">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>150</y>
+        <width>441</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
      <zorder>Board1</zorder>
      <zorder>b4Label</zorder>
      <zorder>y9Label</zorder>
@@ -1314,6 +1333,7 @@
      <zorder>yturnlabel</zorder>
      <zorder>bturnlabel</zorder>
      <zorder>B_2_6</zorder>
+     <zorder>message</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
