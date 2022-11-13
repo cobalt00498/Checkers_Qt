@@ -11,7 +11,7 @@ bool isBlueTurn = true;
 bool endGameNow = false;
 int hitPieceCount_b = 0;
 int hitPieceCount_y = 0;
-bool isComputerPlayer = true:
+//bool isComputerPlayer = true;
 string moveFromButtonName;
 string moveToButtonName;
 
@@ -191,10 +191,105 @@ void MainWindow::on_StartButton_2_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
 
+void resetGameStatus(Ui::MainWindow* ui){
+    isLiftTurn = true;
+    isBlueTurn = true;
+    endGameNow = false;
+    hitPieceCount_b = 0;
+    hitPieceCount_y = 0;
+    //isComputerPlayer = true;
+    moveFromButtonName = "";
+    moveToButtonName = "";
+    movingLabelPtr = nullptr;
+
+    map_s_Q["B_1_1"] = ui-> y1Label;
+    map_s_Q["B_3_1"] = ui-> y2Label;
+    map_s_Q["B_5_1"] = ui-> y3Label;
+    map_s_Q["B_7_1"] = ui-> y4Label;
+    map_s_Q["B_2_2"] = ui-> y5Label;
+    map_s_Q["B_4_2"] = ui-> y6Label;
+    map_s_Q["B_6_2"] = ui-> y7Label;
+    map_s_Q["B_8_2"] = ui-> y8Label;
+    map_s_Q["B_1_3"] = ui-> y9Label;
+    map_s_Q["B_3_3"] = ui-> y10Label;
+    map_s_Q["B_5_3"] = ui-> y11Label;
+    map_s_Q["B_7_3"] = ui-> y12Label;
+    map_s_Q["B_2_4"] = nullptr;
+    map_s_Q["B_4_4"] = nullptr;
+    map_s_Q["B_6_4"] = nullptr;
+    map_s_Q["B_8_4"] = nullptr;
+    map_s_Q["B_1_5"] = nullptr;
+    map_s_Q["B_3_5"] = nullptr;
+    map_s_Q["B_5_5"] = nullptr;
+    map_s_Q["B_7_5"] = nullptr;
+    map_s_Q["B_2_6"] = ui-> b9Label;
+    map_s_Q["B_4_6"] = ui-> b10Label;
+    map_s_Q["B_6_6"] = ui-> b11Label;
+    map_s_Q["B_8_6"] = ui-> b12Label;
+    map_s_Q["B_1_7"] = ui-> b5Label;
+    map_s_Q["B_3_7"] = ui-> b6Label;
+    map_s_Q["B_5_7"] = ui-> b7Label;
+    map_s_Q["B_7_7"] = ui-> b8Label;
+    map_s_Q["B_2_8"] = ui-> b1Label;
+    map_s_Q["B_4_8"] = ui-> b2Label;
+    map_s_Q["B_6_8"] = ui-> b3Label;
+    map_s_Q["B_8_8"] = ui-> b4Label;
+
+    ui->y1Label->move(35, 30);
+    ui->y2Label->move(163, 30);
+    ui->y3Label->move(291, 30);
+    ui->y4Label->move(419, 30);
+    ui->y5Label->move(99, 94);
+    ui->y6Label->move(227, 94);
+    ui->y7Label->move(355, 94);
+    ui->y8Label->move(483, 94);
+    ui->y9Label->move(35, 158);
+    ui->y10Label->move(163, 158);
+    ui->y11Label->move(291, 158);
+    ui->y12Label->move(419, 158);
+    ui->b9Label->move(99, 350);
+    ui->b10Label->move(227, 350);
+    ui->b11Label->move(355, 350);
+    ui->b12Label->move(483, 350);
+    ui->b5Label->move(35, 414);
+    ui->b6Label->move(163, 414);
+    ui->b7Label->move(291, 414);
+    ui->b8Label->move(419, 414);
+    ui->b1Label->move(99, 478);
+    ui->b2Label->move(227, 478);
+    ui->b3Label->move(355, 478);
+    ui->b4Label->move(483, 478);
+
+    ui->y1Label->setVisible(true);
+    ui->y2Label->setVisible(true);
+    ui->y3Label->setVisible(true);
+    ui->y4Label->setVisible(true);
+    ui->y5Label->setVisible(true);
+    ui->y6Label->setVisible(true);
+    ui->y7Label->setVisible(true);
+    ui->y8Label->setVisible(true);
+    ui->y9Label->setVisible(true);
+    ui->y10Label->setVisible(true);
+    ui->y11Label->setVisible(true);
+    ui->y12Label->setVisible(true);
+    ui->b9Label->setVisible(true);
+    ui->b10Label->setVisible(true);
+    ui->b11Label->setVisible(true);
+    ui->b12Label->setVisible(true);
+    ui->b5Label->setVisible(true);
+    ui->b6Label->setVisible(true);
+    ui->b7Label->setVisible(true);
+    ui->b8Label->setVisible(true);
+    ui->b1Label->setVisible(true);
+    ui->b2Label->setVisible(true);
+    ui->b3Label->setVisible(true);
+    ui->b4Label->setVisible(true);
+}
+
 void MainWindow::on_HomeButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page);
-    //값 초기화 TODO
+   resetGameStatus(ui);
 }
 
 void MainWindow::on_button_clicked(){
@@ -226,10 +321,10 @@ void MainWindow::on_button_clicked(){
                   moveToButtonName = pickedButtonName;
                   Move(movingLabelPtr, moveFromButtonName, moveToButtonName);
                   handleKingPiece(movingLabelPtr, moveToButtonName);
-                  if (isComputerPlayer) {
-                      Sleep(10*1000); // sleep 10 seconds
-                      computerMove(ui);
-                  }
+//                  if (isComputerPlayer) {
+//                      Sleep(10*1000); // sleep 10 seconds
+//                      computerMove(ui);
+//                  }
 
                 } catch (invalid_argument& e) {
                     QMessageBox::warning(this, "Warn", e.what());
@@ -257,7 +352,6 @@ void MainWindow::on_StopButton_clicked()
         MsgBox.setDefaultButton(QMessageBox::Ok);
         if (MsgBox.exec() == QMessageBox::Ok ){
             this->close();
-            // TODO 모든 상태를 처음으로 initialize하기
         }
 }
 

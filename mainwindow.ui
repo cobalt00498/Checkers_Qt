@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -470,7 +470,7 @@
      <widget class="QLabel" name="y10Label">
       <property name="geometry">
        <rect>
-        <x>158</x>
+        <x>163</x>
         <y>158</y>
         <width>60</width>
         <height>60</height>
@@ -489,11 +489,17 @@
      <widget class="QPushButton" name="StopButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>0</y>
+        <x>680</x>
+        <y>30</y>
         <width>93</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -510,11 +516,17 @@
      <widget class="QPushButton" name="HomeButton">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
+        <x>580</x>
+        <y>30</y>
         <width>93</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -563,11 +575,16 @@
      <widget class="QPushButton" name="B_3_3">
       <property name="geometry">
        <rect>
-        <x>158</x>
+        <x>163</x>
         <y>158</y>
         <width>60</width>
         <height>60</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>휴먼편지체</family>
+       </font>
       </property>
       <property name="text">
        <string/>
@@ -1022,7 +1039,7 @@
      <widget class="QPushButton" name="B_3_5">
       <property name="geometry">
        <rect>
-        <x>158</x>
+        <x>163</x>
         <y>286</y>
         <width>60</width>
         <height>60</height>
@@ -1071,7 +1088,7 @@
       <property name="geometry">
        <rect>
         <x>610</x>
-        <y>50</y>
+        <y>80</y>
         <width>181</width>
         <height>71</height>
        </rect>
@@ -1184,7 +1201,7 @@
       <property name="geometry">
        <rect>
         <x>610</x>
-        <y>440</y>
+        <y>410</y>
         <width>151</width>
         <height>61</height>
        </rect>
@@ -1236,6 +1253,67 @@
        <string>Blue Turn</string>
       </property>
      </widget>
+     <zorder>Board1</zorder>
+     <zorder>b4Label</zorder>
+     <zorder>y9Label</zorder>
+     <zorder>y8Label</zorder>
+     <zorder>y7Label</zorder>
+     <zorder>y6Label</zorder>
+     <zorder>y5Label</zorder>
+     <zorder>y4Label</zorder>
+     <zorder>y3Label</zorder>
+     <zorder>y1Label</zorder>
+     <zorder>y2Label</zorder>
+     <zorder>b10Label</zorder>
+     <zorder>b8Label</zorder>
+     <zorder>b11Label</zorder>
+     <zorder>b12Label</zorder>
+     <zorder>b7Label</zorder>
+     <zorder>b6Label</zorder>
+     <zorder>b5Label</zorder>
+     <zorder>b3Label</zorder>
+     <zorder>b2Label</zorder>
+     <zorder>b1Label</zorder>
+     <zorder>y12Label</zorder>
+     <zorder>y11Label</zorder>
+     <zorder>y10Label</zorder>
+     <zorder>StopButton</zorder>
+     <zorder>HomeButton</zorder>
+     <zorder>B_2_8</zorder>
+     <zorder>B_1_1</zorder>
+     <zorder>B_3_3</zorder>
+     <zorder>B_1_3</zorder>
+     <zorder>B_5_1</zorder>
+     <zorder>B_8_2</zorder>
+     <zorder>B_4_2</zorder>
+     <zorder>B_2_2</zorder>
+     <zorder>B_7_1</zorder>
+     <zorder>B_4_8</zorder>
+     <zorder>B_6_8</zorder>
+     <zorder>B_8_8</zorder>
+     <zorder>B_1_7</zorder>
+     <zorder>B_3_7</zorder>
+     <zorder>B_5_7</zorder>
+     <zorder>B_7_7</zorder>
+     <zorder>B_6_6</zorder>
+     <zorder>B_8_6</zorder>
+     <zorder>B_3_1</zorder>
+     <zorder>B_6_2</zorder>
+     <zorder>B_7_3</zorder>
+     <zorder>B_5_3</zorder>
+     <zorder>b9Label</zorder>
+     <zorder>B_4_6</zorder>
+     <zorder>B_2_4</zorder>
+     <zorder>B_4_4</zorder>
+     <zorder>B_6_4</zorder>
+     <zorder>B_8_4</zorder>
+     <zorder>B_1_5</zorder>
+     <zorder>B_3_5</zorder>
+     <zorder>B_5_5</zorder>
+     <zorder>B_7_5</zorder>
+     <zorder>yturnlabel</zorder>
+     <zorder>bturnlabel</zorder>
+     <zorder>B_2_6</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -1491,7 +1569,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>12</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="styleSheet">

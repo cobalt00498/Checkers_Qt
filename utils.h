@@ -27,15 +27,15 @@ void Pick(string pickedButtonName, QLabel*& pickedLabelPtr) {
     if (pickedLabelPtr != nullptr) { // When the label exists,
         string pickedLabelcolor = pickedLabelPtr->objectName().toStdString().substr(0,1);
         if (isBlueTurn && pickedLabelcolor== "y") {
-            throw invalid_argument("THIS_IS_BLUE'S_TURN");
+            throw invalid_argument("This is Blue's turn");
         } else if (!isBlueTurn && pickedLabelcolor== "b") {
-            throw invalid_argument("THIS_IS_YELLOW'S_TURN");
+            throw invalid_argument("This is Yellow's turn");
         } else {
             moveFromButtonName = pickedButtonName; // store the position.
             movingLabelPtr = pickedLabelPtr;
         }
     } else {
-        throw invalid_argument("USER_CLICKED_EMPTY_PLACE");
+        throw invalid_argument("You clicked empty space");
     }
 }
 
@@ -46,58 +46,110 @@ void Move(QLabel* movingLabelPtr, string moveFromButtonName, string moveToButton
 
     int toX = stoi(moveToButtonName.substr(2,1));
     int toY = stoi(moveToButtonName.substr(4,1));
-    if (movingLabelPtr->property("king") == false && (isBlueTurn? toY>=fromY: toY<=fromY)){throw invalid_argument("MOVING_FORWARD_ONLY_ALLOWED_FOR_NON_KING");}
-    if (abs(toX-fromX) != abs(toY-fromY)) {throw invalid_argument("ONLY_DIAGONAL_MOVE_ALLOWED");}
-    if (abs(toX-fromX) ==2 && abs(toY-fromY)==2){
-        string midX = to_string(fromX+(int)(toX-fromX)/2);
-        string midY = to_string(fromY+(int)(toY-fromY)/2);
-        string midButtonName = "B_";
-        midButtonName.append(midX);
-        midButtonName.append("_");
-        midButtonName.append(midY);
-        QLabel* midLabelPtr = map_s_Q.at(midButtonName);
 
-        if (midLabelPtr == nullptr) {throw invalid_argument("NO_PIECE_IN_BETWEEN");} //early return
+    if (abs(toX-fromX) != abs(toY-fromY)) {throw invalid_argument("Only diagonal move is allowed");}
+    if (movingLabelPtr->property("king") == false){
+        if (isBlueTurn? toY>=fromY: toY<=fromY){
+            throw invalid_argument("Only forward moving is allowed for non-king pieces");
+        }
+        if (abs(toX-fromX) >= 3){
+            throw invalid_argument("This is invalid movement");
+        }
+        if (abs(toX-fromX) ==2 && abs(toY-fromY)==2){
+            string midX = to_string(fromX+(int)(toX-fromX)/2);
+            string midY = to_string(fromY+(int)(toY-fromY)/2);
+            string midButtonName = "B_";
+            midButtonName.append(midX);
+            midButtonName.append("_");
+            midButtonName.append(midY);
+            QLabel* midLabelPtr = map_s_Q.at(midButtonName);
 
-        string color = midLabelPtr->objectName().toStdString().substr(0,1);
-        if (isBlueTurn && color=="y"){
-            movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
-            QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
-            map_s_Q[moveFromButtonName] = nullptr;
-            map_s_Q[moveToButtonName] = tempLabelPtr;
+            if (midLabelPtr == nullptr) {
+                throw invalid_argument("No piece in between");
+            } //early return
 
-            map_s_Q.at(midButtonName)->setVisible(false);
-            map_s_Q[midButtonName] = nullptr;
-            hitPieceCount_b++;
-        } else if (!isBlueTurn && color=="b") {
-            movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
-            QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
-            map_s_Q[moveFromButtonName] = nullptr;
-            map_s_Q[moveToButtonName] = tempLabelPtr;
+            string color = midLabelPtr->objectName().toStdString().substr(0,1);
+            if (isBlueTurn && color=="y"){
+                movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+                QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
+                map_s_Q[moveFromButtonName] = nullptr;
+                map_s_Q[moveToButtonName] = tempLabelPtr;
 
-            map_s_Q.at(midButtonName)->setVisible(false);
-            map_s_Q[midButtonName] = nullptr;
-            hitPieceCount_y++;
-        } else{throw invalid_argument("INVALID_PIECE_COLOR_IN_BEWEEN");}
+                map_s_Q.at(midButtonName)->setVisible(false);
+                map_s_Q[midButtonName] = nullptr;
+                hitPieceCount_b++;
+                return;
+            } else if (!isBlueTurn && color=="b") {
+                movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+                QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
+                map_s_Q[moveFromButtonName] = nullptr;
+                map_s_Q[moveToButtonName] = tempLabelPtr;
 
-    } else if ((movingLabelPtr->property("king") == false && abs(toX-fromX) >= 3)){throw invalid_argument("INVALID_MOVEMENT");
-    } else {
+                map_s_Q.at(midButtonName)->setVisible(false);
+                map_s_Q[midButtonName] = nullptr;
+                hitPieceCount_y++;
+                return;
+            } else{throw invalid_argument("This is invalid movement");} // When trying to eat up their own piece.
+        }
         movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
         QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
         map_s_Q[moveFromButtonName] = nullptr;
         map_s_Q[moveToButtonName] = tempLabelPtr;
+        return;
+    }
+    else { // When the piece is King
+        if (abs(toX-fromX) ==2 && abs(toY-fromY)==2){
+            string midX = to_string(fromX+(int)(toX-fromX)/2);
+            string midY = to_string(fromY+(int)(toY-fromY)/2);
+            string midButtonName = "B_";
+            midButtonName.append(midX);
+            midButtonName.append("_");
+            midButtonName.append(midY);
+            QLabel* midLabelPtr = map_s_Q.at(midButtonName);
+
+            if (midLabelPtr != nullptr) {
+                string color = midLabelPtr->objectName().toStdString().substr(0,1);
+                if (isBlueTurn && color=="y"){
+                    movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+                    QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
+                    map_s_Q[moveFromButtonName] = nullptr;
+                    map_s_Q[moveToButtonName] = tempLabelPtr;
+
+                    map_s_Q.at(midButtonName)->setVisible(false);
+                    map_s_Q[midButtonName] = nullptr;
+                    hitPieceCount_b++;
+                    return;
+                } else if (!isBlueTurn && color=="b") {
+                    movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+                    QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
+                    map_s_Q[moveFromButtonName] = nullptr;
+                    map_s_Q[moveToButtonName] = tempLabelPtr;
+
+                    map_s_Q.at(midButtonName)->setVisible(false);
+                    map_s_Q[midButtonName] = nullptr;
+                    hitPieceCount_y++;
+                    return;
+                }
+            }
+        }
+        movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+        QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
+        map_s_Q[moveFromButtonName] = nullptr;
+        map_s_Q[moveToButtonName] = tempLabelPtr;
+        return;
     }
 }
+
 
 
 void handleKingPiece(QLabel* movingLabelPtr, string moveToButtonName) {
     int moveToButtonY = stoi(moveToButtonName.substr(4,1));
     if (isBlueTurn && moveToButtonY == 1) {
-        QPixmap blueKingPiece = QPixmap(":/image/yellow_piece.png"); //(":/image/blue_king_piece.png");
+        QPixmap blueKingPiece = QPixmap(":/image/blue_king.png");
         movingLabelPtr->setPixmap(blueKingPiece);
         movingLabelPtr->setProperty("king", true);
     } else if (!isBlueTurn && moveToButtonY == 8) {
-        QPixmap yellowKingPiece = QPixmap(":/image/blue_piece.png"); //(":/image/yellow_king_piece.png")
+        QPixmap yellowKingPiece = QPixmap(":/image/yellow_king.png");
         movingLabelPtr->setPixmap(yellowKingPiece);
         movingLabelPtr->setProperty("king", true);
     }
@@ -137,34 +189,34 @@ void CheckAndHandleWinCase(Ui::MainWindow* ui) {
 }
 
 
-QList<QLabel*> getAllPossibleComputerMove(Ui::MainWindow* ui) {
-//    vector<Move> possibleMoves;
-    for (auto [key, value]: map_s_Q) {
-        if (value->objectName().toStdString().substr(0,1) == "b" || value == nullptr) {
-            continue;
-        } else{
-            QList<map<string, QLabel*>> temp;
-            int fromX = stoi(key.substr(2,1));
-            int fromY = stoi(key.substr(4,1));
-            if (fromY == 8) { continue; } // 맨아랫줄에 있으면 움직일 수가 없음
-            if (fromX == 8) {
-                if (fromY==7) {}
-                int toX = fromX-1;
-                int toY = fromY+1;
-                string toButtonName = "B_";
-                toButtonName.append(to_string(toX));
-                toButtonName.append("_");
-                toButtonName.append(to_string(toY));
-                bool isJumped = false;
-                if (map_s_Q[toButtonName] == nullptr) {
-//                    class Move possibleMove(fromX, fromY, toX, toY, isJumped);
-//                    possibleMoves.push_back(possibleMove);
-                }
-            } else if (){}
-        }
-    }
-}
+//QList<QLabel*> getAllPossibleComputerMove(Ui::MainWindow* ui) {
+////    vector<Move> possibleMoves;
+//    for (auto [key, value]: map_s_Q) {
+//        if (value->objectName().toStdString().substr(0,1) == "b" || value == nullptr) {
+//            continue;
+//        } else{
+//            QList<map<string, QLabel*>> temp;
+//            int fromX = stoi(key.substr(2,1));
+//            int fromY = stoi(key.substr(4,1));
+//            if (fromY == 8) { continue; } // 맨아랫줄에 있으면 움직일 수가 없음
+//            if (fromX == 8) {
+//                if (fromY==7) {}
+//                int toX = fromX-1;
+//                int toY = fromY+1;
+//                string toButtonName = "B_";
+//                toButtonName.append(to_string(toX));
+//                toButtonName.append("_");
+//                toButtonName.append(to_string(toY));
+//                bool isJumped = false;
+//                if (map_s_Q[toButtonName] == nullptr) {
+////                    class Move possibleMove(fromX, fromY, toX, toY, isJumped);
+////                    possibleMoves.push_back(possibleMove);
+//                }
+//            } else if (){}
+//        }
+//    }
+//}
 
-void computerMove(Ui::MainWindow* ui) {
-    QList<QLabel*> possibleMoves = getAllPossibleComputerMove(ui);
-}
+//void computerMove(Ui::MainWindow* ui) {
+//    QList<QLabel*> possibleMoves = getAllPossibleComputerMove(ui);
+//}

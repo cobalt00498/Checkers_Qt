@@ -14,5 +14,8 @@
         <file>resource2.qrc</file>
         <file>Team1_checkers2.pro</file>
         <file>utils.h</file>
+        <file>image/blue_king.png</file>
+        <file>image/celebrate2.jpg</file>
+        <file>image/yellow_king.png</file>
     </qresource>
 </RCC>
