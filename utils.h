@@ -23,17 +23,17 @@ extern QLabel* movingLabelPtr;
 extern map<string, QLabel*> map_s_Q;
 
 void Pick(string pickedButtonName, QLabel*& pickedLabelPtr) {
-    if (pickedLabelPtr != nullptr) {
+    if (pickedLabelPtr != nullptr) { // When the label exists,
         string pickedLabelcolor = pickedLabelPtr->objectName().toStdString().substr(0,1);
         if (isBlueTurn && pickedLabelcolor== "y") {
             throw invalid_argument("THIS_IS_BLUE'S_TURN");
         } else if (!isBlueTurn && pickedLabelcolor== "b") {
             throw invalid_argument("THIS_IS_YELLOW'S_TURN");
         } else {
-            moveFromButtonName = pickedButtonName;
+            moveFromButtonName = pickedButtonName; // store the position.
             movingLabelPtr = pickedLabelPtr;
         }
-    } else {
+    } else { // when the label donesn't exist
         throw logic_error("USER_CLICKED_EMPTY_PLACE");
     }
 }
@@ -114,10 +114,14 @@ void CheckAndHandleWinCase(Ui::MainWindow* ui) {
     if (!isWinnerDecided()){return;}
     ui->stackedWidget->setCurrentWidget(ui->page_4);
     if (getWinner() == "blue"){
+        ui->comment_4->setFont(QFont("Cooper Black",20));
         ui->comment_4->setText("Blue had won the game!");
+
     } else if (getWinner()=="yellow"){
+        ui->comment_4->setFont(QFont("Cooper Black",20));
         ui->comment_4->setText("Yellow had won the game!");
     } else{ //tie
+        ui->comment_4->setFont(QFont("Cooper Black",20));
         ui->comment_4->setText("Tie!");
     }
 }
