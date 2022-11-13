@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -1067,65 +1067,175 @@
        <bool>true</bool>
       </property>
      </widget>
-     <zorder>Board1</zorder>
-     <zorder>b4Label</zorder>
-     <zorder>y9Label</zorder>
-     <zorder>y8Label</zorder>
-     <zorder>y7Label</zorder>
-     <zorder>y6Label</zorder>
-     <zorder>y5Label</zorder>
-     <zorder>y4Label</zorder>
-     <zorder>y3Label</zorder>
-     <zorder>y1Label</zorder>
-     <zorder>y2Label</zorder>
-     <zorder>b10Label</zorder>
-     <zorder>b8Label</zorder>
-     <zorder>b11Label</zorder>
-     <zorder>b12Label</zorder>
-     <zorder>b7Label</zorder>
-     <zorder>b6Label</zorder>
-     <zorder>b5Label</zorder>
-     <zorder>b3Label</zorder>
-     <zorder>b2Label</zorder>
-     <zorder>b1Label</zorder>
-     <zorder>y12Label</zorder>
-     <zorder>y11Label</zorder>
-     <zorder>y10Label</zorder>
-     <zorder>StopButton</zorder>
-     <zorder>HomeButton</zorder>
-     <zorder>B_2_8</zorder>
-     <zorder>B_1_1</zorder>
-     <zorder>B_3_3</zorder>
-     <zorder>B_1_3</zorder>
-     <zorder>B_5_1</zorder>
-     <zorder>B_8_2</zorder>
-     <zorder>B_4_2</zorder>
-     <zorder>B_2_2</zorder>
-     <zorder>B_7_1</zorder>
-     <zorder>B_4_8</zorder>
-     <zorder>B_6_8</zorder>
-     <zorder>B_8_8</zorder>
-     <zorder>B_1_7</zorder>
-     <zorder>B_3_7</zorder>
-     <zorder>B_5_7</zorder>
-     <zorder>B_7_7</zorder>
-     <zorder>B_6_6</zorder>
-     <zorder>B_8_6</zorder>
-     <zorder>B_3_1</zorder>
-     <zorder>B_6_2</zorder>
-     <zorder>B_7_3</zorder>
-     <zorder>B_5_3</zorder>
-     <zorder>b9Label</zorder>
-     <zorder>B_4_6</zorder>
-     <zorder>B_2_4</zorder>
-     <zorder>B_4_4</zorder>
-     <zorder>B_6_4</zorder>
-     <zorder>B_8_4</zorder>
-     <zorder>B_1_5</zorder>
-     <zorder>B_3_5</zorder>
-     <zorder>B_5_5</zorder>
-     <zorder>B_7_5</zorder>
-     <zorder>B_2_6</zorder>
+     <widget class="QLabel" name="yturnlabel">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>50</y>
+        <width>181</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>221</red>
+            <green>207</green>
+            <blue>10</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Link">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Link">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Link">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Yellow Turn</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bturnlabel">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>440</y>
+        <width>151</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Blue Turn</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -1134,15 +1244,15 @@
      <widget class="QLabel" name="RuleLabel">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>50</y>
-        <width>251</width>
-        <height>20</height>
+        <x>270</x>
+        <y>80</y>
+        <width>271</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
+        <family>Cooper Black</family>
         <pointsize>25</pointsize>
        </font>
       </property>
@@ -1164,8 +1274,8 @@
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>25</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1191,8 +1301,8 @@
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>25</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1210,30 +1320,34 @@
      <widget class="QLabel" name="RuleBrowser">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>80</y>
-        <width>711</width>
-        <height>321</height>
+        <x>20</x>
+        <y>100</y>
+        <width>1081</width>
+        <height>541</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>13</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>①    Piece move one space diagonally forward only, but can capture diagonally forward or backward. 
+       <string>1. Piece move one space diagonally forward only, 
+ but can capture diagonally forward or backward. 
 Queens (promoted pieces) move any number of spaces diagonally forward or backward,
  and can capture any number of spaces diagonally forward or backward as well.
 
-②    Jumped pieces are removed from the board after the full move is performed 
+2. Jumped pieces are removed from the board 
+ after the full move is performed 
  and every enemy piece can be jumped over only once.
 
-③    It is mandatory to capture as many pieces (as one multi-jump) as possible.
+3.  It is mandatory to capture as many pieces (as one multi-jump) as possible.
 
-④    When a piece reaches the last row, it promotes to a queen. 
- However, if a piece reaches the last row while jumping and can jump more pieces backwards, 
+4. When a piece reaches the last row, 
+ it promotes to a queen. 
+ However, if a piece reaches the last row while jumping 
+ and can jump more pieces backwards, 
  it does not promote and continues jumping as a piece.
 
 </string>
@@ -1265,21 +1379,21 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
      <widget class="QLabel" name="BackgroundLabel_4">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
+        <x>-20</x>
+        <y>-10</y>
         <width>800</width>
         <height>600</height>
        </rect>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="comment_4">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>200</y>
+        <x>110</x>
+        <y>190</y>
         <width>400</width>
         <height>100</height>
        </rect>
@@ -1321,8 +1435,8 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>25</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1340,17 +1454,17 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
      <widget class="QLabel" name="WelcomeLabel">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>220</y>
-        <width>261</width>
-        <height>61</height>
+        <x>190</x>
+        <y>190</y>
+        <width>361</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>50</pointsize>
-        <bold>true</bold>
+        <family>Cooper Black</family>
+        <pointsize>24</pointsize>
+        <bold>false</bold>
         <strikeout>false</strikeout>
         <kerning>true</kerning>
        </font>
@@ -1376,8 +1490,8 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>25</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="styleSheet">
