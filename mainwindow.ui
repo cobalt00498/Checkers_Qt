@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -1084,7 +1084,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="yturnlabel">
+     <widget class="QLabel" name="yTurnLabel">
       <property name="geometry">
        <rect>
         <x>610</x>
@@ -1197,7 +1197,7 @@
        <string>Yellow Turn</string>
       </property>
      </widget>
-     <widget class="QLabel" name="bturnlabel">
+     <widget class="QLabel" name="bTurnLabel">
       <property name="geometry">
        <rect>
         <x>610</x>
@@ -1253,27 +1253,7 @@
        <string>Blue Turn</string>
       </property>
      </widget>
-     <widget class="QLabel" name="message">
-      <property name="geometry">
-       <rect>
-        <x>110</x>
-        <y>150</y>
-        <width>441</width>
-        <height>161</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
      <zorder>Board1</zorder>
-     <zorder>b4Label</zorder>
      <zorder>y9Label</zorder>
      <zorder>y8Label</zorder>
      <zorder>y7Label</zorder>
@@ -1283,57 +1263,57 @@
      <zorder>y3Label</zorder>
      <zorder>y1Label</zorder>
      <zorder>y2Label</zorder>
-     <zorder>b10Label</zorder>
      <zorder>b8Label</zorder>
-     <zorder>b11Label</zorder>
-     <zorder>b12Label</zorder>
-     <zorder>b7Label</zorder>
-     <zorder>b6Label</zorder>
-     <zorder>b5Label</zorder>
-     <zorder>b3Label</zorder>
-     <zorder>b2Label</zorder>
-     <zorder>b1Label</zorder>
      <zorder>y12Label</zorder>
      <zorder>y11Label</zorder>
      <zorder>y10Label</zorder>
      <zorder>StopButton</zorder>
      <zorder>HomeButton</zorder>
-     <zorder>B_2_8</zorder>
-     <zorder>B_1_1</zorder>
-     <zorder>B_3_3</zorder>
-     <zorder>B_1_3</zorder>
-     <zorder>B_5_1</zorder>
-     <zorder>B_8_2</zorder>
-     <zorder>B_4_2</zorder>
-     <zorder>B_2_2</zorder>
-     <zorder>B_7_1</zorder>
-     <zorder>B_4_8</zorder>
-     <zorder>B_6_8</zorder>
-     <zorder>B_8_8</zorder>
-     <zorder>B_1_7</zorder>
-     <zorder>B_3_7</zorder>
-     <zorder>B_5_7</zorder>
-     <zorder>B_7_7</zorder>
-     <zorder>B_6_6</zorder>
-     <zorder>B_8_6</zorder>
-     <zorder>B_3_1</zorder>
-     <zorder>B_6_2</zorder>
-     <zorder>B_7_3</zorder>
-     <zorder>B_5_3</zorder>
      <zorder>b9Label</zorder>
-     <zorder>B_4_6</zorder>
-     <zorder>B_2_4</zorder>
-     <zorder>B_4_4</zorder>
-     <zorder>B_6_4</zorder>
-     <zorder>B_8_4</zorder>
+     <zorder>yTurnLabel</zorder>
+     <zorder>bTurnLabel</zorder>
+     <zorder>b7Label</zorder>
+     <zorder>b6Label</zorder>
+     <zorder>b5Label</zorder>
+     <zorder>b4Label</zorder>
+     <zorder>b3Label</zorder>
+     <zorder>b2Label</zorder>
+     <zorder>b1Label</zorder>
+     <zorder>b11Label</zorder>
+     <zorder>b12Label</zorder>
+     <zorder>b10Label</zorder>
+     <zorder>B_1_1</zorder>
+     <zorder>B_1_3</zorder>
      <zorder>B_1_5</zorder>
-     <zorder>B_3_5</zorder>
-     <zorder>B_5_5</zorder>
-     <zorder>B_7_5</zorder>
-     <zorder>yturnlabel</zorder>
-     <zorder>bturnlabel</zorder>
+     <zorder>B_1_7</zorder>
+     <zorder>B_2_2</zorder>
+     <zorder>B_2_4</zorder>
      <zorder>B_2_6</zorder>
-     <zorder>message</zorder>
+     <zorder>B_2_8</zorder>
+     <zorder>B_3_1</zorder>
+     <zorder>B_3_3</zorder>
+     <zorder>B_3_5</zorder>
+     <zorder>B_3_7</zorder>
+     <zorder>B_4_2</zorder>
+     <zorder>B_4_4</zorder>
+     <zorder>B_4_6</zorder>
+     <zorder>B_4_8</zorder>
+     <zorder>B_5_1</zorder>
+     <zorder>B_5_3</zorder>
+     <zorder>B_5_5</zorder>
+     <zorder>B_5_7</zorder>
+     <zorder>B_6_2</zorder>
+     <zorder>B_6_4</zorder>
+     <zorder>B_6_6</zorder>
+     <zorder>B_6_8</zorder>
+     <zorder>B_7_1</zorder>
+     <zorder>B_7_3</zorder>
+     <zorder>B_7_5</zorder>
+     <zorder>B_7_7</zorder>
+     <zorder>B_8_2</zorder>
+     <zorder>B_8_4</zorder>
+     <zorder>B_8_6</zorder>
+     <zorder>B_8_8</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -1418,8 +1398,8 @@
      <widget class="QLabel" name="RuleBrowser">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>100</y>
+        <x>110</x>
+        <y>50</y>
         <width>1081</width>
         <height>541</height>
        </rect>
@@ -1431,24 +1411,18 @@
        </font>
       </property>
       <property name="text">
-       <string>1. Piece move one space diagonally forward only, 
- but can capture diagonally forward or backward. 
-Queens (promoted pieces) move any number of spaces diagonally forward or backward,
- and can capture any number of spaces diagonally forward or backward as well.
+       <string>1. Piece move one space diagonally forward only, and can capture 
+diagonally forward.
 
-2. Jumped pieces are removed from the board 
- after the full move is performed 
- and every enemy piece can be jumped over only once.
+2. Jumped pieces are removed from the board after the full move is 
+performed and every enemy piece can be jumped over only once.
 
-3.  It is mandatory to capture as many pieces (as one multi-jump) as possible.
+3. When a piece reaches the last row, it promotes to a king.
 
-4. When a piece reaches the last row, 
- it promotes to a queen. 
- However, if a piece reaches the last row while jumping 
- and can jump more pieces backwards, 
- it does not promote and continues jumping as a piece.
+4. Kings (promoted pieces) move any number of spaces diagonally 
+forward or backward. 
 
-</string>
+5. If a player catches all pieces of counterpart, the player wins.</string>
       </property>
      </widget>
      <widget class="QLabel" name="BackgroundLabel_2">
@@ -1477,11 +1451,14 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
      <widget class="QLabel" name="BackgroundLabel_4">
       <property name="geometry">
        <rect>
-        <x>-20</x>
-        <y>-10</y>
-        <width>800</width>
-        <height>600</height>
+        <x>-30</x>
+        <y>0</y>
+        <width>811</width>
+        <height>571</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/celebrate.jpg)</string>
       </property>
       <property name="text">
        <string/>
@@ -1490,18 +1467,23 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
      <widget class="QLabel" name="comment_4">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>190</y>
-        <width>400</width>
-        <height>100</height>
+        <x>220</x>
+        <y>200</y>
+        <width>360</width>
+        <height>90</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>70</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>24</pointsize>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: white;
+}</string>
       </property>
       <property name="text">
        <string>TextLabel</string>
@@ -1510,16 +1492,87 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page_5">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QWidget" name="page_6">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
+     <widget class="QPushButton" name="HomeButton2">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>30</y>
+        <width>93</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid white;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Home</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PlayAgainButton">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>300</y>
+        <width>140</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid white;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Play Again</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="EndGameButton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>300</y>
+        <width>140</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid white;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>End Game</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page">
      <widget class="QPushButton" name="StartButton">

@@ -17,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void resetGameStatus();
 private slots:
 
     void on_RuleButton_clicked();
@@ -31,14 +32,18 @@ private slots:
 
     void on_HomeButton_clicked();
 
+    void on_HomeButton2_clicked();
+
+    void on_PlayAgainButton_clicked();
+
+    void on_EndGameButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-
     QList<QLabel*> bluePieceLabels;
     QList<QLabel*> yellowPieceLabels;
     QList<QPushButton*> boardButtons;
 
-//    void on_slot_clicked();
     void on_button_clicked();
 
     int turn;
