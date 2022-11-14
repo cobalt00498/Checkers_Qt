@@ -129,6 +129,7 @@ MainWindow::MainWindow(QWidget *parent)
     //Set elements visible - page4
     QPixmap celebrating_background = QPixmap(":/image/celebrate.jpg");
     ui->page_4->setVisible(false);
+
     ui->BackgroundLabel_4->setPixmap(celebrating_background);
 
     // Insert mapped pair of a button name and the label(pointer) on the button
@@ -320,11 +321,14 @@ void MainWindow::on_button_clicked(){
             isLiftTurn = !isLiftTurn;
             return;
           // If the 'pickPiece' funtion throws an exception, show the exception message.
+
         } catch (invalid_argument& e) {
             QMessageBox::warning(this, "Warn", e.what());
         }
+
     } else { // when user drops a piece...
             if (pickedLabelPtr != nullptr) { // If the place button the piece is to drop on is not empty (has another piece)...
+
                 try {
                     Move::pickPiece(pickedButtonName, pickedLabelPtr); // Consider it as 'pickPiece' movement.
                 } catch (invalid_argument& e) {
@@ -339,6 +343,7 @@ void MainWindow::on_button_clicked(){
                     QMessageBox::warning(this, "Warn", e.what());
                     return;
                 }
+
                 // Change the turn and make it visible the turn switch.
                 isLiftTurn = !isLiftTurn;
                 isBlueTurn = !isBlueTurn;
