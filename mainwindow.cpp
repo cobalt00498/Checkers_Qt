@@ -252,6 +252,8 @@ void MainWindow::resetGameStatus(){
         label->setVisible(true);
         label->setPixmap(yellow_piece);
     }
+
+    ui->stackedWidget->setCurrentWidget(ui->page);
 }
 
 // When RuleButton(in page) is clicked, redict user to page_2 that shows rules.
