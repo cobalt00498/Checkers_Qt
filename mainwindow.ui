@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="King" stdset="0">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true"/>
@@ -27,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -58,6 +61,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y9Label">
       <property name="geometry">
@@ -73,6 +79,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y8Label">
@@ -90,6 +99,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y7Label">
       <property name="geometry">
@@ -105,6 +117,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y6Label">
@@ -122,6 +137,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y5Label">
       <property name="geometry">
@@ -137,6 +155,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y4Label">
@@ -154,6 +175,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y3Label">
       <property name="geometry">
@@ -169,6 +193,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y1Label">
@@ -186,6 +213,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y2Label">
       <property name="geometry">
@@ -201,6 +231,9 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b10Label">
@@ -218,6 +251,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b8Label">
       <property name="geometry">
@@ -233,6 +269,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b11Label">
@@ -250,6 +289,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b12Label">
       <property name="geometry">
@@ -265,6 +307,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b7Label">
@@ -282,6 +327,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b6Label">
       <property name="geometry">
@@ -297,6 +345,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b5Label">
@@ -317,6 +368,9 @@
       <property name="isKing" stdset="0">
        <bool>false</bool>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b3Label">
       <property name="geometry">
@@ -332,6 +386,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b2Label">
@@ -349,6 +406,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="b1Label">
       <property name="geometry">
@@ -364,6 +424,9 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
+      </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y12Label">
@@ -381,6 +444,9 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y11Label">
       <property name="geometry">
@@ -397,11 +463,14 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QLabel" name="y10Label">
       <property name="geometry">
        <rect>
-        <x>158</x>
+        <x>163</x>
         <y>158</y>
         <width>60</width>
         <height>60</height>
@@ -413,15 +482,24 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="StopButton">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>0</y>
+        <x>680</x>
+        <y>30</y>
         <width>93</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -438,11 +516,17 @@
      <widget class="QPushButton" name="HomeButton">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
+        <x>580</x>
+        <y>30</y>
         <width>93</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -487,18 +571,20 @@
       <property name="flat">
        <bool>true</bool>
       </property>
-      <property name="fakeDynamicProperty" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QPushButton" name="B_3_3">
       <property name="geometry">
        <rect>
-        <x>158</x>
+        <x>163</x>
         <y>158</y>
         <width>60</width>
         <height>60</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>휴먼편지체</family>
+       </font>
       </property>
       <property name="text">
        <string/>
@@ -724,6 +810,11 @@
         <height>60</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
+      </property>
       <property name="text">
        <string/>
       </property>
@@ -845,6 +936,9 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
+      <property name="king" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
      <widget class="QPushButton" name="B_4_6">
       <property name="geometry">
@@ -945,7 +1039,7 @@
      <widget class="QPushButton" name="B_3_5">
       <property name="geometry">
        <rect>
-        <x>158</x>
+        <x>163</x>
         <y>286</y>
         <width>60</width>
         <height>60</height>
@@ -990,11 +1084,11 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="yturnlabel">
+     <widget class="QLabel" name="yTurnLabel">
       <property name="geometry">
        <rect>
         <x>610</x>
-        <y>50</y>
+        <y>80</y>
         <width>181</width>
         <height>71</height>
        </rect>
@@ -1103,11 +1197,11 @@
        <string>Yellow Turn</string>
       </property>
      </widget>
-     <widget class="QLabel" name="bturnlabel">
+     <widget class="QLabel" name="bTurnLabel">
       <property name="geometry">
        <rect>
         <x>610</x>
-        <y>440</y>
+        <y>410</y>
         <width>151</width>
         <height>61</height>
        </rect>
@@ -1243,8 +1337,8 @@
      <widget class="QLabel" name="RuleBrowser">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>100</y>
+        <x>110</x>
+        <y>50</y>
         <width>1081</width>
         <height>541</height>
        </rect>
@@ -1256,24 +1350,18 @@
        </font>
       </property>
       <property name="text">
-       <string>1. Piece move one space diagonally forward only, 
- but can capture diagonally forward or backward. 
-Queens (promoted pieces) move any number of spaces diagonally forward or backward,
- and can capture any number of spaces diagonally forward or backward as well.
+       <string>1. Piece move one space diagonally forward only, and can capture 
+diagonally forward.
 
-2. Jumped pieces are removed from the board 
- after the full move is performed 
- and every enemy piece can be jumped over only once.
+2. Jumped pieces are removed from the board after the full move is 
+performed and every enemy piece can be jumped over only once.
 
-3.  It is mandatory to capture as many pieces (as one multi-jump) as possible.
+3. When a piece reaches the last row, it promotes to a king.
 
-4. When a piece reaches the last row, 
- it promotes to a queen. 
- However, if a piece reaches the last row while jumping 
- and can jump more pieces backwards, 
- it does not promote and continues jumping as a piece.
+4. Kings (promoted pieces) move any number of spaces diagonally 
+forward or backward. 
 
-</string>
+5. If a player catches all pieces of counterpart, the player wins.</string>
       </property>
      </widget>
      <widget class="QLabel" name="BackgroundLabel_2">
@@ -1302,11 +1390,14 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
      <widget class="QLabel" name="BackgroundLabel_4">
       <property name="geometry">
        <rect>
-        <x>-20</x>
-        <y>-10</y>
-        <width>800</width>
-        <height>600</height>
+        <x>-30</x>
+        <y>0</y>
+        <width>811</width>
+        <height>571</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/celebrate.jpg)</string>
       </property>
       <property name="text">
        <string/>
@@ -1315,18 +1406,23 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
      <widget class="QLabel" name="comment_4">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>190</y>
-        <width>400</width>
-        <height>100</height>
+        <x>220</x>
+        <y>200</y>
+        <width>360</width>
+        <height>90</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
-        <pointsize>70</pointsize>
+        <family>Cooper Black</family>
+        <pointsize>24</pointsize>
         <bold>true</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: white;
+}</string>
       </property>
       <property name="text">
        <string>TextLabel</string>
@@ -1335,16 +1431,87 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="page_5">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QWidget" name="page_6">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
+     <widget class="QPushButton" name="HomeButton2">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>30</y>
+        <width>93</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid white;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Home</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PlayAgainButton">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>300</y>
+        <width>140</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid white;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Play Again</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="EndGameButton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>300</y>
+        <width>140</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid white;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>End Game</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="page">
      <widget class="QPushButton" name="StartButton">
@@ -1414,7 +1581,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>12</pointsize>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="styleSheet">
