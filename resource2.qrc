@@ -16,6 +16,5 @@
         <file>utils.h</file>
         <file>image/blue_king.png</file>
         <file>image/yellow_king.png</file>
-        <file>image/message.png</file>
     </qresource>
 </RCC>
