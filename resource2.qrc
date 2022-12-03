@@ -16,5 +16,33 @@
         <file>utils.h</file>
         <file>image/blue_king.png</file>
         <file>image/yellow_king.png</file>
+        <file>image/black_piece.png</file>
+        <file>image/board2.png</file>
+        <file>image/board3.png</file>
+        <file>image/board4.png</file>
+        <file>image/board5.png</file>
+        <file>image/board6.png</file>
+        <file>image/board7.png</file>
+        <file>image/board8.png</file>
+        <file>image/board9.png</file>
+        <file>image/celebrate2.jpg</file>
+        <file>image/green_piece.png</file>
+        <file>image/navy_piece.png</file>
+        <file>image/orange_piece.png</file>
+        <file>image/red_piece.png</file>
+        <file>image/tropy.jpg</file>
+        <file>image/tropy2.png</file>
+        <file>image/tropy2_cut.png</file>
+        <file>image/tropy3.png</file>
+        <file>image/violet_piece.png</file>
+        <file>image/white_piece.png</file>
+        <file>image/flag1.png</file>
+        <file>image/flag2.png</file>
+        <file>image/flag3.png</file>
+        <file>image/flag4.png</file>
+        <file>image/flag5.png</file>
+        <file>image/flag6.png</file>
+        <file>image/flag7.png</file>
+        <file>image/board_new.jpeg</file>
     </qresource>
 </RCC>
