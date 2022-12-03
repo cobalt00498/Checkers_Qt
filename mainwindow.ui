@@ -2122,7 +2122,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board2.png</normaloff>:/image/board2.png</iconset>
+        <normaloff>:/image/board1_settings.jpg</normaloff>:/image/board1_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2157,7 +2157,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board3.png</normaloff>:/image/board3.png</iconset>
+        <normaloff>:/image/board2_settings.jpg</normaloff>:/image/board2_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2191,8 +2191,8 @@ forward or backward.
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>image/board4.png</normaloff>image/board4.png</iconset>
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board3_settings.jpg</normaloff>:/image/board3_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2227,7 +2227,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board5.png</normaloff>:/image/board5.png</iconset>
+        <normaloff>:/image/board4_settings.jpg</normaloff>:/image/board4_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2262,7 +2262,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board6.png</normaloff>:/image/board6.png</iconset>
+        <normaloff>:/image/board5_settings.jpg</normaloff>:/image/board5_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2297,7 +2297,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board7.png</normaloff>:/image/board7.png</iconset>
+        <normaloff>:/image/board6_settings.jpg</normaloff>:/image/board6_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2332,7 +2332,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board8.png</normaloff>:/image/board8.png</iconset>
+        <normaloff>:/image/board7_settings.jpg</normaloff>:/image/board7_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2367,7 +2367,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board9.png</normaloff>:/image/board9.png</iconset>
+        <normaloff>:/image/board8_settings.jpg</normaloff>:/image/board8_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2402,7 +2402,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/board.jpeg</normaloff>:/image/board.jpeg</iconset>
+        <normaloff>:/image/board9_settings.jpg</normaloff>:/image/board9_settings.jpg</iconset>
       </property>
       <property name="iconSize">
        <size>

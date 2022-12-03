@@ -117,7 +117,7 @@ MainWindow::MainWindow(QWidget *parent)
         label->setPixmap(yellow_piece);
     }
 
-    QPixmap board = QPixmap(":/image/board.jpeg");
+    QPixmap board = QPixmap(":/image/board9.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 
@@ -403,14 +403,14 @@ void MainWindow::on_StopButton_clicked()
 void MainWindow::on_BoardButton_1_clicked()
 \
 {
-    QPixmap board = QPixmap(":/image/board_new.jpeg");
+    QPixmap board = QPixmap(":/image/board1.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 
 void MainWindow::on_BoardButton_2_clicked()
 {
-    QPixmap board = QPixmap(":/image/board3.png");
+    QPixmap board = QPixmap(":/image/board2.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
@@ -418,43 +418,43 @@ void MainWindow::on_BoardButton_2_clicked()
 
 void MainWindow::on_BoardButton_3_clicked()
 {
-    QPixmap board = QPixmap(":/image/board4.png");
+    QPixmap board = QPixmap(":/image/board3.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 void MainWindow::on_BoardButton_4_clicked()
 {
-    QPixmap board = QPixmap(":/image/board5.png");
+    QPixmap board = QPixmap(":/image/board4.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 void MainWindow::on_BoardButton_5_clicked()
 {
-    QPixmap board = QPixmap(":/image/board6.png");
+    QPixmap board = QPixmap(":/image/board5.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 void MainWindow::on_BoardButton_6_clicked()
 {
-    QPixmap board = QPixmap(":/image/board7.png");
+    QPixmap board = QPixmap(":/image/board6.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 void MainWindow::on_BoardButton_7_clicked()
 {
-    QPixmap board = QPixmap(":/image/board8.png");
+    QPixmap board = QPixmap(":/image/board7.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 void MainWindow::on_BoardButton_8_clicked()
 {
-    QPixmap board = QPixmap(":/image/board9.png");
+    QPixmap board = QPixmap(":/image/board8.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }
 void MainWindow::on_BoardButton_9_clicked()
 {
-    QPixmap board = QPixmap(":/image/board.jpeg");
+    QPixmap board = QPixmap(":/image/board9.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 }

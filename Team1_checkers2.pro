@@ -19,8 +19,7 @@ HEADERS += \
     utils.h
 
 FORMS += \
-    mainwindow.ui \
-    mainwindow_old.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -33,15 +32,24 @@ DISTFILES += \
     image/black_piece.png \
     image/blue_king.png \
     image/blue_piece.png \
-    image/board.jpeg \
-    image/board2.png \
-    image/board3.png \
-    image/board4.png \
-    image/board5.png \
-    image/board6.png \
-    image/board7.png \
-    image/board8.png \
-    image/board9.png \
+    image/board1.jpeg \
+    image/board1_settings.jpg \
+    image/board2.jpeg \
+    image/board2_settings.jpg \
+    image/board3.jpeg \
+    image/board3_settings.jpg \
+    image/board4.jpeg \
+    image/board4_settings.jpg \
+    image/board5.jpeg \
+    image/board5_settings.jpg \
+    image/board6.jpeg \
+    image/board6_settings.jpg \
+    image/board7.jpeg \
+    image/board7_settings.jpg \
+    image/board8.jpeg \
+    image/board8_settings.jpg \
+    image/board9.jpeg \
+    image/board9_settings.jpg \
     image/board_new.jpeg \
     image/celebrate.jpg \
     image/celebrate2.jpg \
