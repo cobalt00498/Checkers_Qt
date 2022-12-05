@@ -38,6 +38,30 @@ private slots:
 
     void on_EndGameButton_clicked();
 
+    //Settings
+    void on_SettingsButton_clicked();
+    void on_BackButton_2_clicked();
+    void on_StartButton_3_clicked();
+    void on_BoardButton_1_clicked();
+    void on_BoardButton_2_clicked();
+    void on_BoardButton_3_clicked();
+    void on_BoardButton_4_clicked();
+    void on_BoardButton_5_clicked();
+    void on_BoardButton_6_clicked();
+    void on_BoardButton_7_clicked();
+    void on_BoardButton_8_clicked();
+    void on_BoardButton_9_clicked();
+    void on_PieceButton_1_clicked();
+    void on_PieceButton_2_clicked();
+    void on_PieceButton_3_clicked();
+    void on_PieceButton_4_clicked();
+    void on_PieceButton_5_clicked();
+    void on_PieceButton_6_clicked();
+    void on_PieceButton_7_clicked();
+    void on_PieceButton_8_clicked();
+    void on_PieceButton_9_clicked();
+
+
 private:
     Ui::MainWindow *ui;
     QList<QLabel*> bluePieceLabels;

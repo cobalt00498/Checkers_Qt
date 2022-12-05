@@ -117,7 +117,7 @@ MainWindow::MainWindow(QWidget *parent)
         label->setPixmap(yellow_piece);
     }
 
-    QPixmap board = QPixmap(":/image/board.jpeg");
+    QPixmap board = QPixmap(":/image/board9.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
 
@@ -131,6 +131,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->page_4->setVisible(false);
 
     ui->BackgroundLabel_4->setPixmap(celebrating_background);
+
+    //set elements visible - page5
+//    ui->BackButton_2->setVisible(true);
+//    ui->RuleBrowser->setVisible(true);
+//    ui->SettingsLabel->setVisible(true);
+//    ui->StartButton_3->setVisible(true);
 
     // Insert mapped pair of a button name and the label(pointer) on the button
     map_s_Q.insert(pair<string, QLabel*>(ui->B_1_1->objectName().toStdString(),ui->y1Label));
@@ -310,6 +316,28 @@ void MainWindow::on_EndGameButton_clicked()
     this->close();
 }
 
+// When BackeButton(in page_5) clicked, redict user to page that shows back page(Home page).
+void MainWindow::on_BackButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+// When StartButton_3(in page) is clicked, redict user to page_3 that enables users to play game.
+void MainWindow::on_StartButton_3_clicked()
+{
+    //QPixmap board = QPixmap(":/image/board4.png");
+    //ui->Board1->setVisible(true);
+    //ui->Board1->setPixmap(board);
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+
+}
+
+//
+void MainWindow::on_SettingsButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_5);
+}
+
 // When the square of the board are clicker, execute the below.
 void MainWindow::on_button_clicked(){
     QObject* senderObj = sender();
@@ -371,3 +399,134 @@ void MainWindow::on_StopButton_clicked()
         }
 }
 
+// Settings
+void MainWindow::on_BoardButton_1_clicked()
+\
+{
+    QPixmap board = QPixmap(":/image/board1.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+
+void MainWindow::on_BoardButton_2_clicked()
+{
+    QPixmap board = QPixmap(":/image/board2.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+
+void MainWindow::on_BoardButton_3_clicked()
+{
+    QPixmap board = QPixmap(":/image/board3.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_BoardButton_4_clicked()
+{
+    QPixmap board = QPixmap(":/image/board4.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_BoardButton_5_clicked()
+{
+    QPixmap board = QPixmap(":/image/board5.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_BoardButton_6_clicked()
+{
+    QPixmap board = QPixmap(":/image/board6.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_BoardButton_7_clicked()
+{
+    QPixmap board = QPixmap(":/image/board7.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_BoardButton_8_clicked()
+{
+    QPixmap board = QPixmap(":/image/board8.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_BoardButton_9_clicked()
+{
+    QPixmap board = QPixmap(":/image/board9.jpeg");
+    ui->Board1->setVisible(true);
+    ui->Board1->setPixmap(board);
+}
+void MainWindow::on_PieceButton_1_clicked()
+{
+     QPixmap yellow_piece = QPixmap(":/image/f1ag1.png");
+     for(QLabel* label: yellowPieceLabels) {
+         label->setVisible(true);
+         label->setPixmap(yellow_piece);
+     }
+}
+void MainWindow::on_PieceButton_2_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag2.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_3_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag3.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_4_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag4.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_5_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag5.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_6_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag6.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_7_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag7.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_8_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag8.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}
+void MainWindow::on_PieceButton_9_clicked()
+{
+    QPixmap yellow_piece = QPixmap(":/image/f1ag9.png");
+    for(QLabel* label: yellowPieceLabels){
+        label->setVisible(true);
+        label->setPixmap(yellow_piece);
+    }
+}

@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="King" stdset="0">
-   <bool>false</bool>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
     <string notr="true"/>
@@ -61,9 +58,6 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y9Label">
       <property name="geometry">
@@ -79,9 +73,6 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y8Label">
@@ -99,9 +90,6 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y7Label">
       <property name="geometry">
@@ -117,9 +105,6 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y6Label">
@@ -137,9 +122,6 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y5Label">
       <property name="geometry">
@@ -155,9 +137,6 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y4Label">
@@ -175,9 +154,6 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y3Label">
       <property name="geometry">
@@ -193,9 +169,6 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y1Label">
@@ -213,9 +186,6 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y2Label">
       <property name="geometry">
@@ -231,9 +201,6 @@
       </property>
       <property name="color" stdset="0">
        <string>y</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b10Label">
@@ -251,9 +218,6 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="b8Label">
       <property name="geometry">
@@ -269,9 +233,6 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b11Label">
@@ -289,9 +250,6 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="b12Label">
       <property name="geometry">
@@ -307,9 +265,6 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b7Label">
@@ -327,9 +282,6 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="b6Label">
       <property name="geometry">
@@ -345,9 +297,6 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b5Label">
@@ -368,9 +317,6 @@
       <property name="isKing" stdset="0">
        <bool>false</bool>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="b3Label">
       <property name="geometry">
@@ -386,9 +332,6 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="b2Label">
@@ -406,9 +349,6 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="b1Label">
       <property name="geometry">
@@ -424,9 +364,6 @@
       </property>
       <property name="color" stdset="0">
        <string>b</string>
-      </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
       </property>
      </widget>
      <widget class="QLabel" name="y12Label">
@@ -444,9 +381,6 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y11Label">
       <property name="geometry">
@@ -463,14 +397,11 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QLabel" name="y10Label">
       <property name="geometry">
        <rect>
-        <x>163</x>
+        <x>158</x>
         <y>158</y>
         <width>60</width>
         <height>60</height>
@@ -482,24 +413,15 @@
       <property name="color" stdset="0">
        <string>y</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
      <widget class="QPushButton" name="StopButton">
       <property name="geometry">
        <rect>
-        <x>680</x>
-        <y>30</y>
+        <x>490</x>
+        <y>0</y>
         <width>93</width>
         <height>41</height>
        </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>12</pointsize>
-       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -516,17 +438,11 @@
      <widget class="QPushButton" name="HomeButton">
       <property name="geometry">
        <rect>
-        <x>580</x>
-        <y>30</y>
+        <x>0</x>
+        <y>0</y>
         <width>93</width>
         <height>41</height>
        </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>12</pointsize>
-       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -540,7 +456,7 @@
        <string>Home</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_2_8">
+     <widget class="QPushButton" name="B_1_8">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -571,20 +487,18 @@
       <property name="flat">
        <bool>true</bool>
       </property>
+      <property name="fakeDynamicProperty" stdset="0">
+       <bool>false</bool>
+      </property>
      </widget>
-     <widget class="QPushButton" name="B_3_3">
+     <widget class="QPushButton" name="B_2_3">
       <property name="geometry">
        <rect>
-        <x>163</x>
+        <x>158</x>
         <y>158</y>
         <width>60</width>
         <height>60</height>
        </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>휴먼편지체</family>
-       </font>
       </property>
       <property name="text">
        <string/>
@@ -609,7 +523,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_5_1">
+     <widget class="QPushButton" name="B_3_1">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -625,7 +539,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_8_2">
+     <widget class="QPushButton" name="B_4_2">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -641,7 +555,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_4_2">
+     <widget class="QPushButton" name="B_2_2">
       <property name="geometry">
        <rect>
         <x>227</x>
@@ -657,7 +571,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_2_2">
+     <widget class="QPushButton" name="B_1_2">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -673,7 +587,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_7_1">
+     <widget class="QPushButton" name="B_4_1">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -689,7 +603,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_4_8">
+     <widget class="QPushButton" name="B_2_8">
       <property name="geometry">
        <rect>
         <x>227</x>
@@ -705,7 +619,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_6_8">
+     <widget class="QPushButton" name="B_3_8">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -721,7 +635,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_8_8">
+     <widget class="QPushButton" name="B_4_8">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -753,7 +667,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_3_7">
+     <widget class="QPushButton" name="B_2_7">
       <property name="geometry">
        <rect>
         <x>163</x>
@@ -769,7 +683,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_5_7">
+     <widget class="QPushButton" name="B_3_7">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -785,7 +699,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_7_7">
+     <widget class="QPushButton" name="B_4_7">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -801,7 +715,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_2_6">
+     <widget class="QPushButton" name="B_1_6">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -810,11 +724,6 @@
         <height>60</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <kerning>true</kerning>
-       </font>
-      </property>
       <property name="text">
        <string/>
       </property>
@@ -822,7 +731,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_6_6">
+     <widget class="QPushButton" name="B_3_6">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -838,7 +747,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_8_6">
+     <widget class="QPushButton" name="B_4_6">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -854,7 +763,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_3_1">
+     <widget class="QPushButton" name="B_2_1">
       <property name="geometry">
        <rect>
         <x>163</x>
@@ -870,7 +779,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_6_2">
+     <widget class="QPushButton" name="B_3_2">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -886,7 +795,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_7_3">
+     <widget class="QPushButton" name="B_4_3">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -902,7 +811,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_5_3">
+     <widget class="QPushButton" name="B_3_3">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -936,11 +845,8 @@
       <property name="color" stdset="0">
        <string>b</string>
       </property>
-      <property name="king" stdset="0">
-       <bool>false</bool>
-      </property>
      </widget>
-     <widget class="QPushButton" name="B_4_6">
+     <widget class="QPushButton" name="B_2_6">
       <property name="geometry">
        <rect>
         <x>227</x>
@@ -956,7 +862,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_2_4">
+     <widget class="QPushButton" name="B_1_4">
       <property name="geometry">
        <rect>
         <x>99</x>
@@ -972,7 +878,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_4_4">
+     <widget class="QPushButton" name="B_2_4">
       <property name="geometry">
        <rect>
         <x>227</x>
@@ -988,7 +894,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_6_4">
+     <widget class="QPushButton" name="B_3_4">
       <property name="geometry">
        <rect>
         <x>355</x>
@@ -1004,7 +910,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_8_4">
+     <widget class="QPushButton" name="B_4_4">
       <property name="geometry">
        <rect>
         <x>483</x>
@@ -1036,10 +942,10 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_3_5">
+     <widget class="QPushButton" name="B_2_5">
       <property name="geometry">
        <rect>
-        <x>163</x>
+        <x>158</x>
         <y>286</y>
         <width>60</width>
         <height>60</height>
@@ -1052,7 +958,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_5_5">
+     <widget class="QPushButton" name="B_3_5">
       <property name="geometry">
        <rect>
         <x>291</x>
@@ -1068,7 +974,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="B_7_5">
+     <widget class="QPushButton" name="B_4_5">
       <property name="geometry">
        <rect>
         <x>419</x>
@@ -1084,209 +990,27 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="yTurnLabel">
+     <widget class="QPushButton" name="SettingsButton_2">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>80</y>
-        <width>181</width>
-        <height>71</height>
+        <x>100</x>
+        <y>0</y>
+        <width>93</width>
+        <height>41</height>
        </rect>
       </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>221</red>
-            <green>207</green>
-            <blue>10</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Link">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>255</red>
-            <green>255</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Link">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Link">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="tabletTracking">
-       <bool>false</bool>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
       </property>
       <property name="text">
-       <string>Yellow Turn</string>
+       <string>Settings</string>
       </property>
      </widget>
-     <widget class="QLabel" name="bTurnLabel">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>410</y>
-        <width>151</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="WindowText">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>120</red>
-            <green>120</green>
-            <blue>120</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Blue Turn</string>
-      </property>
-     </widget>
-     <zorder>Board1</zorder>
-     <zorder>b4Label</zorder>
-     <zorder>y9Label</zorder>
-     <zorder>y8Label</zorder>
-     <zorder>y7Label</zorder>
-     <zorder>y6Label</zorder>
-     <zorder>y5Label</zorder>
-     <zorder>y4Label</zorder>
-     <zorder>y3Label</zorder>
-     <zorder>y1Label</zorder>
-     <zorder>y2Label</zorder>
-     <zorder>b10Label</zorder>
-     <zorder>b8Label</zorder>
-     <zorder>b11Label</zorder>
-     <zorder>b12Label</zorder>
-     <zorder>b7Label</zorder>
-     <zorder>b6Label</zorder>
-     <zorder>b5Label</zorder>
-     <zorder>b3Label</zorder>
-     <zorder>b2Label</zorder>
-     <zorder>b1Label</zorder>
-     <zorder>y12Label</zorder>
-     <zorder>y11Label</zorder>
-     <zorder>y10Label</zorder>
-     <zorder>StopButton</zorder>
-     <zorder>HomeButton</zorder>
-     <zorder>b9Label</zorder>
-     <zorder>yTurnLabel</zorder>
-     <zorder>bTurnLabel</zorder>
-     <zorder>B_1_1</zorder>
-     <zorder>B_1_3</zorder>
-     <zorder>B_1_5</zorder>
-     <zorder>B_1_7</zorder>
-     <zorder>B_2_2</zorder>
-     <zorder>B_2_4</zorder>
-     <zorder>B_2_6</zorder>
-     <zorder>B_2_8</zorder>
-     <zorder>B_3_1</zorder>
-     <zorder>B_3_3</zorder>
-     <zorder>B_3_5</zorder>
-     <zorder>B_3_7</zorder>
-     <zorder>B_4_2</zorder>
-     <zorder>B_4_4</zorder>
-     <zorder>B_4_6</zorder>
-     <zorder>B_4_8</zorder>
-     <zorder>B_5_1</zorder>
-     <zorder>B_5_3</zorder>
-     <zorder>B_5_5</zorder>
-     <zorder>B_5_7</zorder>
-     <zorder>B_6_2</zorder>
-     <zorder>B_6_4</zorder>
-     <zorder>B_6_6</zorder>
-     <zorder>B_6_8</zorder>
-     <zorder>B_7_1</zorder>
-     <zorder>B_7_3</zorder>
-     <zorder>B_7_5</zorder>
-     <zorder>B_7_7</zorder>
-     <zorder>B_8_2</zorder>
-     <zorder>B_8_4</zorder>
-     <zorder>B_8_6</zorder>
-     <zorder>B_8_8</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -1295,15 +1019,15 @@
      <widget class="QLabel" name="RuleLabel">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>80</y>
-        <width>271</width>
-        <height>41</height>
+        <x>230</x>
+        <y>50</y>
+        <width>251</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Cooper Black</family>
+        <family>Terminal</family>
         <pointsize>25</pointsize>
        </font>
       </property>
@@ -1325,8 +1049,8 @@
       </property>
       <property name="font">
        <font>
-        <family>Cooper Black</family>
-        <pointsize>14</pointsize>
+        <family>Terminal</family>
+        <pointsize>25</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1352,8 +1076,8 @@
       </property>
       <property name="font">
        <font>
-        <family>Cooper Black</family>
-        <pointsize>14</pointsize>
+        <family>Terminal</family>
+        <pointsize>25</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1371,31 +1095,33 @@
      <widget class="QLabel" name="RuleBrowser">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>50</y>
-        <width>1081</width>
-        <height>541</height>
+        <x>30</x>
+        <y>80</y>
+        <width>711</width>
+        <height>321</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <family>Cooper Black</family>
-        <pointsize>12</pointsize>
+        <family>Terminal</family>
+        <pointsize>13</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>1. Piece move one space diagonally forward only, and can capture 
-diagonally forward.
+       <string>①    Piece move one space diagonally forward only, but can capture diagonally forward or backward. 
+Queens (promoted pieces) move any number of spaces diagonally forward or backward,
+ and can capture any number of spaces diagonally forward or backward as well.
 
-2. Jumped pieces are removed from the board after the full move is 
-performed and every enemy piece can be jumped over only once.
+②    Jumped pieces are removed from the board after the full move is performed 
+ and every enemy piece can be jumped over only once.
 
-3. When a piece reaches the last row, it promotes to a king.
+③    It is mandatory to capture as many pieces (as one multi-jump) as possible.
 
-4. Kings (promoted pieces) move any number of spaces diagonally 
-forward or backward. 
+④    When a piece reaches the last row, it promotes to a queen. 
+ However, if a piece reaches the last row while jumping and can jump more pieces backwards, 
+ it does not promote and continues jumping as a piece.
 
-5. If a player catches all pieces of counterpart, the player wins.</string>
+</string>
       </property>
      </widget>
      <widget class="QLabel" name="BackgroundLabel_2">
@@ -1421,265 +1147,6 @@ forward or backward.
      <zorder>RuleBrowser</zorder>
     </widget>
     <widget class="QWidget" name="page_4">
-     <widget class="QLabel" name="BackgroundLabel_4">
-      <property name="geometry">
-       <rect>
-        <x>-30</x>
-        <y>0</y>
-        <width>811</width>
-        <height>571</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/celebrate.jpg)</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="comment_4">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>200</y>
-        <width>360</width>
-        <height>90</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>24</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel{
-	color: white;
-}</string>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="HomeButton2">
-      <property name="geometry">
-       <rect>
-        <x>640</x>
-        <y>30</y>
-        <width>93</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid white;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string>Home</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="PlayAgainButton">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>300</y>
-        <width>140</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid white;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string>Play Again</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="EndGameButton">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>300</y>
-        <width>140</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid white;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string>End Game</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="page">
-     <widget class="QPushButton" name="StartButton">
-      <property name="geometry">
-       <rect>
-        <x>310</x>
-        <y>290</y>
-        <width>150</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid black;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string>Start</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="WelcomeLabel">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>190</y>
-        <width>361</width>
-        <height>91</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>24</pointsize>
-        <bold>false</bold>
-        <strikeout>false</strikeout>
-        <kerning>true</kerning>
-       </font>
-      </property>
-      <property name="text">
-       <string>Enjoy Checkers! </string>
-      </property>
-      <property name="textFormat">
-       <enum>Qt::PlainText</enum>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="RuleButton">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>290</y>
-        <width>150</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid black;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string>How to play</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="BackgroundLabel">
-      <property name="geometry">
-       <rect>
-        <x>-30</x>
-        <y>0</y>
-        <width>811</width>
-        <height>571</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/background.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="SettingsButton">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>290</y>
-        <width>150</width>
-        <height>50</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Cooper Black</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid black;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string>Settings</string>
-      </property>
-     </widget>
-     <zorder>BackgroundLabel</zorder>
-     <zorder>StartButton</zorder>
-     <zorder>WelcomeLabel</zorder>
-     <zorder>RuleButton</zorder>
-     <zorder>SettingsButton</zorder>
-    </widget>
-    <widget class="QWidget" name="page_5">
      <widget class="QLabel" name="BackgroundLabel_3">
       <property name="geometry">
        <rect>
@@ -1694,6 +1161,33 @@ forward or backward.
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="BackButton_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>0</y>
+        <width>150</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Terminal</family>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
       </property>
      </widget>
      <widget class="QLabel" name="Settingslabel">
@@ -1729,58 +1223,220 @@ forward or backward.
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="StartButton_3">
+     <widget class="QPushButton" name="Board2Button">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>0</y>
-        <width>150</width>
-        <height>50</height>
+        <x>140</x>
+        <y>220</y>
+        <width>40</width>
+        <height>40</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>Terminal</family>
-        <pointsize>25</pointsize>
-       </font>
-      </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
-	border: 1px solid black;
-	border-radius: 20px;
-}</string>
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
       </property>
       <property name="text">
-       <string>Start</string>
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board2.png</normaloff>:/image/board2.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="BackButton_2">
+     <widget class="QPushButton" name="board3Button">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>0</y>
-        <width>150</width>
-        <height>50</height>
+        <x>210</x>
+        <y>220</y>
+        <width>40</width>
+        <height>40</height>
        </rect>
       </property>
-      <property name="font">
-       <font>
-        <family>Terminal</family>
-        <pointsize>25</pointsize>
-       </font>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board3.png</normaloff>:/image/board3.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board4Button">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>220</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton{
-	color: white;
-	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>image/board4.png</normaloff>image/board4.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ContentLabel">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>150</y>
+        <width>241</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="150">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background-color: rgba(0,0,0,150);
 	border: 1px solid black;
 	border-radius: 20px;
 }</string>
       </property>
       <property name="text">
-       <string>Back</string>
+       <string/>
       </property>
      </widget>
      <widget class="QLabel" name="TitleLabel">
@@ -1813,10 +1469,10 @@ forward or backward.
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="ContentLabel">
+     <widget class="QLabel" name="ContentLabel_2">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>420</x>
         <y>150</y>
         <width>241</width>
         <height>351</height>
@@ -1954,130 +1610,14 @@ forward or backward.
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="ContentLabel_2">
+     <widget class="QPushButton" name="PieceButton_2">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>150</y>
-        <width>241</width>
-        <height>351</height>
-       </rect>
-      </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Button">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Base">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-         <colorrole role="Window">
-          <brush brushstyle="SolidPattern">
-           <color alpha="150">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLabel{
-	background-color: rgba(0,0,0,150);
-	border: 1px solid black;
-	border-radius: 20px;
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="PieceButton_1">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>220</y>
+        <x>600</x>
+        <y>370</y>
         <width>40</width>
         <height>40</height>
        </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
       </property>
       <property name="text">
        <string/>
@@ -2092,9 +1632,6 @@ forward or backward.
         <height>40</height>
        </size>
       </property>
-      <property name="shortcut">
-       <string/>
-      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -2105,322 +1642,7 @@ forward or backward.
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="BoardButton_1">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>220</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board1_settings.jpg</normaloff>:/image/board1_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_2">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>220</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board2_settings.jpg</normaloff>:/image/board2_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_3">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>220</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board3_settings.jpg</normaloff>:/image/board3_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_4">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>315</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board4_settings.jpg</normaloff>:/image/board4_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_5">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>315</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board5_settings.jpg</normaloff>:/image/board5_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_6">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>315</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board6_settings.jpg</normaloff>:/image/board6_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_7">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>420</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board7_settings.jpg</normaloff>:/image/board7_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_8">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>420</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board8_settings.jpg</normaloff>:/image/board8_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="BoardButton_9">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>420</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/board9_settings.jpg</normaloff>:/image/board9_settings.jpg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="PieceButton_2">
+     <widget class="QPushButton" name="PieceButton_3">
       <property name="geometry">
        <rect>
         <x>520</x>
@@ -2438,48 +1660,8 @@ forward or backward.
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/black_piece.png</normaloff>:/image/black_piece.png</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>40</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="shortcut">
-       <string/>
-      </property>
-      <property name="autoDefault">
-       <bool>false</bool>
-      </property>
-      <property name="default">
-       <bool>false</bool>
-      </property>
-      <property name="flat">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="PieceButton_3">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>220</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/blue_piece.png</normaloff>:/image/blue_piece.png</iconset>
+       <iconset>
+        <normaloff>image/orange_piece.png</normaloff>image/orange_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2503,32 +1685,27 @@ forward or backward.
      <widget class="QPushButton" name="PieceButton_4">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>315</y>
+        <x>600</x>
+        <y>220</y>
         <width>40</width>
         <height>40</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag1.png</normaloff>:/image/flag1.png</iconset>
+        <normaloff>:/image/red_piece.png</normaloff>:/image/red_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
        </size>
-      </property>
-      <property name="shortcut">
-       <string/>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -2543,32 +1720,24 @@ forward or backward.
      <widget class="QPushButton" name="PieceButton_5">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>315</y>
+        <x>450</x>
+        <y>290</y>
         <width>40</width>
         <height>40</height>
        </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag2.png</normaloff>:/image/flag2.png</iconset>
+        <normaloff>:/image/green_piece.png</normaloff>:/image/green_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
        </size>
-      </property>
-      <property name="shortcut">
-       <string/>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -2583,32 +1752,24 @@ forward or backward.
      <widget class="QPushButton" name="PieceButton_6">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>315</y>
+        <x>520</x>
+        <y>290</y>
         <width>40</width>
         <height>40</height>
        </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag3.png</normaloff>:/image/flag3.png</iconset>
+        <normaloff>:/image/blue_piece.png</normaloff>:/image/blue_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
        </size>
-      </property>
-      <property name="shortcut">
-       <string/>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -2623,32 +1784,24 @@ forward or backward.
      <widget class="QPushButton" name="PieceButton_7">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>420</y>
+        <x>600</x>
+        <y>290</y>
         <width>40</width>
         <height>40</height>
        </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag4.png</normaloff>:/image/flag4.png</iconset>
+        <normaloff>:/image/navy_piece.png</normaloff>:/image/navy_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
        </size>
-      </property>
-      <property name="shortcut">
-       <string/>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -2663,32 +1816,24 @@ forward or backward.
      <widget class="QPushButton" name="PieceButton_8">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>420</y>
+        <x>450</x>
+        <y>370</y>
         <width>40</width>
         <height>40</height>
        </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag5.png</normaloff>:/image/flag5.png</iconset>
+       <iconset>
+        <normaloff>image/violet_piece.png</normaloff>image/violet_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
        </size>
-      </property>
-      <property name="shortcut">
-       <string/>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -2700,35 +1845,27 @@ forward or backward.
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="PieceButton_10">
+     <widget class="QPushButton" name="PieceButton_9">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>420</y>
+        <x>520</x>
+        <y>370</y>
         <width>40</width>
         <height>40</height>
        </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-	background-color: rgba(0,0,0,150);
-}</string>
       </property>
       <property name="text">
        <string/>
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag7.png</normaloff>:/image/flag7.png</iconset>
+        <normaloff>:/image/black_piece.png</normaloff>:/image/black_piece.png</iconset>
       </property>
       <property name="iconSize">
        <size>
         <width>40</width>
         <height>40</height>
        </size>
-      </property>
-      <property name="shortcut">
-       <string/>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -2738,34 +1875,910 @@ forward or backward.
       </property>
       <property name="flat">
        <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="BoardButton_10">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>220</y>
+        <width>41</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>image/yellow_piece.png</normaloff>image/yellow_piece.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board7Button">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>290</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board7.png</normaloff>:/image/board7.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board6Button">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>290</y>
+        <width>45</width>
+        <height>45</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board6.png</normaloff>:/image/board6.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board1Button">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>360</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board.jpeg</normaloff>:/image/board.jpeg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board9Button">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>360</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board9.png</normaloff>:/image/board9.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board8Button">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>360</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board8.png</normaloff>:/image/board8.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="board5Button">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>290</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/board2.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resource2.qrc">
+        <normaloff>:/image/board5.png</normaloff>:/image/board5.png</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>40</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
      </widget>
      <zorder>BackgroundLabel_3</zorder>
      <zorder>Settingslabel</zorder>
-     <zorder>StartButton_3</zorder>
      <zorder>BackButton_2</zorder>
      <zorder>ContentLabel</zorder>
      <zorder>TitleLabel</zorder>
+     <zorder>Board2Button</zorder>
      <zorder>ContentLabel_2</zorder>
      <zorder>TitleLabel_2</zorder>
-     <zorder>BoardButton_1</zorder>
-     <zorder>BoardButton_2</zorder>
-     <zorder>BoardButton_3</zorder>
-     <zorder>BoardButton_4</zorder>
-     <zorder>BoardButton_5</zorder>
-     <zorder>BoardButton_6</zorder>
-     <zorder>BoardButton_7</zorder>
-     <zorder>BoardButton_8</zorder>
-     <zorder>BoardButton_9</zorder>
-     <zorder>PieceButton_1</zorder>
-     <zorder>PieceButton_4</zorder>
      <zorder>PieceButton_2</zorder>
      <zorder>PieceButton_3</zorder>
-     <zorder>PieceButton_6</zorder>
+     <zorder>PieceButton_4</zorder>
      <zorder>PieceButton_5</zorder>
-     <zorder>PieceButton_10</zorder>
-     <zorder>PieceButton_8</zorder>
+     <zorder>PieceButton_6</zorder>
      <zorder>PieceButton_7</zorder>
+     <zorder>PieceButton_8</zorder>
+     <zorder>PieceButton_9</zorder>
+     <zorder>BoardButton_10</zorder>
+     <zorder>board4Button</zorder>
+     <zorder>board3Button</zorder>
+     <zorder>board7Button</zorder>
+     <zorder>board6Button</zorder>
+     <zorder>board1Button</zorder>
+     <zorder>board9Button</zorder>
+     <zorder>board8Button</zorder>
+     <zorder>board5Button</zorder>
+    </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="BackgroundLabel">
+      <property name="geometry">
+       <rect>
+        <x>-30</x>
+        <y>0</y>
+        <width>811</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:  url(:/image/background.jpg);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>80</y>
+        <width>210</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="WelcomeLabel">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>50</pointsize>
+           <bold>true</bold>
+           <strikeout>false</strikeout>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="text">
+          <string>Enjoy Checkers! </string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="RuleButton">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>How to play</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="StartButton">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="SettingsButton">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	color: white;
+	background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Settings</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>40</y>
+        <width>441</width>
+        <height>441</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="WinnerLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>50</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	color: white;
+	background-color: rgb(0,0,0);
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>PLAYER1 WIN!</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TropyLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-image: url(:/image/tropy2_cut.png);
+setScaledContents:true;
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TimeLabel">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+	color: white;
+	background-color: rgb(0,0,0);
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Time: 20:47</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="StartButton_3">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	color: white;
+	background-color: rgb(0,207,155);
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>PLay Again</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="HomeButton_3">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	color: white;
+	background-color: rgb(0,207,155);
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Home</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="SettingsButton_3">
+         <property name="font">
+          <font>
+           <family>Terminal</family>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	color: white;
+	background-color: rgb(0,207,155);
+	border: 1px solid black;
+	border-radius: 20px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Settings</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLabel" name="BackgroundLabel_4">
+      <property name="geometry">
+       <rect>
+        <x>-30</x>
+        <y>0</y>
+        <width>811</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Light">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Midlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Dark">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Mid">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Shadow">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="AlternateBase">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>240</red>
+            <green>240</green>
+            <blue>240</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Light">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Midlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>227</red>
+            <green>227</green>
+            <blue>227</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Dark">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>160</red>
+            <green>160</green>
+            <blue>160</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Mid">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>160</red>
+            <green>160</green>
+            <blue>160</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>240</red>
+            <green>240</green>
+            <blue>240</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Shadow">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>105</red>
+            <green>105</green>
+            <blue>105</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="AlternateBase">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>245</red>
+            <green>245</green>
+            <blue>245</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="WindowText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Button">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Light">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Midlight">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Dark">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Mid">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Text">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Base">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Window">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="Shadow">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </brush>
+         </colorrole>
+         <colorrole role="AlternateBase">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>245</red>
+            <green>245</green>
+            <blue>245</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="text">
+       <string>.</string>
+      </property>
+     </widget>
+     <zorder>BackgroundLabel_4</zorder>
+     <zorder>verticalLayoutWidget_2</zorder>
     </widget>
    </widget>
   </widget>
