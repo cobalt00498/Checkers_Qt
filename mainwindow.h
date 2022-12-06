@@ -62,6 +62,12 @@ private slots:
     void on_PieceButton_9_clicked();
 
 
+    void on_Player1Button_clicked();
+
+    void on_Player2Button_clicked();
+
+    void on_SoundButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QList<QLabel*> bluePieceLabels;

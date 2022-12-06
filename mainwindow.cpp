@@ -5,19 +5,28 @@
 #include "Move.h"
 #include <QMessageBox>
 #include <map>
+//#include <QSound>
 using namespace std;
 
+//QSound bells(":/image/steppinstone.wav");
+bool isPlayer1PieceChoice = true; // This is the flag reprensenting whether the click is meant to set the color of player1's or player2's.
+bool isSoundMuted = false; // This is the flag representing whether to play the sound. default value is true, therefore muted.
+int choiceOfBoard=1; // This variable stores the choice of board.
+int choiceOfPlayer1Piece=1; // This variable sotres the choice of player1 piece.
+int choiceOfPlayer2Piece=2; // This variable stores the choice of player2 piece.
 bool isLiftTurn = true; // This is the flag representing whether the click is Lifting the piece or Dropping the piece.
-bool isBlueTurn = true; // This is the flag representing whether the turn is Blue's or Yellow's.
+bool isPlayer1Turn = true; // This is the flag representing whether the turn is player1's or player2's.
 //bool endGameNow = false; // This is the flag userd to check for urgent game end.
-int hitPieceCount_b = 0; // This shows the number of pieces that Blue captued.
-int hitPieceCount_y = 0; // This shows the number of pieces that Yellow captued.
+int hitPieceCount_player1 = 0; // This shows the number of pieces that player1 captued.
+int hitPieceCount_player2 = 0; // This shows the number of pieces that player2 captued.
 string moveFromButtonName; // This variable stores the button name where the piece move from.
 string moveToButtonName; // This variable stores the button name where the piece move to.
 
 QLabel* movingLabelPtr; // This variable stores the pointer to the label(piece).
 // This maps the Button name(string) to the Labels(QLabel ptr) located on the button.
 map<string, QLabel*> map_s_Q;
+QPixmap* player1PiecePtr;
+QPixmap* player2PiecePtr;
 
 // Constructor of the mainWindow
 MainWindow::MainWindow(QWidget *parent)
@@ -88,55 +97,10 @@ MainWindow::MainWindow(QWidget *parent)
     boardButtons.push_back(ui->B_8_6);
     boardButtons.push_back(ui->B_8_8);
 
-    //set elements visible - page
-    ui->StartButton->setVisible(true);
-    ui->RuleButton->setVisible(true);
-    ui->WelcomeLabel->setVisible(true);
-
-    //set elements visible - page2
-    ui->BackButton->setVisible(true);
-    ui->RuleBrowser->setVisible(true);
-    ui->RuleLabel->setVisible(true);
-    ui->StartButton_2->setVisible(true);
-
     // Connect signal and slots and set elements visible - page3
     for(QPushButton* button: boardButtons) {
         connect(button, &QPushButton::pressed, this, &MainWindow::on_button_clicked);
-        button->setVisible(true);
     }
-
-    QPixmap blue_piece = QPixmap(":/image/blue_piece.png");
-    for(QLabel* label: bluePieceLabels) {
-        label->setVisible(true);
-        label->setPixmap(blue_piece);
-    }
-
-    QPixmap yellow_piece = QPixmap(":/image/yellow_piece.png");
-    for(QLabel* label: yellowPieceLabels) {
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
-    }
-
-    QPixmap board = QPixmap(":/image/board9.jpeg");
-    ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-
-    ui->StopButton->setVisible(true);
-
-    ui->yTurnLabel->setVisible(false);
-    ui->bTurnLabel->setVisible(true);
-
-    //Set elements visible - page4
-    QPixmap celebrating_background = QPixmap(":/image/celebrate.jpg");
-    ui->page_4->setVisible(false);
-
-    ui->BackgroundLabel_4->setPixmap(celebrating_background);
-
-    //set elements visible - page5
-//    ui->BackButton_2->setVisible(true);
-//    ui->RuleBrowser->setVisible(true);
-//    ui->SettingsLabel->setVisible(true);
-//    ui->StartButton_3->setVisible(true);
 
     // Insert mapped pair of a button name and the label(pointer) on the button
     map_s_Q.insert(pair<string, QLabel*>(ui->B_1_1->objectName().toStdString(),ui->y1Label));
@@ -171,6 +135,54 @@ MainWindow::MainWindow(QWidget *parent)
     map_s_Q.insert(pair<string, QLabel*>(ui->B_4_8->objectName().toStdString(), ui->b2Label));
     map_s_Q.insert(pair<string, QLabel*>(ui->B_6_8->objectName().toStdString(), ui->b3Label));
     map_s_Q.insert(pair<string, QLabel*>(ui->B_8_8->objectName().toStdString(), ui->b4Label));
+
+    //Set elements visible - page5
+    //TODO 말 색깔따라서 KING모양도 바꾸기
+    // yTurnLabel이랑, 다른것도 이름 바꾸기 label, piece, 이미지 파일들 TODO
+    QPixmap player1_piece= QPixmap(":/image/white_piece.png");
+    player1PiecePtr = &player1_piece;
+
+    for(QLabel* label: bluePieceLabels) {
+        label->setVisible(true);
+        label->setPixmap(player1_piece);
+    }
+
+    QPixmap player2_piece = QPixmap(":/image/blue_piece.png");
+    player2PiecePtr = &player2_piece;
+
+    for(QLabel* label: yellowPieceLabels) {
+        label->setVisible(true);
+        label->setPixmap(player2_piece);
+    }
+
+    ui->yTurnLabel->setVisible(false);
+    ui->bTurnLabel->setVisible(true);
+
+    choiceOfBoard = 1; // Set the board to default
+    choiceOfPlayer1Piece = 1;// Set the piece for player1 to default
+    choiceOfPlayer2Piece = 2;// Set the piece for player2 to default
+
+    ui->BoardButton_1->setVisible(true);
+    ui->BoardButton_2->setVisible(true);
+    ui->BoardButton_3->setVisible(true);
+    ui->BoardButton_4->setVisible(true);
+    ui->BoardButton_5->setVisible(true);
+    ui->BoardButton_6->setVisible(true);
+    ui->BoardButton_7->setVisible(true);
+    ui->BoardButton_8->setVisible(true);
+    ui->BoardButton_9->setVisible(true);
+
+    ui->PieceButton_1->setVisible(true);
+    ui->PieceButton_2->setVisible(true);
+    ui->PieceButton_3->setVisible(true);
+    ui->PieceButton_4->setVisible(true);
+    ui->PieceButton_5->setVisible(true);
+    ui->PieceButton_6->setVisible(true);
+    ui->PieceButton_7->setVisible(true);
+    ui->PieceButton_8->setVisible(true);
+    ui->PieceButton_9->setVisible(true);
+
+    ui->stackedWidget->setCurrentWidget(ui->page);
 }
 
 // Destructor of MainWindow
@@ -181,11 +193,61 @@ MainWindow::~MainWindow()
 
 // Reset the game status to the initial status
 void MainWindow::resetGameStatus(){
+
+    if (choiceOfPlayer1Piece == 1){
+        *player1PiecePtr = QPixmap(":/image/white_piece.png");
+    } else if(choiceOfPlayer1Piece == 2){
+        *player1PiecePtr = QPixmap(":/image/blue_piece.png");
+    } else if(choiceOfPlayer1Piece == 3){
+        *player1PiecePtr = QPixmap(":/image/black_piece.png");
+    } else if(choiceOfPlayer1Piece == 4){
+        *player1PiecePtr = QPixmap(":/image/flag1.png");
+    } else if(choiceOfPlayer1Piece == 5){
+        *player1PiecePtr = QPixmap(":/image/flag2.png");
+    } else if(choiceOfPlayer1Piece == 6){
+        *player1PiecePtr = QPixmap(":/image/flag3.png");
+    } else if(choiceOfPlayer1Piece == 7){
+        *player1PiecePtr = QPixmap(":/image/flag4.png");
+    } else if(choiceOfPlayer1Piece == 8){
+        *player1PiecePtr = QPixmap(":/image/flag5.png");
+    } else {
+        *player1PiecePtr = QPixmap(":/image/flag7.png");
+    }
+    for(QLabel* label: bluePieceLabels) {
+        label->setVisible(true);
+        label->setPixmap(*player1PiecePtr);
+    }
+
+
+    if (choiceOfPlayer2Piece == 1){
+        *player2PiecePtr = QPixmap(":/image/white_piece.png");
+    } else if(choiceOfPlayer2Piece == 2){
+        *player2PiecePtr = QPixmap(":/image/blue_piece.png");
+    } else if(choiceOfPlayer2Piece == 3){
+        *player2PiecePtr = QPixmap(":/image/black_piece.png");
+    } else if(choiceOfPlayer2Piece == 4){
+        *player2PiecePtr = QPixmap(":/image/flag1.png");
+    } else if(choiceOfPlayer2Piece == 5){
+        *player2PiecePtr= QPixmap(":/image/flag2.png");
+    } else if(choiceOfPlayer2Piece == 6){
+        *player2PiecePtr= QPixmap(":/image/flag3.png");
+    } else if(choiceOfPlayer2Piece == 7){
+        *player2PiecePtr= QPixmap(":/image/flag4.png");
+    } else if(choiceOfPlayer2Piece == 8){
+        *player2PiecePtr= QPixmap(":/image/flag5.png");
+    } else {
+        *player2PiecePtr = QPixmap(":/image/flag7.png");
+    }
+    for(QLabel* label: yellowPieceLabels) {
+        label->setVisible(true);
+        label->setPixmap(*player2PiecePtr);
+    }
+
     isLiftTurn = true;
-    isBlueTurn = true;
+    isPlayer1Turn = true;
 //    endGameNow = false;
-    hitPieceCount_b = 0;
-    hitPieceCount_y = 0;
+    hitPieceCount_player1 = 0;
+    hitPieceCount_player2 = 0;
     moveFromButtonName = "";
     moveToButtonName = "";
     movingLabelPtr = nullptr;
@@ -247,19 +309,6 @@ void MainWindow::resetGameStatus(){
     ui->b2Label->move(227, 478);
     ui->b3Label->move(355, 478);
     ui->b4Label->move(483, 478);
-
-    QPixmap blue_piece = QPixmap(":/image/blue_piece.png");
-    for(QLabel* label: bluePieceLabels) {
-        label->setVisible(true);
-        label->setPixmap(blue_piece);
-    }
-    QPixmap yellow_piece = QPixmap(":/image/yellow_piece.png");
-    for(QLabel* label: yellowPieceLabels) {
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
-    }
-
-    ui->stackedWidget->setCurrentWidget(ui->page);
 }
 
 // When RuleButton(in page) is clicked, redict user to page_2 that shows rules.
@@ -299,15 +348,15 @@ void MainWindow::on_HomeButton_clicked()
 // When HomeButton2(in page_3) is clicked, redict user to page that shows Home page and reset game status.
 void MainWindow::on_HomeButton2_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->page);
     resetGameStatus();
+    ui->stackedWidget->setCurrentWidget(ui->page);
 }
 
 // When PlayAgainButton(in page_3) is clicked, redict user to page_3 that enables users to play game and reset gane status.
 void MainWindow::on_PlayAgainButton_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
     resetGameStatus();
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
 
 // When EndGameButton(in page_3) is clicked, close the window and end game.
@@ -325,16 +374,80 @@ void MainWindow::on_BackButton_2_clicked()
 // When StartButton_3(in page) is clicked, redict user to page_3 that enables users to play game.
 void MainWindow::on_StartButton_3_clicked()
 {
-    //QPixmap board = QPixmap(":/image/board4.png");
-    //ui->Board1->setVisible(true);
-    //ui->Board1->setPixmap(board);
     ui->stackedWidget->setCurrentWidget(ui->page_3);
 
 }
 
-//
 void MainWindow::on_SettingsButton_clicked()
-{
+{   
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
+    if (choiceOfBoard == 1){
+        ui->BoardUnderbar_1->setVisible(true);
+    } else if(choiceOfBoard == 2){
+        ui->BoardUnderbar_2->setVisible(true);
+    } else if(choiceOfBoard == 3){
+        ui->BoardUnderbar_3->setVisible(true);
+    } else if(choiceOfBoard == 4){
+        ui->BoardUnderbar_4->setVisible(true);
+    } else if(choiceOfBoard == 5){
+        ui->BoardUnderbar_5->setVisible(true);
+    } else if(choiceOfBoard == 6){
+        ui->BoardUnderbar_6->setVisible(true);
+    } else if(choiceOfBoard == 7){
+        ui->BoardUnderbar_7->setVisible(true);
+    } else if(choiceOfBoard == 8){
+        ui->BoardUnderbar_8->setVisible(true);
+    } else {
+        ui->BoardUnderbar_9->setVisible(true);
+    }
+
+    // When the user enters the Settings first, it pieceunderbar represents piece of players'
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    if (choiceOfPlayer1Piece == 1){
+        ui->PieceUnderbar_1->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 2){
+        ui->PieceUnderbar_2->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 3){
+        ui->PieceUnderbar_3->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 4){
+        ui->PieceUnderbar_4->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 5){
+        ui->PieceUnderbar_5->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 6){
+        ui->PieceUnderbar_6->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 7){
+        ui->PieceUnderbar_7->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 8){
+        ui->PieceUnderbar_8->setVisible(true);
+    } else {
+        ui->PieceUnderbar_9->setVisible(true);
+    }
+    ui->Player1Button->setStyleSheet("color: white;"
+                                     "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
+                                     "border: 1px solid white;"
+                                     "border-radius: 20px;");
+    ui->Player2Button->setStyleSheet("color: white;"
+                                     "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
+                                     "border: 1px solid grey;"
+                                     "border-radius: 20px;");
+    // redirect users to
     ui->stackedWidget->setCurrentWidget(ui->page_5);
 }
 
@@ -376,9 +489,9 @@ void MainWindow::on_button_clicked(){
 
                 // Change the turn and make it visible the turn switch.
                 isLiftTurn = !isLiftTurn;
-                isBlueTurn = !isBlueTurn;
-                ui->yTurnLabel->setVisible(!isBlueTurn);
-                ui->bTurnLabel->setVisible(isBlueTurn);
+                isPlayer1Turn = !isPlayer1Turn;
+                ui->yTurnLabel->setVisible(!isPlayer1Turn);
+                ui->bTurnLabel->setVisible(isPlayer1Turn);
 
                 CheckAndHandleWinCase(ui); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
                 }
@@ -401,132 +514,496 @@ void MainWindow::on_StopButton_clicked()
 
 // Settings
 void MainWindow::on_BoardButton_1_clicked()
-\
 {
+    choiceOfBoard = 1;
     QPixmap board = QPixmap(":/image/board1.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(true);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 
 void MainWindow::on_BoardButton_2_clicked()
 {
+    choiceOfBoard = 2;
     QPixmap board = QPixmap(":/image/board2.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(true);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 
 void MainWindow::on_BoardButton_3_clicked()
 {
+    choiceOfBoard = 3;
     QPixmap board = QPixmap(":/image/board3.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(true);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 void MainWindow::on_BoardButton_4_clicked()
 {
+    choiceOfBoard = 4;
     QPixmap board = QPixmap(":/image/board4.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(true);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 void MainWindow::on_BoardButton_5_clicked()
 {
+    choiceOfBoard = 5;
     QPixmap board = QPixmap(":/image/board5.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(true);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 void MainWindow::on_BoardButton_6_clicked()
 {
+    choiceOfBoard = 6;
     QPixmap board = QPixmap(":/image/board6.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(true);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 void MainWindow::on_BoardButton_7_clicked()
 {
+    choiceOfBoard = 7;
     QPixmap board = QPixmap(":/image/board7.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(true);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 void MainWindow::on_BoardButton_8_clicked()
 {
+    choiceOfBoard= 8;
     QPixmap board = QPixmap(":/image/board8.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(true);
+    ui->BoardUnderbar_9->setVisible(false);
 }
 void MainWindow::on_BoardButton_9_clicked()
 {
+    choiceOfBoard = 9;
     QPixmap board = QPixmap(":/image/board9.jpeg");
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(board);
+    ui->BoardUnderbar_1->setVisible(false);
+    ui->BoardUnderbar_2->setVisible(false);
+    ui->BoardUnderbar_3->setVisible(false);
+    ui->BoardUnderbar_4->setVisible(false);
+    ui->BoardUnderbar_5->setVisible(false);
+    ui->BoardUnderbar_6->setVisible(false);
+    ui->BoardUnderbar_7->setVisible(false);
+    ui->BoardUnderbar_8->setVisible(false);
+    ui->BoardUnderbar_9->setVisible(true);
 }
+
+void MainWindow::on_Player1Button_clicked()
+{
+
+    isPlayer1PieceChoice = true;
+
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    if (choiceOfPlayer1Piece == 1){
+        ui->PieceUnderbar_1->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 2){
+        ui->PieceUnderbar_2->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 3){
+        ui->PieceUnderbar_3->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 4){
+        ui->PieceUnderbar_4->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 5){
+        ui->PieceUnderbar_5->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 6){
+        ui->PieceUnderbar_6->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 7){
+        ui->PieceUnderbar_7->setVisible(true);
+    } else if(choiceOfPlayer1Piece == 8){
+        ui->PieceUnderbar_8->setVisible(true);
+    } else {
+        ui->PieceUnderbar_9->setVisible(true);
+    }
+    ui->Player1Button->setStyleSheet("color: white;"
+                                     "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
+                                     "border: 1px solid white;"
+                                     "border-radius: 20px;");
+    ui->Player2Button->setStyleSheet("color: white;"
+                                     "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
+                                     "border: 1px solid grey;"
+                                     "border-radius: 20px;");
+    ui->stackedWidget->setCurrentWidget(ui->page_5);
+}
+
+void MainWindow::on_Player2Button_clicked()
+{
+    isPlayer1PieceChoice = false;
+
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    if (choiceOfPlayer2Piece == 1){
+        ui->PieceUnderbar_1->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 2){
+        ui->PieceUnderbar_2->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 3){
+        ui->PieceUnderbar_3->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 4){
+        ui->PieceUnderbar_4->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 5){
+        ui->PieceUnderbar_5->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 6){
+        ui->PieceUnderbar_6->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 7){
+        ui->PieceUnderbar_7->setVisible(true);
+    } else if(choiceOfPlayer2Piece == 8){
+        ui->PieceUnderbar_8->setVisible(true);
+    } else {
+        ui->PieceUnderbar_9->setVisible(true);
+    }
+    ui->Player1Button->setStyleSheet("color: white;"
+                                     "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
+                                     "border: 1px solid grey;"
+                                     "border-radius: 20px;");
+    ui->Player2Button->setStyleSheet("color: white;"
+                                     "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
+                                     "border: 1px solid white;"
+                                     "border-radius: 20px;");
+    ui->stackedWidget->setCurrentWidget(ui->page_5);
+}
+
 void MainWindow::on_PieceButton_1_clicked()
 {
-     QPixmap yellow_piece = QPixmap(":/image/f1ag1.png");
-     for(QLabel* label: yellowPieceLabels) {
-         label->setVisible(true);
-         label->setPixmap(yellow_piece);
-     }
+    ui->PieceUnderbar_1->setVisible(true);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag1.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 1;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 1;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    }
 }
 void MainWindow::on_PieceButton_2_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag2.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(true);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag2.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 2;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 2;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_3_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag3.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(true);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag3.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 3;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 3;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_4_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag4.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(true);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag4.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 4;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 4;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_5_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag5.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(true);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag5.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 5;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 5;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_6_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag6.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(true);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag6.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 6;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 6;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_7_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag7.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(true);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag7.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 7;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 7;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_8_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag8.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(true);
+    ui->PieceUnderbar_9->setVisible(false);
+
+    QPixmap flag_imag = QPixmap(":/image/flag8.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 8;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 8;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
 void MainWindow::on_PieceButton_9_clicked()
 {
-    QPixmap yellow_piece = QPixmap(":/image/f1ag9.png");
-    for(QLabel* label: yellowPieceLabels){
-        label->setVisible(true);
-        label->setPixmap(yellow_piece);
+    ui->PieceUnderbar_1->setVisible(false);
+    ui->PieceUnderbar_2->setVisible(false);
+    ui->PieceUnderbar_3->setVisible(false);
+    ui->PieceUnderbar_4->setVisible(false);
+    ui->PieceUnderbar_5->setVisible(false);
+    ui->PieceUnderbar_6->setVisible(false);
+    ui->PieceUnderbar_7->setVisible(false);
+    ui->PieceUnderbar_8->setVisible(false);
+    ui->PieceUnderbar_9->setVisible(true);
+
+    QPixmap flag_imag = QPixmap(":/image/flag9.png");
+    if (isPlayer1PieceChoice == true){
+        choiceOfPlayer1Piece = 9;
+        for(QLabel* label: bluePieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
+    } else {
+        choiceOfPlayer2Piece = 9;
+        for(QLabel* label: yellowPieceLabels) {
+            label->setVisible(true);
+            label->setPixmap(flag_imag);
+        }
     }
 }
+
+//void MainWindow::on_SoundButton_clicked()
+//{
+//    isSoundMuted = !isSoundMuted;
+//    QPixmap sound;
+//    if (isSoundMuted == true){ // When it is muted, when user clicks, it
+//        sound = QPixmap(":/image/mute.png");
+//        bells.stop();
+//    } else {
+//        sound = QPixmap(":/image/sound.png");
+//        bells.play();
+//    }
+//    ui->SoundLabel->setPixmap(sound);
+//}
+

@@ -51,5 +51,8 @@
         <file>image/board8_settings.jpg</file>
         <file>image/board9.jpeg</file>
         <file>image/board9_settings.jpg</file>
+        <file>image/sound.png</file>
+        <file>image/mute.png</file>
+        <file>image/steppinstone.wav</file>
     </qresource>
 </RCC>

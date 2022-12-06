@@ -1,20 +1,20 @@
 #include "Move.h"
-extern bool isBlueTurn;
+extern bool isPlayer1Turn;
 extern string moveFromButtonName;
 extern string moveToButtonName;
 extern QLabel* movingLabelPtr;
 extern map<string, QLabel*> map_s_Q;
-extern int hitPieceCount_b;
-extern int hitPieceCount_y;
+extern int hitPieceCount_player1;
+extern int hitPieceCount_player2;
 
 // The implementation of the 'pickPiece' method from Class Move.
 void Move::pickPiece(std::string pickedButtonName, QLabel*& pickedLabelPtr) {
     if (pickedLabelPtr != nullptr) { // When the label exists...
         string pickedLabelcolor = pickedLabelPtr->objectName().toStdString().substr(0,1);
-        if (isBlueTurn && pickedLabelcolor== "y") { // When it is Blue's turn of picked Label is yellow, thow an exception.
-            throw invalid_argument("This is Blue's turn");
-        } else if (!isBlueTurn && pickedLabelcolor== "b") { // When it is Yellow's turn of picked Label is blue, thow an exception.
-            throw invalid_argument("This is Yellow's turn");
+        if (isPlayer1Turn && pickedLabelcolor== "y") { // When it is Player1's turn of picked Label is player2's, thow an exception.
+            throw invalid_argument("This is Player1's turn");
+        } else if (!isPlayer1Turn && pickedLabelcolor== "b") { // When it is Player2's turn of picked Label is Player1, thow an exception.
+            throw invalid_argument("This is Player2's turn");
         } else {
             moveFromButtonName = pickedButtonName; // Store the name as starting point of the move.
             movingLabelPtr = pickedLabelPtr; // Store the pointer of moved piece.
@@ -39,7 +39,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
     // If the piexe is not King...
     if (movingLabelPtr->property("king") == false){
         // If the moveing is not, forward move, throw an exception.
-        if (isBlueTurn? toY>=fromY: toY<=fromY){
+        if (isPlayer1Turn? toY>=fromY: toY<=fromY){
             throw invalid_argument("Only forward moving is allowed for non-king pieces");
         }
         // If user try to jump more than 3 diagonal squares at once, throw an exception.
@@ -65,7 +65,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
             // If the label located on the button in between has different color, remove it and move the picked piece.
             string color = midLabelPtr->objectName().toStdString().substr(0,1);
             moveToButtonName = pickedButtonName;
-            if (isBlueTurn && color=="y"){
+            if (isPlayer1Turn && color=="y"){
                 movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
                 QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
                 map_s_Q[moveFromButtonName] = nullptr;
@@ -73,9 +73,9 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
 
                 map_s_Q.at(midButtonName)->setVisible(false);
                 map_s_Q[midButtonName] = nullptr;
-                hitPieceCount_b++; // Increase the hit count.
+                hitPieceCount_player1++; // Increase the hit count.
                 return;
-            } else if (!isBlueTurn && color=="b") {
+            } else if (!isPlayer1Turn && color=="b") {
                 movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
                 QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
                 map_s_Q[moveFromButtonName] = nullptr;
@@ -83,7 +83,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
 
                 map_s_Q.at(midButtonName)->setVisible(false);
                 map_s_Q[midButtonName] = nullptr;
-                hitPieceCount_y++; // Increase the hit count
+                hitPieceCount_player2++; // Increase the hit count
                 return;
             //  If not, throw an exception. (When trying to eat up their own piece.)
             } else{throw invalid_argument("This is invalid movement");}
@@ -111,7 +111,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
             if (midLabelPtr != nullptr) {
                 string color = midLabelPtr->objectName().toStdString().substr(0,1);
                 moveToButtonName = pickedButtonName;
-                if (isBlueTurn && color=="y"){
+                if (isPlayer1Turn && color=="y"){
                     movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
                     QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
                     map_s_Q[moveFromButtonName] = nullptr;
@@ -119,9 +119,9 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
 
                     map_s_Q.at(midButtonName)->setVisible(false);
                     map_s_Q[midButtonName] = nullptr;
-                    hitPieceCount_b++; // Increate the count.
+                    hitPieceCount_player1++; // Increate the count.
                     return;
-                } else if (!isBlueTurn && color=="b") {
+                } else if (!isPlayer1Turn && color=="b") {
                     movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
                     QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
                     map_s_Q[moveFromButtonName] = nullptr;
@@ -129,7 +129,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
 
                     map_s_Q.at(midButtonName)->setVisible(false);
                     map_s_Q[midButtonName] = nullptr;
-                    hitPieceCount_y++; // Increate the count.
+                    hitPieceCount_player2++; // Increate the count.
                     return;
                 }
             }
