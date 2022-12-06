@@ -761,7 +761,7 @@ void MainWindow::on_PieceButton_1_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag1.png");
+    QPixmap flag_imag = QPixmap(":/image/white_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 1;
         for(QLabel* label: bluePieceLabels) {
@@ -788,7 +788,7 @@ void MainWindow::on_PieceButton_2_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag2.png");
+    QPixmap flag_imag = QPixmap(":/image/blue_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 2;
         for(QLabel* label: bluePieceLabels) {
@@ -815,7 +815,7 @@ void MainWindow::on_PieceButton_3_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag3.png");
+    QPixmap flag_imag = QPixmap(":/image/black_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 3;
         for(QLabel* label: bluePieceLabels) {
@@ -842,7 +842,7 @@ void MainWindow::on_PieceButton_4_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag4.png");
+    QPixmap flag_imag = QPixmap(":/image/flag1.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 4;
         for(QLabel* label: bluePieceLabels) {
@@ -869,7 +869,7 @@ void MainWindow::on_PieceButton_5_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag5.png");
+    QPixmap flag_imag = QPixmap(":/image/flag2.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 5;
         for(QLabel* label: bluePieceLabels) {
@@ -896,7 +896,7 @@ void MainWindow::on_PieceButton_6_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag6.png");
+    QPixmap flag_imag = QPixmap(":/image/flag3.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 6;
         for(QLabel* label: bluePieceLabels) {
@@ -923,7 +923,7 @@ void MainWindow::on_PieceButton_7_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag7.png");
+    QPixmap flag_imag = QPixmap(":/image/flag4.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 7;
         for(QLabel* label: bluePieceLabels) {
@@ -950,7 +950,7 @@ void MainWindow::on_PieceButton_8_clicked()
     ui->PieceUnderbar_8->setVisible(true);
     ui->PieceUnderbar_9->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag8.png");
+    QPixmap flag_imag = QPixmap(":/image/flag5.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 8;
         for(QLabel* label: bluePieceLabels) {
@@ -977,7 +977,7 @@ void MainWindow::on_PieceButton_9_clicked()
     ui->PieceUnderbar_8->setVisible(false);
     ui->PieceUnderbar_9->setVisible(true);
 
-    QPixmap flag_imag = QPixmap(":/image/flag9.png");
+    QPixmap flag_imag = QPixmap(":/image/flag7.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 9;
         for(QLabel* label: bluePieceLabels) {
