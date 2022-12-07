@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -1159,7 +1159,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="yTurnLabel">
+     <widget class="QLabel" name="player2TurnLabel">
       <property name="geometry">
        <rect>
         <x>610</x>
@@ -1245,7 +1245,7 @@
        <string>Player2's Turn</string>
       </property>
      </widget>
-     <widget class="QLabel" name="bTurnLabel">
+     <widget class="QLabel" name="player1TurnLabel">
       <property name="geometry">
        <rect>
         <x>610</x>
@@ -1328,8 +1328,8 @@
      <zorder>StopButton</zorder>
      <zorder>HomeButton</zorder>
      <zorder>b9Label</zorder>
-     <zorder>yTurnLabel</zorder>
-     <zorder>bTurnLabel</zorder>
+     <zorder>player2TurnLabel</zorder>
+     <zorder>player1TurnLabel</zorder>
      <zorder>B_1_1</zorder>
      <zorder>B_1_3</zorder>
      <zorder>B_1_5</zorder>
@@ -1401,7 +1401,7 @@
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>14</pointsize>
+        <pointsize>25</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1428,7 +1428,7 @@
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>14</pointsize>
+        <pointsize>25</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1506,7 +1506,7 @@ forward or backward.
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-image:  url(:/image/celebrate.jpg)</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>
@@ -1629,7 +1629,7 @@ forward or backward.
      <widget class="QPushButton" name="StartButton">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>290</x>
         <y>290</y>
         <width>150</width>
         <height>50</height>
@@ -1638,7 +1638,7 @@ forward or backward.
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1684,7 +1684,7 @@ forward or backward.
      <widget class="QPushButton" name="RuleButton">
       <property name="geometry">
        <rect>
-        <x>90</x>
+        <x>80</x>
         <y>290</y>
         <width>150</width>
         <height>50</height>
@@ -1693,7 +1693,7 @@ forward or backward.
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>13</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1705,7 +1705,7 @@ forward or backward.
 }</string>
       </property>
       <property name="text">
-       <string>How to play</string>
+       <string>Rules</string>
       </property>
      </widget>
      <widget class="QLabel" name="BackgroundLabel">
@@ -1727,7 +1727,7 @@ forward or backward.
      <widget class="QPushButton" name="SettingsButton">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>500</x>
         <y>290</y>
         <width>150</width>
         <height>50</height>
@@ -1736,7 +1736,7 @@ forward or backward.
       <property name="font">
        <font>
         <family>Cooper Black</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1785,7 +1785,7 @@ forward or backward.
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
+        <family>Cooper Black</family>
         <pointsize>25</pointsize>
         <italic>false</italic>
         <bold>false</bold>
@@ -1818,7 +1818,7 @@ forward or backward.
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
+        <family>Cooper Black</family>
         <pointsize>25</pointsize>
        </font>
       </property>
@@ -1845,7 +1845,7 @@ forward or backward.
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
+        <family>Cooper Black</family>
         <pointsize>25</pointsize>
        </font>
       </property>
@@ -1872,7 +1872,7 @@ forward or backward.
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
+        <family>Cooper Black</family>
         <pointsize>15</pointsize>
        </font>
       </property>
@@ -2013,7 +2013,7 @@ forward or backward.
       </property>
       <property name="font">
        <font>
-        <family>Terminal</family>
+        <family>Cooper Black</family>
         <pointsize>15</pointsize>
        </font>
       </property>
@@ -2789,6 +2789,12 @@ forward or backward.
         <height>30</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 	color: white;
@@ -2810,6 +2816,12 @@ forward or backward.
         <width>120</width>
         <height>30</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Cooper Black</family>
+        <pointsize>13</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{

@@ -70,8 +70,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QList<QLabel*> bluePieceLabels;
-    QList<QLabel*> yellowPieceLabels;
+    QList<QLabel*> player1PieceLabels;
+    QList<QLabel*> player2PieceLabels;
     QList<QPushButton*> boardButtons;
 
     void on_button_clicked();

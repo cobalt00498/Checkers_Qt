@@ -10,7 +10,7 @@ using namespace std;
 
 //QSound bells(":/image/steppinstone.wav");
 bool isPlayer1PieceChoice = true; // This is the flag reprensenting whether the click is meant to set the color of player1's or player2's.
-bool isSoundMuted = false; // This is the flag representing whether to play the sound. default value is true, therefore muted.
+bool isSoundMuted = false; // This is the flag representing whether to play the sound. default value is true, therefore muted. TODO
 int choiceOfBoard=1; // This variable stores the choice of board.
 int choiceOfPlayer1Piece=1; // This variable sotres the choice of player1 piece.
 int choiceOfPlayer2Piece=2; // This variable stores the choice of player2 piece.
@@ -35,33 +35,33 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     Q_INIT_RESOURCE(resource2);
-    // Push blue pieces to List member data (bluePieceLabels)
-    bluePieceLabels.push_back(ui->b1Label);
-    bluePieceLabels.push_back(ui->b2Label);
-    bluePieceLabels.push_back(ui->b3Label);
-    bluePieceLabels.push_back(ui->b4Label);
-    bluePieceLabels.push_back(ui->b5Label);
-    bluePieceLabels.push_back(ui->b6Label);
-    bluePieceLabels.push_back(ui->b7Label);
-    bluePieceLabels.push_back(ui->b8Label);
-    bluePieceLabels.push_back(ui->b9Label);
-    bluePieceLabels.push_back(ui->b10Label);
-    bluePieceLabels.push_back(ui->b11Label);
-    bluePieceLabels.push_back(ui->b12Label);
+    // Push player1's pieces to List member data (player1PieceLabels)
+    player1PieceLabels.push_back(ui->b1Label);
+    player1PieceLabels.push_back(ui->b2Label);
+    player1PieceLabels.push_back(ui->b3Label);
+    player1PieceLabels.push_back(ui->b4Label);
+    player1PieceLabels.push_back(ui->b5Label);
+    player1PieceLabels.push_back(ui->b6Label);
+    player1PieceLabels.push_back(ui->b7Label);
+    player1PieceLabels.push_back(ui->b8Label);
+    player1PieceLabels.push_back(ui->b9Label);
+    player1PieceLabels.push_back(ui->b10Label);
+    player1PieceLabels.push_back(ui->b11Label);
+    player1PieceLabels.push_back(ui->b12Label);
 
-    // Push yellow pieces to List member data (yellowPieceLabels)
-    yellowPieceLabels.push_back(ui->y1Label);
-    yellowPieceLabels.push_back(ui->y2Label);
-    yellowPieceLabels.push_back(ui->y3Label);
-    yellowPieceLabels.push_back(ui->y4Label);
-    yellowPieceLabels.push_back(ui->y5Label);
-    yellowPieceLabels.push_back(ui->y6Label);
-    yellowPieceLabels.push_back(ui->y7Label);
-    yellowPieceLabels.push_back(ui->y8Label);
-    yellowPieceLabels.push_back(ui->y9Label);
-    yellowPieceLabels.push_back(ui->y10Label);
-    yellowPieceLabels.push_back(ui->y11Label);
-    yellowPieceLabels.push_back(ui->y12Label);
+    // Push player2's pieces to List member data (player2PieceLabels)
+    player2PieceLabels.push_back(ui->y1Label);
+    player2PieceLabels.push_back(ui->y2Label);
+    player2PieceLabels.push_back(ui->y3Label);
+    player2PieceLabels.push_back(ui->y4Label);
+    player2PieceLabels.push_back(ui->y5Label);
+    player2PieceLabels.push_back(ui->y6Label);
+    player2PieceLabels.push_back(ui->y7Label);
+    player2PieceLabels.push_back(ui->y8Label);
+    player2PieceLabels.push_back(ui->y9Label);
+    player2PieceLabels.push_back(ui->y10Label);
+    player2PieceLabels.push_back(ui->y11Label);
+    player2PieceLabels.push_back(ui->y12Label);
 
     // Push buttons pieces to List member data (boardButtons)
     boardButtons.push_back(ui->B_1_1);
@@ -137,12 +137,12 @@ MainWindow::MainWindow(QWidget *parent)
     map_s_Q.insert(pair<string, QLabel*>(ui->B_8_8->objectName().toStdString(), ui->b4Label));
 
     //Set elements visible - page5
-    //TODO 말 색깔따라서 KING모양도 바꾸기
-    // yTurnLabel이랑, 다른것도 이름 바꾸기 label, piece, 이미지 파일들 TODO
+    // TODO 말 색깔따라서 KING모양도 바꾸기
+    // 다른것도 이름 바꾸기 label, piece, 이미지 파일들 TODO
     QPixmap player1_piece= QPixmap(":/image/white_piece.png");
     player1PiecePtr = &player1_piece;
 
-    for(QLabel* label: bluePieceLabels) {
+    for(QLabel* label: player1PieceLabels) {
         label->setVisible(true);
         label->setPixmap(player1_piece);
     }
@@ -150,13 +150,13 @@ MainWindow::MainWindow(QWidget *parent)
     QPixmap player2_piece = QPixmap(":/image/blue_piece.png");
     player2PiecePtr = &player2_piece;
 
-    for(QLabel* label: yellowPieceLabels) {
+    for(QLabel* label: player2PieceLabels) {
         label->setVisible(true);
         label->setPixmap(player2_piece);
     }
 
-    ui->yTurnLabel->setVisible(false);
-    ui->bTurnLabel->setVisible(true);
+    ui->player2TurnLabel->setVisible(false);
+    ui->player1TurnLabel->setVisible(true);
 
     choiceOfBoard = 1; // Set the board to default
     choiceOfPlayer1Piece = 1;// Set the piece for player1 to default
@@ -213,7 +213,7 @@ void MainWindow::resetGameStatus(){
     } else {
         *player1PiecePtr = QPixmap(":/image/flag7.png");
     }
-    for(QLabel* label: bluePieceLabels) {
+    for(QLabel* label: player1PieceLabels) {
         label->setVisible(true);
         label->setPixmap(*player1PiecePtr);
     }
@@ -238,7 +238,7 @@ void MainWindow::resetGameStatus(){
     } else {
         *player2PiecePtr = QPixmap(":/image/flag7.png");
     }
-    for(QLabel* label: yellowPieceLabels) {
+    for(QLabel* label: player2PieceLabels) {
         label->setVisible(true);
         label->setPixmap(*player2PiecePtr);
     }
@@ -490,8 +490,8 @@ void MainWindow::on_button_clicked(){
                 // Change the turn and make it visible the turn switch.
                 isLiftTurn = !isLiftTurn;
                 isPlayer1Turn = !isPlayer1Turn;
-                ui->yTurnLabel->setVisible(!isPlayer1Turn);
-                ui->bTurnLabel->setVisible(isPlayer1Turn);
+                ui->player2TurnLabel->setVisible(!isPlayer1Turn);
+                ui->player1TurnLabel->setVisible(isPlayer1Turn);
 
                 CheckAndHandleWinCase(ui); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
                 }
@@ -764,13 +764,13 @@ void MainWindow::on_PieceButton_1_clicked()
     QPixmap flag_imag = QPixmap(":/image/white_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 1;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 1;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -791,13 +791,13 @@ void MainWindow::on_PieceButton_2_clicked()
     QPixmap flag_imag = QPixmap(":/image/blue_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 2;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 2;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -818,13 +818,13 @@ void MainWindow::on_PieceButton_3_clicked()
     QPixmap flag_imag = QPixmap(":/image/black_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 3;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 3;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -845,13 +845,13 @@ void MainWindow::on_PieceButton_4_clicked()
     QPixmap flag_imag = QPixmap(":/image/flag1.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 4;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 4;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -872,13 +872,13 @@ void MainWindow::on_PieceButton_5_clicked()
     QPixmap flag_imag = QPixmap(":/image/flag2.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 5;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 5;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -899,13 +899,13 @@ void MainWindow::on_PieceButton_6_clicked()
     QPixmap flag_imag = QPixmap(":/image/flag3.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 6;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 6;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -926,13 +926,13 @@ void MainWindow::on_PieceButton_7_clicked()
     QPixmap flag_imag = QPixmap(":/image/flag4.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 7;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 7;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -953,13 +953,13 @@ void MainWindow::on_PieceButton_8_clicked()
     QPixmap flag_imag = QPixmap(":/image/flag5.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 8;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 8;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
@@ -980,13 +980,13 @@ void MainWindow::on_PieceButton_9_clicked()
     QPixmap flag_imag = QPixmap(":/image/flag7.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 9;
-        for(QLabel* label: bluePieceLabels) {
+        for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
     } else {
         choiceOfPlayer2Piece = 9;
-        for(QLabel* label: yellowPieceLabels) {
+        for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
             label->setPixmap(flag_imag);
         }
