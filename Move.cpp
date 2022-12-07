@@ -36,15 +36,15 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
     // If the move is not diagoanl move, throw an exception.
     if (abs(toX-fromX) != abs(toY-fromY)) {throw invalid_argument("Only diagonal move is allowed");}
 
+    // If player try to jump more than 3 diagonal squares at once, throw an exception.
+    if (abs(toX-fromX) >= 3){
+        throw invalid_argument("This is invalid movement");
+    }
     // If the piexe is not King...
     if (movingLabelPtr->property("king") == false){
         // If the moveing is not, forward move, throw an exception.
         if (isPlayer1Turn? toY>=fromY: toY<=fromY){
             throw invalid_argument("Only forward moving is allowed for non-king pieces");
-        }
-        // If user try to jump more than 3 diagonal squares at once, throw an exception.
-        if (abs(toX-fromX) >= 3){
-            throw invalid_argument("This is invalid movement");
         }
         // If user try to move 2 diagonal squares...
         if (abs(toX-fromX) ==2 && abs(toY-fromY)==2){
@@ -106,7 +106,9 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
             midButtonName.append("_");
             midButtonName.append(midY);
             QLabel* midLabelPtr = map_s_Q.at(midButtonName);
-
+            if (midLabelPtr == nullptr) {
+                throw invalid_argument("No piece in between");
+            }
             // If the label located on the button in between has different color, remove it and move the picked picked.
             if (midLabelPtr != nullptr) {
                 string color = midLabelPtr->objectName().toStdString().substr(0,1);
