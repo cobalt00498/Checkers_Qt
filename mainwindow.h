@@ -68,6 +68,10 @@ private slots:
 
     void on_SoundButton_clicked();
 
+    void on_CloseButton_pressed();
+
+    void on_CloseButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QList<QLabel*> player1PieceLabels;

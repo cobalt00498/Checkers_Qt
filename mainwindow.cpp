@@ -5,7 +5,6 @@
 #include "Move.h"
 #include <QMessageBox>
 #include <map>
-//#include <QSound>
 using namespace std;
 
 //QSound bells(":/image/steppinstone.wav");
@@ -183,6 +182,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->player2TurnLabel->setVisible(false);
     ui->player1TurnLabel->setVisible(true);
+
+    ui->messageBackgroundLabel->setVisible(false);
+    ui->messageTextLabel->setVisible(false);
+    ui->CloseButton->setVisible(false);
 
     ui->stackedWidget->setCurrentWidget(ui->page);
 }
@@ -388,7 +391,13 @@ void MainWindow::on_button_clicked(){
           // If the 'pickPiece' funtion throws an exception, show the exception message.
 
         } catch (invalid_argument& e) {
-            QMessageBox::warning(this, "Warn", e.what());
+            ui->messageTextLabel->setText(e.what());
+            ui->messageBackgroundLabel->setVisible(true);
+            ui->messageTextLabel->setVisible(true);
+            ui->CloseButton->setVisible(true);
+            ui->CloseButton->setEnabled(true);
+            return;
+//            QMessageBox::warning(this, "Warn", e.what());
         }
 
     } else { // when user drops a piece...
@@ -397,7 +406,13 @@ void MainWindow::on_button_clicked(){
                 try {
                     Move::pickPiece(pickedButtonName, pickedLabelPtr); // Consider it as 'pickPiece' movement.
                 } catch (invalid_argument& e) {
-                    QMessageBox::warning(this, "Warn", e.what()); // If the 'pickPiece' function throws and exception, show the exception message.
+                    ui->messageTextLabel->setText(e.what());
+                    ui->messageBackgroundLabel->setVisible(true);
+                    ui->messageTextLabel->setVisible(true);
+                    ui->CloseButton->setVisible(true);
+                    ui->CloseButton->setEnabled(true);
+                    return;
+//                    QMessageBox::warning(this, "Warn", e.what()); // If the 'pickPiece' function throws and exception, show the exception message.
                 }
             } else{  // If the place button the piece is to drop on is empty...
                 try {
@@ -405,7 +420,12 @@ void MainWindow::on_button_clicked(){
                   moveToButtonName = pickedButtonName;
                   handleKingPiece(movingLabelPtr, moveToButtonName); // if movePiece is done, check if the moved piece is King and handle it.
                 } catch (invalid_argument& e) {
-                    QMessageBox::warning(this, "Warn", e.what());
+                    ui->messageTextLabel->setText(e.what());
+                    ui->messageBackgroundLabel->setVisible(true);
+                    ui->messageTextLabel->setVisible(true);
+                    ui->CloseButton->setVisible(true);
+                    ui->CloseButton->setEnabled(true);
+//                    QMessageBox::warning(this, "Warn", e.what());
                     return;
                 }
 
@@ -429,7 +449,7 @@ void MainWindow::on_StopButton_clicked()
        // MsgBox.setInformativeText("Do you want to end this game?");
         MsgBox.setStandardButtons(QMessageBox::Yes |QMessageBox::No);
         MsgBox.setDefaultButton(QMessageBox::Yes);
-        if (MsgBox.exec() == QMessageBox::Yes ){
+        if (MsgBox.exec() == QMessageBox::Yes){
             this->close();
         }
 }
@@ -937,17 +957,12 @@ void MainWindow::on_PieceButton_9_clicked()
     }
 }
 
-//void MainWindow::on_SoundButton_clicked()
-//{
-//    isSoundMuted = !isSoundMuted;
-//    QPixmap sound;
-//    if (isSoundMuted == true){ // When it is muted, when user clicks, it
-//        sound = QPixmap(":/image/mute.png");
-//        bells.stop();
-//    } else {
-//        sound = QPixmap(":/image/sound.png");
-//        bells.play();
-//    }
-//    ui->SoundLabel->setPixmap(sound);
-//}
-
+void MainWindow::on_CloseButton_clicked()
+{
+    ui->messageBackgroundLabel->setVisible(false);
+    ui->messageTextLabel->setVisible(false);
+//    ui->CloseButton->setVisible(false);
+//    ui->messageBackgroundLabel->hide();
+//    ui->messageTextLabel->hide();
+//    ui->CloseButton->hide();
+}
