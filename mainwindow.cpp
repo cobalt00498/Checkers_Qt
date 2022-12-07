@@ -104,7 +104,6 @@ MainWindow::MainWindow(QWidget *parent)
         connect(button, &QPushButton::pressed, this, &MainWindow::on_button_clicked);
     }
 
-    //TODO reset넣기?
     // Insert mapped pair of a button name and the label(pointer) on the button
     map_s_Q.insert(pair<string, QLabel*>(ui->B_1_1->objectName().toStdString(),ui->y1Label));
     map_s_Q.insert(pair<string, QLabel*>(ui->B_3_1->objectName().toStdString(), ui->y2Label));
@@ -181,42 +180,8 @@ MainWindow::MainWindow(QWidget *parent)
     map_flagidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
     map_flagidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
 
-    QPixmap player1_piece = map_flagidx_source[choiceOfPlayer1Piece];
-    for(QLabel* label: player1PieceLabels) {
-        label->setVisible(true); //TODO없애보기
-        label->setPixmap(player1_piece);
-    }
-
-    QPixmap player2_piece = map_flagidx_source[choiceOfPlayer2Piece];
-
-    for(QLabel* label: player2PieceLabels) {
-        label->setVisible(true);// TODO 없애보기
-        label->setPixmap(player2_piece);
-    }
-
-
     ui->player2TurnLabel->setVisible(false);
     ui->player1TurnLabel->setVisible(true);
-
-    ui->BoardButton_1->setVisible(true);
-    ui->BoardButton_2->setVisible(true);
-    ui->BoardButton_3->setVisible(true);
-    ui->BoardButton_4->setVisible(true);
-    ui->BoardButton_5->setVisible(true);
-    ui->BoardButton_6->setVisible(true);
-    ui->BoardButton_7->setVisible(true);
-    ui->BoardButton_8->setVisible(true);
-    ui->BoardButton_9->setVisible(true);
-
-    ui->PieceButton_1->setVisible(true);
-    ui->PieceButton_2->setVisible(true);
-    ui->PieceButton_3->setVisible(true);
-    ui->PieceButton_4->setVisible(true);
-    ui->PieceButton_5->setVisible(true);
-    ui->PieceButton_6->setVisible(true);
-    ui->PieceButton_7->setVisible(true);
-    ui->PieceButton_8->setVisible(true);
-    ui->PieceButton_9->setVisible(true);
 
     ui->stackedWidget->setCurrentWidget(ui->page);
 }
@@ -232,13 +197,11 @@ void MainWindow::resetGameStatus(){
 
     QPixmap player1_piece = map_flagidx_source[choiceOfPlayer1Piece];
     for(QLabel* label: player1PieceLabels) {
-//        label->setVisible(true); //TODO없애보기
         label->setPixmap(player1_piece);
     }
 
     QPixmap player2_piece = map_flagidx_source[choiceOfPlayer2Piece];
     for(QLabel* label: player2PieceLabels) {
-//        label->setVisible(true); //TODO없애보기
         label->setPixmap(player2_piece);
     }
     isLiftTurn = true;
@@ -408,35 +371,12 @@ void MainWindow::on_SettingsButton_clicked()
     }
 
     // When the user enters the Settings first, it pieceunderbar represents piece of players'
-    map_pieceidx_underbarptr[1]->setVisible(false); //TODO 리스트에 담으면 안되나 헤더파일에. 아래서 쓰인 반복된 것들도 다.
-    map_pieceidx_underbarptr[2]->setVisible(false);
-    map_pieceidx_underbarptr[3]->setVisible(false);
-    map_pieceidx_underbarptr[4]->setVisible(false);
-    map_pieceidx_underbarptr[5]->setVisible(false);
-    map_pieceidx_underbarptr[6]->setVisible(false);
-    map_pieceidx_underbarptr[7]->setVisible(false);
-    map_pieceidx_underbarptr[8]->setVisible(false);
-    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    if (choiceOfPlayer1Piece == 1){
-        map_pieceidx_underbarptr[1]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 2){
-        map_pieceidx_underbarptr[2]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 3){
-        map_pieceidx_underbarptr[3]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 4){
-        map_pieceidx_underbarptr[4]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 5){
-        map_pieceidx_underbarptr[5]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 6){
-        map_pieceidx_underbarptr[6]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 7){
-        map_pieceidx_underbarptr[7]->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 8){
-        map_pieceidx_underbarptr[8]->setVisible(true);
-    } else {
-        map_pieceidx_underbarptr[9]->setVisible(true);
+    for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
+        iter->second->setVisible(false);
     }
+    map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(true);
+
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid white;"
@@ -445,8 +385,6 @@ void MainWindow::on_SettingsButton_clicked()
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid grey;"
                                      "border-radius: 20px;");
-    // redirect users to
-    ui->stackedWidget->setCurrentWidget(ui->page_5);
 }
 
 // When the square of the board are clicker, execute the below.
@@ -663,19 +601,13 @@ void MainWindow::on_Player1Button_clicked()
 
     isPlayer1PieceChoice = true;
 
-    map_pieceidx_underbarptr[1]->setVisible(false); //TODO 리스트에 담으면 안되나 헤더파일에
-    map_pieceidx_underbarptr[2]->setVisible(false);
-    map_pieceidx_underbarptr[3]->setVisible(false);
-    map_pieceidx_underbarptr[4]->setVisible(false);
-    map_pieceidx_underbarptr[5]->setVisible(false);
-    map_pieceidx_underbarptr[6]->setVisible(false);
-    map_pieceidx_underbarptr[7]->setVisible(false);
-    map_pieceidx_underbarptr[8]->setVisible(false);
-    map_pieceidx_underbarptr[9]->setVisible(false);
+    for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
+        iter->second->setVisible(false);
+    }
+    map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(true);
 
-    map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(false);
 
-    // 이것도 함수화하기 TODO
+    // Highlight the border of the button to inform the user whether he is choosing the flag for player1 or player2
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid white;"
@@ -690,19 +622,12 @@ void MainWindow::on_Player2Button_clicked()
 {
     isPlayer1PieceChoice = false;
 
-    map_pieceidx_underbarptr[1]->setVisible(false); //TODO 리스트에 담으면 안되나 헤더파일에
-    map_pieceidx_underbarptr[2]->setVisible(false);
-    map_pieceidx_underbarptr[3]->setVisible(false);
-    map_pieceidx_underbarptr[4]->setVisible(false);
-    map_pieceidx_underbarptr[5]->setVisible(false);
-    map_pieceidx_underbarptr[6]->setVisible(false);
-    map_pieceidx_underbarptr[7]->setVisible(false);
-    map_pieceidx_underbarptr[8]->setVisible(false);
-    map_pieceidx_underbarptr[9]->setVisible(false);
+    for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
+        iter->second->setVisible(false);
+    }
+    map_pieceidx_underbarptr[choiceOfPlayer2Piece]->setVisible(true);
 
-    map_pieceidx_underbarptr[choiceOfPlayer2Piece]->setVisible(false);
-
-    //TODO 이것도 담기
+    // Highlight the border of the button to inform the user whether he is choosing the flag for player1 or player2
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid grey;"
