@@ -370,6 +370,7 @@ void MainWindow::on_SettingsButton_clicked()
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid grey;"
                                      "border-radius: 20px;");
+    ui->stackedWidget->setCurrentWidget(ui->page_5);
 }
 
 // When the square of the board are clicker, execute the below.
