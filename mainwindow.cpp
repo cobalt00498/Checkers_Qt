@@ -25,8 +25,10 @@ string moveToButtonName; // This variable stores the button name where the piece
 QLabel* movingLabelPtr; // This variable stores the pointer to the label(piece).
 // This maps the Button name(string) to the Labels(QLabel ptr) located on the button.
 map<string, QLabel*> map_s_Q;
-QPixmap* player1PiecePtr;
-QPixmap* player2PiecePtr;
+map<int, QPixmap> map_boardidx_source; // This is map containing the key(board idx: 1-9) and mapped value(imgae source)
+map<int, QPixmap> map_flagidx_source; // This is map containing the key(flag idx: 1-9) and mapped value(image source to the idexed board, which will be show up in main game screen)
+map<int, QLabel*> map_boardidx_underbarptr; // This is map containing the key(board idx: 1-9) and mapped value(pointer to the underbar label of the flag idx)
+map<int, QLabel*> map_pieceidx_underbarptr; // This is map containing the key(flag idx: 1-9) and mapped value(pointer to the underbar label of the flag idx)
 
 // Constructor of the mainWindow
 MainWindow::MainWindow(QWidget *parent)
@@ -102,6 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
         connect(button, &QPushButton::pressed, this, &MainWindow::on_button_clicked);
     }
 
+    //TODO reset넣기?
     // Insert mapped pair of a button name and the label(pointer) on the button
     map_s_Q.insert(pair<string, QLabel*>(ui->B_1_1->objectName().toStdString(),ui->y1Label));
     map_s_Q.insert(pair<string, QLabel*>(ui->B_3_1->objectName().toStdString(), ui->y2Label));
@@ -137,30 +140,63 @@ MainWindow::MainWindow(QWidget *parent)
     map_s_Q.insert(pair<string, QLabel*>(ui->B_8_8->objectName().toStdString(), ui->b4Label));
 
     //Set elements visible - page5
-    // TODO 말 색깔따라서 KING모양도 바꾸기
-    // 다른것도 이름 바꾸기 label, piece, 이미지 파일들 TODO
-    QPixmap player1_piece= QPixmap(":/image/white_piece.png");
-    player1PiecePtr = &player1_piece;
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(1, ui->BoardUnderbar_1));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(2, ui->BoardUnderbar_2));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(3, ui->BoardUnderbar_3));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(4, ui->BoardUnderbar_4));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(5, ui->BoardUnderbar_5));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(6, ui->BoardUnderbar_6));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(7, ui->BoardUnderbar_7));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(8, ui->BoardUnderbar_8));
+    map_boardidx_underbarptr.insert(pair<int, QLabel*>(9, ui->BoardUnderbar_9));
 
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(1, ui->PieceUnderbar_1));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(2, ui->PieceUnderbar_2));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(3, ui->PieceUnderbar_3));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(4, ui->PieceUnderbar_4));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(5, ui->PieceUnderbar_5));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(6, ui->PieceUnderbar_6));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(7, ui->PieceUnderbar_7));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(8, ui->PieceUnderbar_8));
+    map_pieceidx_underbarptr.insert(pair<int, QLabel*>(9, ui->PieceUnderbar_9));
+
+    // TODO 말 색깔따라서 KING모양도 바꾸기
+    map_boardidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/board1.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/board2.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/board3.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(4, QPixmap(":/image/board4.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(5, QPixmap(":/image/board5.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(6, QPixmap(":/image/board6.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(7, QPixmap(":/image/board7.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/board8.jpeg")));
+    map_boardidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/board9.jpeg")));
+
+    map_flagidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/white_piece.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/blue_piece.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/black_piece.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag1.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag2.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag3.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag4.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
+    map_flagidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
+
+    QPixmap player1_piece = map_flagidx_source[choiceOfPlayer1Piece];
     for(QLabel* label: player1PieceLabels) {
-        label->setVisible(true);
+        label->setVisible(true); //TODO없애보기
         label->setPixmap(player1_piece);
     }
 
-    QPixmap player2_piece = QPixmap(":/image/blue_piece.png");
-    player2PiecePtr = &player2_piece;
+    QPixmap player2_piece = map_flagidx_source[choiceOfPlayer2Piece];
 
     for(QLabel* label: player2PieceLabels) {
-        label->setVisible(true);
+        label->setVisible(true);// TODO 없애보기
         label->setPixmap(player2_piece);
     }
 
+
     ui->player2TurnLabel->setVisible(false);
     ui->player1TurnLabel->setVisible(true);
-
-    choiceOfBoard = 1; // Set the board to default
-    choiceOfPlayer1Piece = 1;// Set the piece for player1 to default
-    choiceOfPlayer2Piece = 2;// Set the piece for player2 to default
 
     ui->BoardButton_1->setVisible(true);
     ui->BoardButton_2->setVisible(true);
@@ -194,55 +230,17 @@ MainWindow::~MainWindow()
 // Reset the game status to the initial status
 void MainWindow::resetGameStatus(){
 
-    if (choiceOfPlayer1Piece == 1){
-        *player1PiecePtr = QPixmap(":/image/white_piece.png");
-    } else if(choiceOfPlayer1Piece == 2){
-        *player1PiecePtr = QPixmap(":/image/blue_piece.png");
-    } else if(choiceOfPlayer1Piece == 3){
-        *player1PiecePtr = QPixmap(":/image/black_piece.png");
-    } else if(choiceOfPlayer1Piece == 4){
-        *player1PiecePtr = QPixmap(":/image/flag1.png");
-    } else if(choiceOfPlayer1Piece == 5){
-        *player1PiecePtr = QPixmap(":/image/flag2.png");
-    } else if(choiceOfPlayer1Piece == 6){
-        *player1PiecePtr = QPixmap(":/image/flag3.png");
-    } else if(choiceOfPlayer1Piece == 7){
-        *player1PiecePtr = QPixmap(":/image/flag4.png");
-    } else if(choiceOfPlayer1Piece == 8){
-        *player1PiecePtr = QPixmap(":/image/flag5.png");
-    } else {
-        *player1PiecePtr = QPixmap(":/image/flag7.png");
-    }
+    QPixmap player1_piece = map_flagidx_source[choiceOfPlayer1Piece];
     for(QLabel* label: player1PieceLabels) {
-        label->setVisible(true);
-        label->setPixmap(*player1PiecePtr);
+//        label->setVisible(true); //TODO없애보기
+        label->setPixmap(player1_piece);
     }
 
-
-    if (choiceOfPlayer2Piece == 1){
-        *player2PiecePtr = QPixmap(":/image/white_piece.png");
-    } else if(choiceOfPlayer2Piece == 2){
-        *player2PiecePtr = QPixmap(":/image/blue_piece.png");
-    } else if(choiceOfPlayer2Piece == 3){
-        *player2PiecePtr = QPixmap(":/image/black_piece.png");
-    } else if(choiceOfPlayer2Piece == 4){
-        *player2PiecePtr = QPixmap(":/image/flag1.png");
-    } else if(choiceOfPlayer2Piece == 5){
-        *player2PiecePtr= QPixmap(":/image/flag2.png");
-    } else if(choiceOfPlayer2Piece == 6){
-        *player2PiecePtr= QPixmap(":/image/flag3.png");
-    } else if(choiceOfPlayer2Piece == 7){
-        *player2PiecePtr= QPixmap(":/image/flag4.png");
-    } else if(choiceOfPlayer2Piece == 8){
-        *player2PiecePtr= QPixmap(":/image/flag5.png");
-    } else {
-        *player2PiecePtr = QPixmap(":/image/flag7.png");
-    }
+    QPixmap player2_piece = map_flagidx_source[choiceOfPlayer2Piece];
     for(QLabel* label: player2PieceLabels) {
-        label->setVisible(true);
-        label->setPixmap(*player2PiecePtr);
+//        label->setVisible(true); //TODO없애보기
+        label->setPixmap(player2_piece);
     }
-
     isLiftTurn = true;
     isPlayer1Turn = true;
 //    endGameNow = false;
@@ -380,64 +378,64 @@ void MainWindow::on_StartButton_3_clicked()
 
 void MainWindow::on_SettingsButton_clicked()
 {   
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
     if (choiceOfBoard == 1){
-        ui->BoardUnderbar_1->setVisible(true);
+        map_boardidx_underbarptr[1]->setVisible(true);
     } else if(choiceOfBoard == 2){
-        ui->BoardUnderbar_2->setVisible(true);
+        map_boardidx_underbarptr[2]->setVisible(true);
     } else if(choiceOfBoard == 3){
-        ui->BoardUnderbar_3->setVisible(true);
+        map_boardidx_underbarptr[3]->setVisible(true);
     } else if(choiceOfBoard == 4){
-        ui->BoardUnderbar_4->setVisible(true);
+        map_boardidx_underbarptr[4]->setVisible(true);
     } else if(choiceOfBoard == 5){
-        ui->BoardUnderbar_5->setVisible(true);
+        map_boardidx_underbarptr[5]->setVisible(true);
     } else if(choiceOfBoard == 6){
-        ui->BoardUnderbar_6->setVisible(true);
+        map_boardidx_underbarptr[6]->setVisible(true);
     } else if(choiceOfBoard == 7){
-        ui->BoardUnderbar_7->setVisible(true);
+        map_boardidx_underbarptr[7]->setVisible(true);
     } else if(choiceOfBoard == 8){
-        ui->BoardUnderbar_8->setVisible(true);
+        map_boardidx_underbarptr[8]->setVisible(true);
     } else {
-        ui->BoardUnderbar_9->setVisible(true);
+        map_boardidx_underbarptr[9]->setVisible(true);
     }
 
     // When the user enters the Settings first, it pieceunderbar represents piece of players'
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false); //TODO 리스트에 담으면 안되나 헤더파일에. 아래서 쓰인 반복된 것들도 다.
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
     if (choiceOfPlayer1Piece == 1){
-        ui->PieceUnderbar_1->setVisible(true);
+        map_pieceidx_underbarptr[1]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 2){
-        ui->PieceUnderbar_2->setVisible(true);
+        map_pieceidx_underbarptr[2]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 3){
-        ui->PieceUnderbar_3->setVisible(true);
+        map_pieceidx_underbarptr[3]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 4){
-        ui->PieceUnderbar_4->setVisible(true);
+        map_pieceidx_underbarptr[4]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 5){
-        ui->PieceUnderbar_5->setVisible(true);
+        map_pieceidx_underbarptr[5]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 6){
-        ui->PieceUnderbar_6->setVisible(true);
+        map_pieceidx_underbarptr[6]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 7){
-        ui->PieceUnderbar_7->setVisible(true);
+        map_pieceidx_underbarptr[7]->setVisible(true);
     } else if(choiceOfPlayer1Piece == 8){
-        ui->PieceUnderbar_8->setVisible(true);
+        map_pieceidx_underbarptr[8]->setVisible(true);
     } else {
-        ui->PieceUnderbar_9->setVisible(true);
+        map_pieceidx_underbarptr[9]->setVisible(true);
     }
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
@@ -516,148 +514,148 @@ void MainWindow::on_StopButton_clicked()
 void MainWindow::on_BoardButton_1_clicked()
 {
     choiceOfBoard = 1;
-    QPixmap board = QPixmap(":/image/board1.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(true);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(true);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 
 void MainWindow::on_BoardButton_2_clicked()
 {
     choiceOfBoard = 2;
-    QPixmap board = QPixmap(":/image/board2.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(true);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(true);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 
 void MainWindow::on_BoardButton_3_clicked()
 {
     choiceOfBoard = 3;
-    QPixmap board = QPixmap(":/image/board3.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(true);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(true);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 void MainWindow::on_BoardButton_4_clicked()
 {
     choiceOfBoard = 4;
-    QPixmap board = QPixmap(":/image/board4.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(true);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(true);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 void MainWindow::on_BoardButton_5_clicked()
 {
     choiceOfBoard = 5;
-    QPixmap board = QPixmap(":/image/board5.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(true);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(true);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 void MainWindow::on_BoardButton_6_clicked()
 {
     choiceOfBoard = 6;
-    QPixmap board = QPixmap(":/image/board6.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(true);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(true);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 void MainWindow::on_BoardButton_7_clicked()
 {
     choiceOfBoard = 7;
-    QPixmap board = QPixmap(":/image/board7.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(true);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(true);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 void MainWindow::on_BoardButton_8_clicked()
 {
     choiceOfBoard= 8;
-    QPixmap board = QPixmap(":/image/board8.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(true);
-    ui->BoardUnderbar_9->setVisible(false);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(true);
+    map_boardidx_underbarptr[9]->setVisible(false);
 }
 void MainWindow::on_BoardButton_9_clicked()
 {
     choiceOfBoard = 9;
-    QPixmap board = QPixmap(":/image/board9.jpeg");
     ui->Board1->setVisible(true);
-    ui->Board1->setPixmap(board);
-    ui->BoardUnderbar_1->setVisible(false);
-    ui->BoardUnderbar_2->setVisible(false);
-    ui->BoardUnderbar_3->setVisible(false);
-    ui->BoardUnderbar_4->setVisible(false);
-    ui->BoardUnderbar_5->setVisible(false);
-    ui->BoardUnderbar_6->setVisible(false);
-    ui->BoardUnderbar_7->setVisible(false);
-    ui->BoardUnderbar_8->setVisible(false);
-    ui->BoardUnderbar_9->setVisible(true);
+    ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
+
+    map_boardidx_underbarptr[1]->setVisible(false);
+    map_boardidx_underbarptr[2]->setVisible(false);
+    map_boardidx_underbarptr[3]->setVisible(false);
+    map_boardidx_underbarptr[4]->setVisible(false);
+    map_boardidx_underbarptr[5]->setVisible(false);
+    map_boardidx_underbarptr[6]->setVisible(false);
+    map_boardidx_underbarptr[7]->setVisible(false);
+    map_boardidx_underbarptr[8]->setVisible(false);
+    map_boardidx_underbarptr[9]->setVisible(true);
 }
 
 void MainWindow::on_Player1Button_clicked()
@@ -665,35 +663,19 @@ void MainWindow::on_Player1Button_clicked()
 
     isPlayer1PieceChoice = true;
 
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false); //TODO 리스트에 담으면 안되나 헤더파일에
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    if (choiceOfPlayer1Piece == 1){
-        ui->PieceUnderbar_1->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 2){
-        ui->PieceUnderbar_2->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 3){
-        ui->PieceUnderbar_3->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 4){
-        ui->PieceUnderbar_4->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 5){
-        ui->PieceUnderbar_5->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 6){
-        ui->PieceUnderbar_6->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 7){
-        ui->PieceUnderbar_7->setVisible(true);
-    } else if(choiceOfPlayer1Piece == 8){
-        ui->PieceUnderbar_8->setVisible(true);
-    } else {
-        ui->PieceUnderbar_9->setVisible(true);
-    }
+    map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(false);
+
+    // 이것도 함수화하기 TODO
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid white;"
@@ -702,42 +684,25 @@ void MainWindow::on_Player1Button_clicked()
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid grey;"
                                      "border-radius: 20px;");
-    ui->stackedWidget->setCurrentWidget(ui->page_5);
 }
 
 void MainWindow::on_Player2Button_clicked()
 {
     isPlayer1PieceChoice = false;
 
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false); //TODO 리스트에 담으면 안되나 헤더파일에
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    if (choiceOfPlayer2Piece == 1){
-        ui->PieceUnderbar_1->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 2){
-        ui->PieceUnderbar_2->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 3){
-        ui->PieceUnderbar_3->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 4){
-        ui->PieceUnderbar_4->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 5){
-        ui->PieceUnderbar_5->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 6){
-        ui->PieceUnderbar_6->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 7){
-        ui->PieceUnderbar_7->setVisible(true);
-    } else if(choiceOfPlayer2Piece == 8){
-        ui->PieceUnderbar_8->setVisible(true);
-    } else {
-        ui->PieceUnderbar_9->setVisible(true);
-    }
+    map_pieceidx_underbarptr[choiceOfPlayer2Piece]->setVisible(false);
+
+    //TODO 이것도 담기
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid grey;"
@@ -746,249 +711,239 @@ void MainWindow::on_Player2Button_clicked()
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid white;"
                                      "border-radius: 20px;");
-    ui->stackedWidget->setCurrentWidget(ui->page_5);
 }
 
 void MainWindow::on_PieceButton_1_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(true);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(true);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/white_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 1;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 1;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_2_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(true);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(true);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/blue_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 2;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 2;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_3_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(true);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(true);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/black_piece.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 3;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 3;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_4_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(true);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(true);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag1.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 4;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 4;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_5_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(true);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(true);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag2.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 5;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 5;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_6_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(true);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(true);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag3.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 6;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 6;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_7_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(true);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(true);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag4.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 7;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 7;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_8_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(true);
-    ui->PieceUnderbar_9->setVisible(false);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(true);
+    map_pieceidx_underbarptr[9]->setVisible(false);
 
-    QPixmap flag_imag = QPixmap(":/image/flag5.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 8;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 8;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
 void MainWindow::on_PieceButton_9_clicked()
 {
-    ui->PieceUnderbar_1->setVisible(false);
-    ui->PieceUnderbar_2->setVisible(false);
-    ui->PieceUnderbar_3->setVisible(false);
-    ui->PieceUnderbar_4->setVisible(false);
-    ui->PieceUnderbar_5->setVisible(false);
-    ui->PieceUnderbar_6->setVisible(false);
-    ui->PieceUnderbar_7->setVisible(false);
-    ui->PieceUnderbar_8->setVisible(false);
-    ui->PieceUnderbar_9->setVisible(true);
+    map_pieceidx_underbarptr[1]->setVisible(false);
+    map_pieceidx_underbarptr[2]->setVisible(false);
+    map_pieceidx_underbarptr[3]->setVisible(false);
+    map_pieceidx_underbarptr[4]->setVisible(false);
+    map_pieceidx_underbarptr[5]->setVisible(false);
+    map_pieceidx_underbarptr[6]->setVisible(false);
+    map_pieceidx_underbarptr[7]->setVisible(false);
+    map_pieceidx_underbarptr[8]->setVisible(false);
+    map_pieceidx_underbarptr[9]->setVisible(true);
 
-    QPixmap flag_imag = QPixmap(":/image/flag7.png");
     if (isPlayer1PieceChoice == true){
         choiceOfPlayer1Piece = 9;
         for(QLabel* label: player1PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
         }
     } else {
         choiceOfPlayer2Piece = 9;
         for(QLabel* label: player2PieceLabels) {
             label->setVisible(true);
-            label->setPixmap(flag_imag);
+            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
