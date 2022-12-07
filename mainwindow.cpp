@@ -11,12 +11,11 @@ using namespace std;
 //QSound bells(":/image/steppinstone.wav");
 bool isPlayer1PieceChoice = true; // This is the flag reprensenting whether the click is meant to set the color of player1's or player2's.
 bool isSoundMuted = false; // This is the flag representing whether to play the sound. default value is true, therefore muted. TODO
-int choiceOfBoard=1; // This variable stores the choice of board.
-int choiceOfPlayer1Piece=1; // This variable sotres the choice of player1 piece.
-int choiceOfPlayer2Piece=2; // This variable stores the choice of player2 piece.
+int choiceOfBoard = 1; // This variable stores the choice of board.
+int choiceOfPlayer1Piece = 1; // This variable sotres the choice of player1 piece.
+int choiceOfPlayer2Piece = 2; // This variable stores the choice of player2 piece.
 bool isLiftTurn = true; // This is the flag representing whether the click is Lifting the piece or Dropping the piece.
 bool isPlayer1Turn = true; // This is the flag representing whether the turn is player1's or player2's.
-//bool endGameNow = false; // This is the flag userd to check for urgent game end.
 int hitPieceCount_player1 = 0; // This shows the number of pieces that player1 captued.
 int hitPieceCount_player2 = 0; // This shows the number of pieces that player2 captued.
 string moveFromButtonName; // This variable stores the button name where the piece move from.
@@ -26,9 +25,9 @@ QLabel* movingLabelPtr; // This variable stores the pointer to the label(piece).
 // This maps the Button name(string) to the Labels(QLabel ptr) located on the button.
 map<string, QLabel*> map_s_Q;
 map<int, QPixmap> map_boardidx_source; // This is map containing the key(board idx: 1-9) and mapped value(imgae source)
-map<int, QPixmap> map_flagidx_source; // This is map containing the key(flag idx: 1-9) and mapped value(image source to the idexed board, which will be show up in main game screen)
-map<int, QLabel*> map_boardidx_underbarptr; // This is map containing the key(board idx: 1-9) and mapped value(pointer to the underbar label of the flag idx)
-map<int, QLabel*> map_pieceidx_underbarptr; // This is map containing the key(flag idx: 1-9) and mapped value(pointer to the underbar label of the flag idx)
+map<int, QPixmap> map_pieceidx_source; // This is map containing the key(piece idx: 1-9) and mapped value(image source to the idexed pieace, which will be show up in main game screen)
+map<int, QLabel*> map_boardidx_underbarptr; // This is map containing the key(board idx: 1-9) and mapped value(pointer to the underbar label of the board idx)
+map<int, QLabel*> map_pieceidx_underbarptr; // This is map containing the key(piece idx: 1-9) and mapped value(pointer to the underbar label of the piece idx)
 
 // Constructor of the mainWindow
 MainWindow::MainWindow(QWidget *parent)
@@ -138,7 +137,7 @@ MainWindow::MainWindow(QWidget *parent)
     map_s_Q.insert(pair<string, QLabel*>(ui->B_6_8->objectName().toStdString(), ui->b3Label));
     map_s_Q.insert(pair<string, QLabel*>(ui->B_8_8->objectName().toStdString(), ui->b4Label));
 
-    //Set elements visible - page5
+    // Insert mapped pair of a board idx(1-9) and the pointer to the underbar belonging to the board idexed.
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(1, ui->BoardUnderbar_1));
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(2, ui->BoardUnderbar_2));
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(3, ui->BoardUnderbar_3));
@@ -149,6 +148,7 @@ MainWindow::MainWindow(QWidget *parent)
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(8, ui->BoardUnderbar_8));
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(9, ui->BoardUnderbar_9));
 
+    // Insert mapped pair of a piece idx(1-9) and the pointer to the underbar belonging to the piece idexed.
     map_pieceidx_underbarptr.insert(pair<int, QLabel*>(1, ui->PieceUnderbar_1));
     map_pieceidx_underbarptr.insert(pair<int, QLabel*>(2, ui->PieceUnderbar_2));
     map_pieceidx_underbarptr.insert(pair<int, QLabel*>(3, ui->PieceUnderbar_3));
@@ -159,7 +159,7 @@ MainWindow::MainWindow(QWidget *parent)
     map_pieceidx_underbarptr.insert(pair<int, QLabel*>(8, ui->PieceUnderbar_8));
     map_pieceidx_underbarptr.insert(pair<int, QLabel*>(9, ui->PieceUnderbar_9));
 
-    // TODO 말 색깔따라서 KING모양도 바꾸기
+    // Insert mapped pair of a board idx(1-9) and the QPixamp of the board idexed.
     map_boardidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/board1.jpeg")));
     map_boardidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/board2.jpeg")));
     map_boardidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/board3.jpeg")));
@@ -170,15 +170,16 @@ MainWindow::MainWindow(QWidget *parent)
     map_boardidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/board8.jpeg")));
     map_boardidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/board9.jpeg")));
 
-    map_flagidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/white_piece.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/blue_piece.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/black_piece.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag1.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag2.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag3.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag4.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
-    map_flagidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
+    // Insert mapped pair of a piece idx(1-9) and the QPixamp of the piece idexed.
+    map_pieceidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/white_piece.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/blue_piece.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/black_piece.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag1.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag2.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag3.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag4.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
 
     ui->player2TurnLabel->setVisible(false);
     ui->player1TurnLabel->setVisible(true);
@@ -195,23 +196,28 @@ MainWindow::~MainWindow()
 // Reset the game status to the initial status
 void MainWindow::resetGameStatus(){
 
-    QPixmap player1_piece = map_flagidx_source[choiceOfPlayer1Piece];
+    QPixmap player1_piece = map_pieceidx_source[choiceOfPlayer1Piece];
     for(QLabel* label: player1PieceLabels) {
         label->setPixmap(player1_piece);
     }
 
-    QPixmap player2_piece = map_flagidx_source[choiceOfPlayer2Piece];
+    QPixmap player2_piece = map_pieceidx_source[choiceOfPlayer2Piece];
     for(QLabel* label: player2PieceLabels) {
         label->setPixmap(player2_piece);
     }
-    isLiftTurn = true;
-    isPlayer1Turn = true;
-//    endGameNow = false;
-    hitPieceCount_player1 = 0;
-    hitPieceCount_player2 = 0;
-    moveFromButtonName = "";
-    moveToButtonName = "";
+
+    // Set the default vaue When the MainWindow is initialized.
+    isLiftTurn = true; // Start with the action 'lift'.
+    isPlayer1Turn = true; // Player1 starts first.
+    hitPieceCount_player1 = 0; // Player1 captured nothing when the game starts.
+    hitPieceCount_player2 = 0; // Player2 captured nothing hwen the game starts.
+    moveFromButtonName = ""; // Since not moved any piece, the name of the starting button should be empty string.
+    moveToButtonName = ""; // Since not moved any piece, the name of the ending button should be empty string.
     movingLabelPtr = nullptr;
+
+    //Place the pieces in the original position(matching the buttons' names) by setting them in map_s_Q
+   /*Since the labels are not actually moving. But set to visible/invisible, which means respectively 'existing' or 'removed from the place'.
+   We utilized the map to move the labels logically, but not visually, by mapping them with the buttons' names.*/
 
     map_s_Q["B_1_1"] = ui-> y1Label;
     map_s_Q["B_3_1"] = ui-> y2Label;
@@ -246,6 +252,7 @@ void MainWindow::resetGameStatus(){
     map_s_Q["B_6_8"] = ui-> b3Label;
     map_s_Q["B_8_8"] = ui-> b4Label;
 
+    // Place the labels to the original poisitions visually.
     ui->y1Label->move(35, 30);
     ui->y2Label->move(163, 30);
     ui->y3Label->move(291, 30);
@@ -339,44 +346,22 @@ void MainWindow::on_StartButton_3_clicked()
 
 }
 
+// When SettingsButton(in page) is clicked, show the the chosen option(or default option if the user hasn't set it).
 void MainWindow::on_SettingsButton_clicked()
 {   
-    map_boardidx_underbarptr[1]->setVisible(false);
-    map_boardidx_underbarptr[2]->setVisible(false);
-    map_boardidx_underbarptr[3]->setVisible(false);
-    map_boardidx_underbarptr[4]->setVisible(false);
-    map_boardidx_underbarptr[5]->setVisible(false);
-    map_boardidx_underbarptr[6]->setVisible(false);
-    map_boardidx_underbarptr[7]->setVisible(false);
-    map_boardidx_underbarptr[8]->setVisible(false);
-    map_boardidx_underbarptr[9]->setVisible(false);
-    if (choiceOfBoard == 1){
-        map_boardidx_underbarptr[1]->setVisible(true);
-    } else if(choiceOfBoard == 2){
-        map_boardidx_underbarptr[2]->setVisible(true);
-    } else if(choiceOfBoard == 3){
-        map_boardidx_underbarptr[3]->setVisible(true);
-    } else if(choiceOfBoard == 4){
-        map_boardidx_underbarptr[4]->setVisible(true);
-    } else if(choiceOfBoard == 5){
-        map_boardidx_underbarptr[5]->setVisible(true);
-    } else if(choiceOfBoard == 6){
-        map_boardidx_underbarptr[6]->setVisible(true);
-    } else if(choiceOfBoard == 7){
-        map_boardidx_underbarptr[7]->setVisible(true);
-    } else if(choiceOfBoard == 8){
-        map_boardidx_underbarptr[8]->setVisible(true);
-    } else {
-        map_boardidx_underbarptr[9]->setVisible(true);
+    // Set all the underbars to invisible, and then set the underbar of the board the user chose visible.
+    for (auto iter = map_boardidx_underbarptr.begin(); iter != map_boardidx_underbarptr.end(); ++iter){
+        iter->second->setVisible(false);
     }
+    map_boardidx_underbarptr[choiceOfBoard]->setVisible(true);
 
-    // When the user enters the Settings first, it pieceunderbar represents piece of players'
-
+    // Set all the underbars to invisible, and then set the underbar of the player1 piece the user chose visible.
     for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
         iter->second->setVisible(false);
     }
     map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(true);
 
+    // The Player1Button should be highlighted. -> Therefore, setting the border color of the button as grey.
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid white;"
@@ -435,26 +420,28 @@ void MainWindow::on_button_clicked(){
 }
 
 
-// Play screen- 'page_3'
+// When StopButton is clicked (in page3), message Box ask the user again if he wants to quit, and then If answered 'Yes', end the game.
 void MainWindow::on_StopButton_clicked()
 {
     QMessageBox MsgBox;
         MsgBox.setText("Do you want to end this game?");
        // MsgBox.setInformativeText("Do you want to end this game?");
-        MsgBox.setStandardButtons(QMessageBox::Ok |QMessageBox::Cancel);
-        MsgBox.setDefaultButton(QMessageBox::Ok);
-        if (MsgBox.exec() == QMessageBox::Ok ){
+        MsgBox.setStandardButtons(QMessageBox::Yes |QMessageBox::No);
+        MsgBox.setDefaultButton(QMessageBox::Yes);
+        if (MsgBox.exec() == QMessageBox::Yes ){
             this->close();
         }
 }
 
-// Settings
+// When BoardButton_1 is chosen from user, set the underbar to the BoarButton_1 and set the board in the main game page.
 void MainWindow::on_BoardButton_1_clicked()
 {
-    choiceOfBoard = 1;
+    choiceOfBoard = 1; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_1 Visible.
     map_boardidx_underbarptr[1]->setVisible(true);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -466,12 +453,15 @@ void MainWindow::on_BoardButton_1_clicked()
     map_boardidx_underbarptr[9]->setVisible(false);
 }
 
+// When BoardButton_2 is chosen from user, set the underbar to the BoarButton_2 and set the board in the main game page.
 void MainWindow::on_BoardButton_2_clicked()
 {
-    choiceOfBoard = 2;
+    choiceOfBoard = 2; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_2 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(true);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -483,12 +473,15 @@ void MainWindow::on_BoardButton_2_clicked()
     map_boardidx_underbarptr[9]->setVisible(false);
 }
 
+// When BoardButton_3 is chosen from user, set the underbar to the BoarButton_3 and set the board in the main game page.
 void MainWindow::on_BoardButton_3_clicked()
 {
-    choiceOfBoard = 3;
+    choiceOfBoard = 3; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_3 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(true);
@@ -499,12 +492,16 @@ void MainWindow::on_BoardButton_3_clicked()
     map_boardidx_underbarptr[8]->setVisible(false);
     map_boardidx_underbarptr[9]->setVisible(false);
 }
+
+// When BoardButton_4 is chosen from user, set the underbar to the BoarButton_4 and set the board in the main game page.
 void MainWindow::on_BoardButton_4_clicked()
 {
-    choiceOfBoard = 4;
+    choiceOfBoard = 4; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_4 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -515,12 +512,16 @@ void MainWindow::on_BoardButton_4_clicked()
     map_boardidx_underbarptr[8]->setVisible(false);
     map_boardidx_underbarptr[9]->setVisible(false);
 }
+
+// When BoardButton_5 is chosen from user, set the underbar to the BoarButton_5 and set the board in the main game page.
 void MainWindow::on_BoardButton_5_clicked()
 {
-    choiceOfBoard = 5;
+    choiceOfBoard = 5; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_5 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -531,12 +532,16 @@ void MainWindow::on_BoardButton_5_clicked()
     map_boardidx_underbarptr[8]->setVisible(false);
     map_boardidx_underbarptr[9]->setVisible(false);
 }
+
+// When BoardButton_6 is chosen from user, set the underbar to the BoarButton_6 and set the board in the main game page.
 void MainWindow::on_BoardButton_6_clicked()
 {
-    choiceOfBoard = 6;
+    choiceOfBoard = 6; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_6 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -547,12 +552,16 @@ void MainWindow::on_BoardButton_6_clicked()
     map_boardidx_underbarptr[8]->setVisible(false);
     map_boardidx_underbarptr[9]->setVisible(false);
 }
+
+// When BoardButton_7 is chosen from user, set the underbar to the BoarButton_7 and set the board in the main game page.
 void MainWindow::on_BoardButton_7_clicked()
 {
-    choiceOfBoard = 7;
+    choiceOfBoard = 7; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_7 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -563,12 +572,16 @@ void MainWindow::on_BoardButton_7_clicked()
     map_boardidx_underbarptr[8]->setVisible(false);
     map_boardidx_underbarptr[9]->setVisible(false);
 }
+
+// When BoardButton_8 is chosen from user, set the underbar to the BoarButton_8 and set the board in the main game page.
 void MainWindow::on_BoardButton_8_clicked()
 {
-    choiceOfBoard= 8;
+    choiceOfBoard= 8; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_8 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -579,12 +592,16 @@ void MainWindow::on_BoardButton_8_clicked()
     map_boardidx_underbarptr[8]->setVisible(true);
     map_boardidx_underbarptr[9]->setVisible(false);
 }
+
+// When BoardButton_9 is chosen from user, set the underbar to the BoarButton_9 and set the board in the main game page.
 void MainWindow::on_BoardButton_9_clicked()
 {
-    choiceOfBoard = 9;
+    choiceOfBoard = 9; // Store the chosen board to the var 'choiceOfBoard'.
+    // Set the board in the main game page visible.
     ui->Board1->setVisible(true);
     ui->Board1->setPixmap(map_boardidx_source[choiceOfBoard]);
 
+    // Set the underbar to the BoarButton_9 Visible.
     map_boardidx_underbarptr[1]->setVisible(false);
     map_boardidx_underbarptr[2]->setVisible(false);
     map_boardidx_underbarptr[3]->setVisible(false);
@@ -596,18 +613,19 @@ void MainWindow::on_BoardButton_9_clicked()
     map_boardidx_underbarptr[9]->setVisible(true);
 }
 
+// When Player1Button is clicked, it shows the player1's piece which is chosen from the user.
 void MainWindow::on_Player1Button_clicked()
 {
 
-    isPlayer1PieceChoice = true;
+    isPlayer1PieceChoice = true; // Save the var to true, so that the computer knows the flag to be chosen belongs to player1.
 
     for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
-        iter->second->setVisible(false);
+        iter->second->setVisible(false); // Set every pieces' underbar to invisible.
     }
-    map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(true);
+    map_pieceidx_underbarptr[choiceOfPlayer1Piece]->setVisible(true); // And then set undebar to the chosen piece's.
 
 
-    // Highlight the border of the button to inform the user whether he is choosing the flag for player1 or player2
+    // Highlight the border of the player1's button to inform the user that he is choosing the piece for player1.
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid white;"
@@ -618,16 +636,17 @@ void MainWindow::on_Player1Button_clicked()
                                      "border-radius: 20px;");
 }
 
+// When Player2Button is clicked, it shows the player2's piece which is chosen from the user.
 void MainWindow::on_Player2Button_clicked()
 {
-    isPlayer1PieceChoice = false;
+    isPlayer1PieceChoice = false; // Save the var to false, so that the computer knows the flag to be chosen belongs to player2.
 
     for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
-        iter->second->setVisible(false);
+        iter->second->setVisible(false); // Set every pieces' underbar to invisible.
     }
-    map_pieceidx_underbarptr[choiceOfPlayer2Piece]->setVisible(true);
+    map_pieceidx_underbarptr[choiceOfPlayer2Piece]->setVisible(true); // And then set undebar to the chosen piece's.
 
-    // Highlight the border of the button to inform the user whether he is choosing the flag for player1 or player2
+    // Highlight the border of the players2' button to inform the user that he is choosing the piece for player2.
     ui->Player1Button->setStyleSheet("color: white;"
                                      "background-color:qlineargradient(spread:reflect, x1:1, y1:0, x2:0.995, y2:1, stop:0 rgba(218, 218, 218, 255), stop:0.305419 rgba(0, 7, 11, 255), stop:0.935961 rgba(2, 11, 18, 255), stop:1 rgba(240, 240, 240, 255));"
                                      "border: 1px solid grey;"
@@ -638,8 +657,11 @@ void MainWindow::on_Player2Button_clicked()
                                      "border-radius: 20px;");
 }
 
+// When PieceButton1 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_1_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(true);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -650,22 +672,27 @@ void MainWindow::on_PieceButton_1_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 1;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 1; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 1;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 1; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton2 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_2_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(true);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -676,22 +703,27 @@ void MainWindow::on_PieceButton_2_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 2;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 2; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 2;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 2; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton3 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_3_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(true);
@@ -702,22 +734,27 @@ void MainWindow::on_PieceButton_3_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 3;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 3; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 3;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 3; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton4 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_4_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -728,22 +765,27 @@ void MainWindow::on_PieceButton_4_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 4;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 4; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 4;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 4; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton5 is clicked,
+//show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_5_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -754,22 +796,27 @@ void MainWindow::on_PieceButton_5_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 5;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 5; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 5;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 5; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton6 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_6_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -780,22 +827,27 @@ void MainWindow::on_PieceButton_6_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 6;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 6; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 6;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 6; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton7 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_7_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -806,22 +858,27 @@ void MainWindow::on_PieceButton_7_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 7;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 7; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 7;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 7; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton8 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_8_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -832,22 +889,27 @@ void MainWindow::on_PieceButton_8_clicked()
     map_pieceidx_underbarptr[8]->setVisible(true);
     map_pieceidx_underbarptr[9]->setVisible(false);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 8;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 8; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 8;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 8; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
+
+// When PieceButton9 is clicked,
+// show the underline matching to the chosen piece's, remember the chosen piece, and then set the piece image in the main game screen.
 void MainWindow::on_PieceButton_9_clicked()
 {
+    // Show the underline matching to the chosen piece's.
     map_pieceidx_underbarptr[1]->setVisible(false);
     map_pieceidx_underbarptr[2]->setVisible(false);
     map_pieceidx_underbarptr[3]->setVisible(false);
@@ -858,17 +920,18 @@ void MainWindow::on_PieceButton_9_clicked()
     map_pieceidx_underbarptr[8]->setVisible(false);
     map_pieceidx_underbarptr[9]->setVisible(true);
 
+    // Check whether the chosen piece is for player1 or player2.
     if (isPlayer1PieceChoice == true){
-        choiceOfPlayer1Piece = 9;
-        for(QLabel* label: player1PieceLabels) {
+        choiceOfPlayer1Piece = 9; // Remember the chosen piece
+        for(QLabel* label: player1PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer1Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer1Piece]);
         }
     } else {
-        choiceOfPlayer2Piece = 9;
-        for(QLabel* label: player2PieceLabels) {
+        choiceOfPlayer2Piece = 9; // Remember the chosen piece
+        for(QLabel* label: player2PieceLabels) { // Set the pieces' labels to the chosen piece's image and make it visible.
             label->setVisible(true);
-            label->setPixmap(map_flagidx_source[choiceOfPlayer2Piece]);
+            label->setPixmap(map_pieceidx_source[choiceOfPlayer2Piece]);
         }
     }
 }
