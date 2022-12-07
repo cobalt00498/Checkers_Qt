@@ -5,6 +5,8 @@
 #include "Move.h"
 #include <QMessageBox>
 #include <map>
+#include <vector>
+#include <algorithm>
 //#include <QSound>
 using namespace std;
 
@@ -16,6 +18,7 @@ int choiceOfPlayer1Piece = 1; // This variable sotres the choice of player1 piec
 int choiceOfPlayer2Piece = 2; // This variable stores the choice of player2 piece.
 bool isLiftTurn = true; // This is the flag representing whether the click is Lifting the piece or Dropping the piece.
 bool isPlayer1Turn = true; // This is the flag representing whether the turn is player1's or player2's.
+bool isComputer; // This is the flag representing whether the player play the game with computer or player.
 int hitPieceCount_player1 = 0; // This shows the number of pieces that player1 captued.
 int hitPieceCount_player2 = 0; // This shows the number of pieces that player2 captued.
 string moveFromButtonName; // This variable stores the button name where the piece move from.
@@ -28,7 +31,7 @@ map<int, QPixmap> map_boardidx_source; // This is map containing the key(board i
 map<int, QPixmap> map_pieceidx_source; // This is map containing the key(piece idx: 1-9) and mapped value(image source to the idexed pieace, which will be show up in main game screen)
 map<int, QLabel*> map_boardidx_underbarptr; // This is map containing the key(board idx: 1-9) and mapped value(pointer to the underbar label of the board idx)
 map<int, QLabel*> map_pieceidx_underbarptr; // This is map containing the key(piece idx: 1-9) and mapped value(pointer to the underbar label of the piece idx)
-
+vector<string> boardButton_vec; // It is used when the computer picks and drops a piece
 // Constructor of the mainWindow
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -137,6 +140,12 @@ MainWindow::MainWindow(QWidget *parent)
     map_s_Q.insert(pair<string, QLabel*>(ui->B_6_8->objectName().toStdString(), ui->b3Label));
     map_s_Q.insert(pair<string, QLabel*>(ui->B_8_8->objectName().toStdString(), ui->b4Label));
 
+    // Make a vector consists of the BoardButtons
+    for (auto iter:map_s_Q){
+      boardButton_vec.push_back(iter.first);
+    }
+
+
     // Insert mapped pair of a board idx(1-9) and the pointer to the underbar belonging to the board idexed.
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(1, ui->BoardUnderbar_1));
     map_boardidx_underbarptr.insert(pair<int, QLabel*>(2, ui->BoardUnderbar_2));
@@ -181,8 +190,8 @@ MainWindow::MainWindow(QWidget *parent)
     map_pieceidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
     map_pieceidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
 
-    ui->player2TurnLabel->setVisible(false);
-    ui->player1TurnLabel->setVisible(true);
+    ui->player2Turn->setChecked(false);
+    ui->player1Turn->setChecked(true);
 
     ui->stackedWidget->setCurrentWidget(ui->page);
 }
@@ -214,6 +223,13 @@ void MainWindow::resetGameStatus(){
     moveFromButtonName = ""; // Since not moved any piece, the name of the starting button should be empty string.
     moveToButtonName = ""; // Since not moved any piece, the name of the ending button should be empty string.
     movingLabelPtr = nullptr;
+    isComputer = false;
+    // reset the labels
+    ui->player2Turn->setChecked(false);
+    ui->player1Turn->setChecked(true);
+    ui->player2Turn->setFont(QFont("Cooper Black", 16));
+    ui->player2Turn->setText("Player2");
+    ui->player1Turn->setText("Player1");
 
     //Place the pieces in the original position(matching the buttons' names) by setting them in map_s_Q
    /*Since the labels are not actually moving. But set to visible/invisible, which means respectively 'existing' or 'removed from the place'.
@@ -285,33 +301,32 @@ void MainWindow::on_RuleButton_clicked()
     ui->stackedWidget->setCurrentWidget(ui->page_2);
 
 }
-
 // When StartButton(in page) is clicked, redict user to page_3 that enables users to play game.
 void MainWindow::on_StartButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
-
+// When 'VS Computer'(in page) is clicked, redict user to page_3 that enables users to play with a computer.
+void MainWindow::on_StartButton_cpu_clicked()
+{
+    isComputer = true; // change the status
+    // Change the label
+    ui->player2Turn->setText("Computer Player");
+    ui->player2Turn->setFont(QFont("Cooper Black", 13));
+    ui->player1Turn->setText("Player");
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+}
 // When BackeButton(in page_2) clicked, redict user to page that shows back page(Home page).
 void MainWindow::on_BackButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page);
 }
-
-// When StartButton2(in page_2) is clicked, redict user to page_3 that enables users to play game.
-void MainWindow::on_StartButton_2_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
-}
-
-
 // When HomeButton(in page_2) is clicked, redict user to page that shows Home page and reset game status.
 void MainWindow::on_HomeButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page);
     resetGameStatus();
 }
-
 
 // When HomeButton2(in page_3) is clicked, redict user to page that shows Home page and reset game status.
 void MainWindow::on_HomeButton2_clicked()
@@ -412,13 +427,63 @@ void MainWindow::on_button_clicked(){
                 // Change the turn and make it visible the turn switch.
                 isLiftTurn = !isLiftTurn;
                 isPlayer1Turn = !isPlayer1Turn;
-                ui->player2TurnLabel->setVisible(!isPlayer1Turn);
-                ui->player1TurnLabel->setVisible(isPlayer1Turn);
-
+                ui->player1Turn->setChecked(isPlayer1Turn);
+                ui->player2Turn->setChecked(!isPlayer1Turn);
                 CheckAndHandleWinCase(ui); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
                 }
+            // After player put down a piece, it's time to CPU (player2)
+            if (!isPlayer1Turn && isComputer){
+                // Computer picks and drops a piece randomly
+                random_shuffle(boardButton_vec.begin(), boardButton_vec.end());
+                cout << "============ Computer Turn =================" << endl;
+                string pickedButtonName;
+                // When CPU picks up the piece
+                for (string liftBtn: boardButton_vec){
+                  pickedButtonName = liftBtn;
+                  QLabel* pickedLabelPtr = map_s_Q.at(pickedButtonName);
+                  if (pickedLabelPtr == nullptr) continue; // there is no piece
+                  try {
+                      Move::pickPiece(pickedButtonName, pickedLabelPtr);// @assign: moveFromButtonName, movingLabelPtr
+                      cout << pickedButtonName << " :valid pick" << endl;
+                  }
+                  catch (invalid_argument& e) {
+                      cout << pickedButtonName << " :invalid pick" << endl;
+                      continue; // invalid picking is skipped
+                  }
+                  // When Computer player put down the piece
+                  isLiftTurn = false;
+                  cout << "============ Drop =================" << endl;
+                  for (string dropBtn: boardButton_vec){
+                    string droppedButtonName = dropBtn;
+                    QLabel* droppedLabelPtr = map_s_Q.at(droppedButtonName);
+                    // explore all the boardButtons
+                    if (droppedLabelPtr != nullptr) continue; // Other pieces already exists -> skip!
+                    try {
+                      Move::movePiece(movingLabelPtr, moveFromButtonName, droppedButtonName);
+                      cout << droppedButtonName << " :valid drop" << endl;
+                      moveToButtonName = droppedButtonName;
+                      handleKingPiece(movingLabelPtr, moveToButtonName); // if movePiece is done, check if the moved piece is King and handle it.
+
+                      CheckAndHandleWinCase(ui); // check if the game ends or not
+                      // change the status
+                      isLiftTurn = true;
+                      isPlayer1Turn = true;
+                      ui->player1Turn->setChecked(isPlayer1Turn);
+                      ui->player2Turn->setChecked(!isPlayer1Turn);
+                      return;
+                    } catch (invalid_argument& e) {
+                        cout << droppedButtonName << " :invalid drop" << endl;
+                        continue;
+                    }
+                  }
+            }
+            }
+            cout << "============ Computer END =================" << endl;
+
     }
 }
+
+
 
 
 // When StopButton is clicked (in page3), message Box ask the user again if he wants to quit, and then If answered 'Yes', end the game.
