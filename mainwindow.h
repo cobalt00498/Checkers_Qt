@@ -30,8 +30,6 @@ private slots:
 
     void on_ExitButton_clicked();
 
-    void on_StartButton_cpu_clicked();
-
     void on_PlayButton2_clicked();
 
     void on_HomeButton_clicked();
@@ -48,9 +46,13 @@ private slots:
 
     void on_ReplayButton_clicked();
 
+    void on_BackButton_clicked();
+
     void on_BackButton_2_clicked();
 
     void on_PlayButton3_clicked();
+
+    void on_ConsequentialButton_clicked();
 
     //Settings
     void on_BoardButton_1_clicked();

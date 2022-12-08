@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -62,7 +62,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -84,7 +84,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -106,7 +106,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -128,7 +128,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -150,7 +150,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -172,7 +172,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -194,7 +194,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -216,7 +216,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -238,7 +238,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -260,7 +260,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -282,7 +282,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -304,7 +304,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -326,7 +326,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -348,7 +348,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -370,7 +370,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -392,7 +392,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -414,7 +414,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -439,7 +439,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -461,7 +461,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -483,7 +483,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -505,7 +505,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -527,7 +527,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -549,7 +549,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/blue_piece.png</pixmap>
+       <pixmap>:/image/blue_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>y</string>
@@ -1006,7 +1006,7 @@
        <enum>Qt::MarkdownText</enum>
       </property>
       <property name="pixmap">
-       <pixmap resource="resource2.qrc">:/image/white_piece.png</pixmap>
+       <pixmap>:/image/white_piece.png</pixmap>
       </property>
       <property name="color" stdset="0">
        <string>b</string>
@@ -1274,6 +1274,22 @@
        <string>Close</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="ConsequentialButton">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>210</y>
+        <width>131</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
      <zorder>Board1</zorder>
      <zorder>b4Label</zorder>
      <zorder>y9Label</zorder>
@@ -1338,6 +1354,7 @@
      <zorder>CloseButton</zorder>
      <zorder>player2Turn</zorder>
      <zorder>player1Turn</zorder>
+     <zorder>ConsequentialButton</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
@@ -1347,7 +1364,7 @@
       <property name="geometry">
        <rect>
         <x>270</x>
-        <y>80</y>
+        <y>100</y>
         <width>271</width>
         <height>41</height>
        </rect>
@@ -1368,8 +1385,8 @@
      <widget class="QPushButton" name="BackButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>10</y>
+        <x>40</x>
+        <y>30</y>
         <width>150</width>
         <height>50</height>
        </rect>
@@ -1395,7 +1412,7 @@
      <widget class="QLabel" name="RuleBrowser">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>120</x>
         <y>70</y>
         <width>1081</width>
         <height>541</height>
@@ -1416,8 +1433,7 @@ performed and every enemy piece can be jumped over only once.
 
 3. When a piece reaches the last row, it promotes to a king.
 
-4. Kings (promoted pieces) move any number of spaces diagonally 
-forward or backward. 
+4. Kings (promoted pieces) move forward or backward. 
 
 5. If a player catches all pieces of counterpart, the player wins.</string>
       </property>
@@ -1441,8 +1457,8 @@ forward or backward.
      <widget class="QPushButton" name="PlayButton2">
       <property name="geometry">
        <rect>
-        <x>700</x>
-        <y>10</y>
+        <x>620</x>
+        <y>30</y>
         <width>150</width>
         <height>50</height>
        </rect>
@@ -2032,7 +2048,7 @@ forward or backward.
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>0</y>
+        <y>10</y>
         <width>150</width>
         <height>50</height>
        </rect>
@@ -2059,7 +2075,7 @@ forward or backward.
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>0</y>
+        <y>10</y>
         <width>150</width>
         <height>50</height>
        </rect>
@@ -2383,7 +2399,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/white_piece.png</normaloff>:/image/white_piece.png</iconset>
+        <normaloff>:/image/flag1.png</normaloff>:/image/flag1.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2702,7 +2718,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/blue_piece.png</normaloff>:/image/blue_piece.png</iconset>
+        <normaloff>:/image/flag2.png</normaloff>:/image/flag2.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2742,7 +2758,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/black_piece.png</normaloff>:/image/black_piece.png</iconset>
+        <normaloff>:/image/flag3.png</normaloff>:/image/flag3.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2782,7 +2798,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag1.png</normaloff>:/image/flag1.png</iconset>
+        <normaloff>:/image/flag4.png</normaloff>:/image/flag4.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2822,7 +2838,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag2.png</normaloff>:/image/flag2.png</iconset>
+        <normaloff>:/image/flag5.png</normaloff>:/image/flag5.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2862,7 +2878,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag3.png</normaloff>:/image/flag3.png</iconset>
+        <normaloff>:/image/flag6_king.png</normaloff>:/image/flag6_king.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2900,7 +2916,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag4.png</normaloff>:/image/flag4.png</iconset>
+        <normaloff>:/image/flag7.png</normaloff>:/image/flag7.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2940,7 +2956,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag5.png</normaloff>:/image/flag5.png</iconset>
+        <normaloff>:/image/flag8.png</normaloff>:/image/flag8.png</iconset>
       </property>
       <property name="iconSize">
        <size>
@@ -2980,7 +2996,7 @@ forward or backward.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag7.png</normaloff>:/image/flag7.png</iconset>
+        <normaloff>:/image/flag9.png</normaloff>:/image/flag9.png</iconset>
       </property>
       <property name="iconSize">
        <size>

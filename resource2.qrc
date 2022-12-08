@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>image/blue_piece.png</file>
-        <file>image/yellow_piece.png</file>
         <file>image/background.jpg</file>
         <file>image/crumpled_paper.jpg</file>
         <file>image/celebrate.jpg</file>
@@ -13,19 +11,10 @@
         <file>resource2.qrc</file>
         <file>Team1_checkers2.pro</file>
         <file>utils.h</file>
-        <file>image/blue_king.png</file>
-        <file>image/yellow_king.png</file>
-        <file>image/black_piece.png</file>
         <file>image/celebrate2.jpg</file>
-        <file>image/green_piece.png</file>
-        <file>image/navy_piece.png</file>
-        <file>image/orange_piece.png</file>
-        <file>image/red_piece.png</file>
         <file>image/tropy2.png</file>
         <file>image/tropy2_cut.png</file>
         <file>image/tropy3.png</file>
-        <file>image/violet_piece.png</file>
-        <file>image/white_piece.png</file>
         <file>image/flag1.png</file>
         <file>image/flag2.png</file>
         <file>image/flag3.png</file>
@@ -51,16 +40,17 @@
         <file>image/board8_settings.jpg</file>
         <file>image/board9.jpeg</file>
         <file>image/board9_settings.jpg</file>
-        <file>image/sound.png</file>
-        <file>image/mute.png</file>
-        <file>image/steppinstone.wav</file>
         <file>image/message.png</file>
-        <file>image/steppinstone.mp3</file>
         <file>image/flag1_king.png</file>
         <file>image/flag2_king.png</file>
         <file>image/flag3_king.png</file>
         <file>image/flag4_king.png</file>
         <file>image/flag5_king.png</file>
         <file>image/flag7_king.png</file>
+        <file>image/flag6_king.png</file>
+        <file>image/flag8.png</file>
+        <file>image/flag8_king.png</file>
+        <file>image/flag9.png</file>
+        <file>image/flag9_king.png</file>
     </qresource>
 </RCC>

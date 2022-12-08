@@ -40,7 +40,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
     if (abs(toX-fromX) >= 3){
         throw invalid_argument("This is invalid movement!");
     }
-    // If the piexe is not King...
+    // If the label is not King...
     if (movingLabelPtr->property("king") == false){
         // If the moveing is not, forward move, throw an exception.
         if (isPlayer1Turn? toY>=fromY: toY<=fromY){

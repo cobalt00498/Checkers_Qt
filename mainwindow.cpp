@@ -1,3 +1,4 @@
+#include <conio.h>
 #include <windows.h>
 #include "utils.h"
 #include "mainwindow.h"
@@ -6,6 +7,7 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+#include <time.h>
 
 using namespace std;
 
@@ -180,26 +182,26 @@ MainWindow::MainWindow(QWidget *parent)
     map_boardidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/board9.jpeg")));
 
     // Insert mapped pair of a piece idx(1-9) and the QPixamp of the piece idexed.
-    map_pieceidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/white_piece.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/blue_piece.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/black_piece.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag1.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag2.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag3.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag4.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
-    map_pieceidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(1, QPixmap(":/image/flag1.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(2, QPixmap(":/image/flag2.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(3, QPixmap(":/image/flag3.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag4.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag5.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag6.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag7.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag8.png")));
+    map_pieceidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag9.png")));
 
     // Insert mapped pair of a piece idx(1-9) and the QPixamp of the piece idexed.
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(1, QPixmap(":/image/white_piece.png"))); // TODO
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(2, QPixmap(":/image/blue_piece.png"))); //TODO
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(3, QPixmap(":/image/black_piece.png"))); //TODO
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag1_king.png")));
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag2_king.png")));
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag3_king.png")));
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag4_king.png")));
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5_king.png")));
-    map_pieceidx_kingsource.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(1, QPixmap(":/image/flag1_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(2, QPixmap(":/image/flag2_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(3, QPixmap(":/image/flag3_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag4_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag5_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag6_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag7_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag8_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag9_king.png")));
 
     ui->player2Turn->setChecked(false);
     ui->player1Turn->setChecked(true);
@@ -517,7 +519,7 @@ void MainWindow::on_button_clicked(){
         }
 
     } else { // When user drops a piece...
-            if (pickedLabelPtr != nullptr) { // If the place button the piece is to drop on is not empty (has another piece)...
+            if (pickedLabelPtr != nullptr) { // If the place(button) the piece is to drop on is not empty (has another piece)...
 
                 try {
                     Move::pickPiece(pickedButtonName, pickedLabelPtr); // Consider it as 'pickPiece' movement.
@@ -549,56 +551,73 @@ void MainWindow::on_button_clicked(){
                 ui->player1Turn->setChecked(isPlayer1Turn);
                 ui->player2Turn->setChecked(!isPlayer1Turn);
                 CheckAndHandleWinCase(ui); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
-                }
-            // After player put down a piece, it's time to CPU (player2)
-            if (!isPlayer1Turn && isComputer){
-                // Computer picks and drops a piece randomly
-                random_shuffle(boardButton_vec.begin(), boardButton_vec.end());
-                cout << "============ Computer Turn =================" << endl;
-                string pickedButtonName;
-                // When CPU picks up the piece
-                for (string liftBtn: boardButton_vec){
-                  pickedButtonName = liftBtn;
-                  QLabel* pickedLabelPtr = map_s_Q.at(pickedButtonName);
-                  if (pickedLabelPtr == nullptr) continue; // there is no piece
-                  try {
-                      Move::pickPiece(pickedButtonName, pickedLabelPtr);// @assign: moveFromButtonName, movingLabelPtr
-                      cout << pickedButtonName << " :valid pick" << endl;
-                  }
-                  catch (invalid_argument& e) {
-                      cout << pickedButtonName << " :invalid pick" << endl;
-                      continue; // invalid picking is skipped
-                  }
-                  // When Computer player put down the piece
-                  isLiftTurn = false;
-                  cout << "============ Drop =================" << endl;
-                  for (string dropBtn: boardButton_vec){
-                    string droppedButtonName = dropBtn;
-                    QLabel* droppedLabelPtr = map_s_Q.at(droppedButtonName);
-                    // explore all the boardButtons
-                    if (droppedLabelPtr != nullptr) continue; // Other pieces already exists -> skip!
-                    try {
-                      Move::movePiece(movingLabelPtr, moveFromButtonName, droppedButtonName);
-                      cout << droppedButtonName << " :valid drop" << endl;
-                      moveToButtonName = droppedButtonName;
-                      handleKingPiece(movingLabelPtr, moveToButtonName); // if movePiece is done, check if the moved piece is King and handle it.
 
-                      CheckAndHandleWinCase(ui); // check if the game ends or not
-                      // change the status
-                      isLiftTurn = true;
-                      isPlayer1Turn = true;
-                      ui->player1Turn->setChecked(isPlayer1Turn);
-                      ui->player2Turn->setChecked(!isPlayer1Turn);
-                      return;
-                    } catch (invalid_argument& e) {
-                        cout << droppedButtonName << " :invalid drop" << endl;
-                        continue;
-                    }
-                  }
-            }
-            }
-            cout << "============ Computer END =================" << endl;
+                QMetaObject::invokeMethod(ui->ConsequentialButton, "clicked");
+                }
     }
+}
+
+
+void MainWindow::on_ConsequentialButton_clicked()
+{
+//    After player put down a piece, it's time for CPU to move(player2)
+//   clock_t now, finish;
+//   int clocksPerSeconds = 1000;
+//   double duration;
+//   duration  = 10*clocksPerSeconds;
+//   now = clock();
+//   finish = now + duration;
+//   do{
+//       now = clock();
+//   }
+//   while(now < finish);
+    if (!isPlayer1Turn && isComputer){
+        // Computer picks and drops a piece randomly
+        random_shuffle(boardButton_vec.begin(), boardButton_vec.end());
+        cout << "============ Computer Turn =================" << endl;
+        string pickedButtonName;
+        // When CPU picks up the piece
+        for (string liftBtn: boardButton_vec){
+          pickedButtonName = liftBtn;
+          QLabel* pickedLabelPtr = map_s_Q.at(pickedButtonName);
+          if (pickedLabelPtr == nullptr) continue; // there is no piece
+          try {
+              Move::pickPiece(pickedButtonName, pickedLabelPtr);// @assign: moveFromButtonName, movingLabelPtr
+              cout << pickedButtonName << " :valid pick" << endl;
+          }
+          catch (invalid_argument& e) {
+              cout << pickedButtonName << " :invalid pick" << endl;
+              continue; // invalid picking is skipped
+          }
+          // When Computer player put down the piece
+          isLiftTurn = false;
+          cout << "============ Drop =================" << endl;
+          for (string dropBtn: boardButton_vec){
+            string droppedButtonName = dropBtn;
+            QLabel* droppedLabelPtr = map_s_Q.at(droppedButtonName);
+            // explore all the boardButtons
+            if (droppedLabelPtr != nullptr) continue; // Other pieces already exists -> skip!
+            try {
+              Move::movePiece(movingLabelPtr, moveFromButtonName, droppedButtonName);
+              cout << droppedButtonName << " :valid drop" << endl;
+              moveToButtonName = droppedButtonName;
+              handleKingPiece(movingLabelPtr, moveToButtonName); // if movePiece is done, check if the moved piece is King and handle it.
+
+              CheckAndHandleWinCase(ui); // check if the game ends or not
+              // change the status
+              isLiftTurn = true;
+              isPlayer1Turn = true;
+              ui->player1Turn->setChecked(isPlayer1Turn);
+              ui->player2Turn->setChecked(!isPlayer1Turn);
+              return;
+            } catch (invalid_argument& e) {
+                cout << droppedButtonName << " :invalid drop" << endl;
+                continue;
+            }
+          }
+    }
+    }
+    cout << "============ Computer END =================" << endl;
 }
 
 // When BoardButton_1 is chosen from user, set the underbar to the BoarButton_1 and set the board in the main game page.
