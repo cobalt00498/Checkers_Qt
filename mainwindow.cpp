@@ -12,7 +12,7 @@
 using namespace std;
 
 Option option1 = Option::createOption(); // Create the default instance of class Option.
-CurrentMove currentMove1 = CurrentMove(); // Create the default instance of class Option.
+CurrentMove currentMove1 = CurrentMove::createCurrentMove(); // Create the default instance of class CurrentMove.
 Game game1 = Game::createGame(); // Create the default instance of class Game.
 bool isLiftTurn = true; // This is the flag representing whether the click is Lifting the piece or Dropping the piece.
 bool isPlayer1Turn = true; // This is the flag representing whether the turn is player1's or player2's.

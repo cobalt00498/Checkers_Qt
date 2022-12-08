@@ -11,9 +11,9 @@ using namespace std;
 class CurrentMove
 {
 public:
-//    static CurrentMove createCurrentMove(){
-//        return CurrentMove();
-//    };
+    static CurrentMove createCurrentMove(){
+        return CurrentMove();
+    };
     CurrentMove(); // Constructor
     void setMoveFromButtonName(string buttonName){
         moveFromButtonName = buttonName;
