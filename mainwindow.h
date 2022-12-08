@@ -26,9 +26,9 @@ private slots:
 
     void on_StopButton_clicked();
 
-    void on_BackButton_clicked();
+    void on_StartButton_cpu_clicked();
 
-    void on_StartButton_2_clicked();
+    void on_BackButton_clicked();
 
     void on_HomeButton_clicked();
 
@@ -66,11 +66,15 @@ private slots:
 
     void on_Player2Button_clicked();
 
-    void on_SoundButton_clicked();
+    //void on_SoundButton_clicked();
 
     void on_CloseButton_pressed();
 
     void on_CloseButton_clicked();
+
+    void on_YesButton_clicked();
+
+    void on_NoButton_clicked();
 
 private:
     Ui::MainWindow *ui;
