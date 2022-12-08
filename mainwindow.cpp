@@ -406,7 +406,6 @@ void MainWindow::on_NoButton2_clicked()
     ui->NoButton2->setVisible(false);
 }
 
-
 // When BackeButton(in page_2) clicked, redict user to page that shows back page(Home page).
 void MainWindow::on_BackButton_clicked()
 {
