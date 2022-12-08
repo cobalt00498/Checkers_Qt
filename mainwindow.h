@@ -52,7 +52,7 @@ private slots:
 
     void on_PlayButton3_clicked();
 
-    void on_ConsequentialButton_clicked();
+    void on_ComputerMoveButton_clicked();
 
     //Settings
     void on_BoardButton_1_clicked();

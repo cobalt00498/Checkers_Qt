@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -1274,7 +1274,7 @@
        <string>Close</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="ConsequentialButton">
+     <widget class="QPushButton" name="ComputerMoveButton">
       <property name="geometry">
        <rect>
         <x>620</x>
@@ -1354,7 +1354,7 @@
      <zorder>CloseButton</zorder>
      <zorder>player2Turn</zorder>
      <zorder>player1Turn</zorder>
-     <zorder>ConsequentialButton</zorder>
+     <zorder>ComputerMoveButton</zorder>
     </widget>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">

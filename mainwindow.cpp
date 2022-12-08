@@ -12,7 +12,6 @@
 using namespace std;
 
 bool isPlayer1PieceChoice = true; // This is the flag reprensenting whether the click is meant to set the color of player1's or player2's.
-bool isSoundMuted = false; // This is the flag representing whether to play the sound. default value is true, therefore muted. TODO
 int choiceOfBoard = 1; // This variable stores the choice of board.
 int choiceOfPlayer1Piece = 1; // This variable sotres the choice of player1 piece.
 int choiceOfPlayer2Piece = 2; // This variable stores the choice of player2 piece.
@@ -23,8 +22,8 @@ int hitPieceCount_player1 = 0; // This shows the number of pieces that player1 c
 int hitPieceCount_player2 = 0; // This shows the number of pieces that player2 captued.
 string moveFromButtonName; // This variable stores the button name where the piece move from.
 string moveToButtonName; // This variable stores the button name where the piece move to.
-
 QLabel* movingLabelPtr; // This variable stores the pointer to the label(piece).
+
 // This maps the Button name(string) to the Labels(QLabel ptr) located on the button.
 map<string, QLabel*> map_s_Q;
 map<int, QPixmap> map_boardidx_source; // This is map containing the key(board idx: 1-9) and mapped value(imgae source)
@@ -244,7 +243,7 @@ void MainWindow::resetGameStatus(){
         label->setVisible(true);
     }
 
-    // Set the default vaue When the MainWindow is initialized.
+    // Set the default value When the MainWindow is initialized.
     isLiftTurn = true; // Start with the action 'lift'.
     isPlayer1Turn = true; // Player1 starts first.
     hitPieceCount_player1 = 0; // Player1 captured nothing when the game starts.
@@ -333,6 +332,8 @@ void MainWindow::on_SettingsButton_clicked()
         iter->second->setVisible(false);
     }
     map_boardidx_underbarptr[choiceOfBoard]->setVisible(true);
+
+    isPlayer1PieceChoice = true; // When first enters the setting page, player1 choose the flag first.
 
     // Set all the underbars to invisible, and then set the underbar of the player1 piece the user chose visible.
     for (auto iter = map_pieceidx_underbarptr.begin(); iter != map_pieceidx_underbarptr.end(); ++iter){
@@ -552,25 +553,15 @@ void MainWindow::on_button_clicked(){
                 ui->player2Turn->setChecked(!isPlayer1Turn);
                 CheckAndHandleWinCase(ui); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
 
-                QMetaObject::invokeMethod(ui->ConsequentialButton, "clicked");
+                QMetaObject::invokeMethod(ui->ComputerMoveButton, "clicked"); // Sequetially invoking the move of computer player.
                 }
     }
 }
 
-
-void MainWindow::on_ConsequentialButton_clicked()
+// When computer move is invoked sequentially, move computer according to the logic.
+void MainWindow::on_ComputerMoveButton_clicked()
 {
 //    After player put down a piece, it's time for CPU to move(player2)
-//   clock_t now, finish;
-//   int clocksPerSeconds = 1000;
-//   double duration;
-//   duration  = 10*clocksPerSeconds;
-//   now = clock();
-//   finish = now + duration;
-//   do{
-//       now = clock();
-//   }
-//   while(now < finish);
     if (!isPlayer1Turn && isComputer){
         // Computer picks and drops a piece randomly
         random_shuffle(boardButton_vec.begin(), boardButton_vec.end());
