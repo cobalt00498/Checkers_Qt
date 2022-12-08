@@ -12,6 +12,8 @@ using namespace std;
 
 extern bool isLiftTurn;
 extern bool isPlayer1Turn;
+extern int choiceOfPlayer1Piece;
+extern int choiceOfPlayer2Piece;
 //extern bool endGameNow;
 extern int hitPieceCount_player1;
 extern int hitPieceCount_player2;
@@ -21,17 +23,16 @@ extern string moveToButtonName;
 extern QLabel* movingLabelPtr;
 
 extern map<string, QLabel*> map_s_Q;
+extern map<int, QPixmap> map_pieceidx_kingsource;
 
 // Check if the movingPiece(=movingLabel) should be King ( = reaches the end line). And if yes, handle it.
 void handleKingPiece(QLabel* movingLabelPtr, string moveToButtonName) {
     int moveToButtonY = stoi(moveToButtonName.substr(4,1));
     if (isPlayer1Turn && moveToButtonY == 1) {
-        QPixmap blueKingPiece = QPixmap(":/image/blue_king.png");
-        movingLabelPtr->setPixmap(blueKingPiece);
+        movingLabelPtr->setPixmap(map_pieceidx_kingsource[choiceOfPlayer1Piece]);
         movingLabelPtr->setProperty("king", true); // Set the 'king' property to true.
     } else if (!isPlayer1Turn && moveToButtonY == 8) {
-        QPixmap yellowKingPiece = QPixmap(":/image/yellow_king.png");
-        movingLabelPtr->setPixmap(yellowKingPiece);
+        movingLabelPtr->setPixmap(map_pieceidx_kingsource[choiceOfPlayer2Piece]);
         movingLabelPtr->setProperty("king", true); // Set the 'king' property to true.
     }
 }
@@ -50,9 +51,9 @@ string getWinner(){
         if (hitPieceCount_player2 == 12){
             return "tie";
         }
-        return "blue";
+        return "player1";
     }
-    return "yellow";
+    return "player2";
 }
 
 // If the winner is decided, redirect the user to winner celebration page and show who is the winner.
@@ -61,11 +62,11 @@ void CheckAndHandleWinCase(Ui::MainWindow* ui) {
     ui->page_4->setVisible(false);
     ui->stackedWidget->setCurrentWidget(ui->page_4);
 
-    if (getWinner() == "blue"){
+    if (getWinner() == "player1"){
         ui->comment_4->setFont(QFont("Cooper Black",20));
         ui->comment_4->setText("Player1 had won the game!");
 
-    } else if (getWinner() == "yellow"){
+    } else if (getWinner() == "player2"){
         ui->comment_4->setFont(QFont("Cooper Black",20));
         ui->comment_4->setText("Player2 had won the game!");
     } else{ //tie

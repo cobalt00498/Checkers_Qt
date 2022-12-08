@@ -54,5 +54,13 @@
         <file>image/sound.png</file>
         <file>image/mute.png</file>
         <file>image/steppinstone.wav</file>
+        <file>image/message.png</file>
+        <file>image/steppinstone.mp3</file>
+        <file>image/flag1_king.png</file>
+        <file>image/flag2_king.png</file>
+        <file>image/flag3_king.png</file>
+        <file>image/flag4_king.png</file>
+        <file>image/flag5_king.png</file>
+        <file>image/flag7_king.png</file>
     </qresource>
 </RCC>

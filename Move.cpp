@@ -12,15 +12,15 @@ void Move::pickPiece(std::string pickedButtonName, QLabel*& pickedLabelPtr) {
     if (pickedLabelPtr != nullptr) { // When the label exists...
         string pickedLabelcolor = pickedLabelPtr->objectName().toStdString().substr(0,1);
         if (isPlayer1Turn && pickedLabelcolor== "y") { // When it is Player1's turn of picked Label is player2's, thow an exception.
-            throw invalid_argument("This is Player1's turn");
+            throw invalid_argument("This is Player1's turn!");
         } else if (!isPlayer1Turn && pickedLabelcolor== "b") { // When it is Player2's turn of picked Label is Player1, thow an exception.
-            throw invalid_argument("This is Player2's turn");
+            throw invalid_argument("This is Player2's turn!");
         } else {
             moveFromButtonName = pickedButtonName; // Store the name as starting point of the move.
             movingLabelPtr = pickedLabelPtr; // Store the pointer of moved piece.
         }
     } else { // If the label does not exist, throw and exception.
-        throw invalid_argument("You clicked empty space");
+        throw invalid_argument("You clicked empty space!");
     }
 }
 
@@ -38,13 +38,13 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
 
     // If player try to jump more than 3 diagonal squares at once, throw an exception.
     if (abs(toX-fromX) >= 3){
-        throw invalid_argument("This is invalid movement");
+        throw invalid_argument("This is invalid movement!");
     }
     // If the piexe is not King...
     if (movingLabelPtr->property("king") == false){
         // If the moveing is not, forward move, throw an exception.
         if (isPlayer1Turn? toY>=fromY: toY<=fromY){
-            throw invalid_argument("Only forward moving is allowed for non-king pieces");
+            throw invalid_argument("Move non-king piece forward!");
         }
         // If user try to move 2 diagonal squares...
         if (abs(toX-fromX) ==2 && abs(toY-fromY)==2){
@@ -59,7 +59,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
 
             // If nothing is located on the button, throw an exception.
             if (midLabelPtr == nullptr) {
-                throw invalid_argument("No piece in between");
+                throw invalid_argument("No piece in between!");
             } //early return
 
             // If the label located on the button in between has different color, remove it and move the picked piece.
@@ -86,7 +86,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
                 hitPieceCount_player2++; // Increase the hit count
                 return;
             //  If not, throw an exception. (When trying to eat up their own piece.)
-            } else{throw invalid_argument("This is invalid movement");}
+            } else{throw invalid_argument("This is invalid movement!");}
         }
 
         // If not filered by the conditions above, it is simply a move(not catching any piece).
@@ -107,7 +107,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
             midButtonName.append(midY);
             QLabel* midLabelPtr = map_s_Q.at(midButtonName);
             if (midLabelPtr == nullptr) {
-                throw invalid_argument("No piece in between");
+                throw invalid_argument("No piece in between!");
             }
             // If the label located on the button in between has different color, remove it and move the picked picked.
             if (midLabelPtr != nullptr) {

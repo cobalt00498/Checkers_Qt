@@ -1239,7 +1239,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board2.png</normaloff>:/image/board2.png</iconset>
       </property>
       <property name="iconSize">
@@ -1274,7 +1274,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board3.png</normaloff>:/image/board3.png</iconset>
       </property>
       <property name="iconSize">
@@ -1925,7 +1925,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board7.png</normaloff>:/image/board7.png</iconset>
       </property>
       <property name="iconSize">
@@ -1960,7 +1960,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board6.png</normaloff>:/image/board6.png</iconset>
       </property>
       <property name="iconSize">
@@ -1995,7 +1995,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board.jpeg</normaloff>:/image/board.jpeg</iconset>
       </property>
       <property name="iconSize">
@@ -2030,7 +2030,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board9.png</normaloff>:/image/board9.png</iconset>
       </property>
       <property name="iconSize">
@@ -2065,7 +2065,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board8.png</normaloff>:/image/board8.png</iconset>
       </property>
       <property name="iconSize">
@@ -2100,7 +2100,7 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
        <string/>
       </property>
       <property name="icon">
-       <iconset resource="resource2.qrc">
+       <iconset>
         <normaloff>:/image/board5.png</normaloff>:/image/board5.png</iconset>
       </property>
       <property name="iconSize">
@@ -2306,27 +2306,6 @@ Queens (promoted pieces) move any number of spaces diagonally forward or backwar
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="TropyLabel">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">background-image: url(:/image/tropy2_cut.png);
-setScaledContents:true;
-</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="TimeLabel">
          <property name="enabled">
           <bool>true</bool>
@@ -2359,6 +2338,27 @@ setScaledContents:true;
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="TropyLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-image: url(:/image/tropy2_cut.png);
+setScaledContents:true;
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -2788,7 +2788,7 @@ setScaledContents:true;
      <x>0</x>
      <y>0</y>
      <width>801</width>
-     <height>24</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
