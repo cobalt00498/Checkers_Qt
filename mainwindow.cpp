@@ -355,8 +355,8 @@ void MainWindow::on_SettingsButton_clicked()
 void MainWindow::on_RuleButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page_2);
-
 }
+
 // When 'VS Player'(in page) is clicked, redict user to page_3 that enables users to play game.
 void MainWindow::on_PlayButton_clicked()
 {
@@ -420,6 +420,7 @@ void MainWindow::on_PlayButton2_clicked()
 }
 
 // When HomeButton2(in page_3) is clicked, redict user to page that shows Home page and reset game status.
+
 void MainWindow::on_HomeButton_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page);
@@ -464,6 +465,7 @@ void MainWindow::on_NoButton3_clicked()
 
 
 // When HomeButton2(in page4) is clicked, redirect user to page.
+
 void MainWindow::on_HomeButton2_clicked()
 {
     ui->stackedWidget->setCurrentWidget(ui->page);
@@ -596,7 +598,6 @@ void MainWindow::on_button_clicked(){
             }
             }
             cout << "============ Computer END =================" << endl;
-
     }
 }
 

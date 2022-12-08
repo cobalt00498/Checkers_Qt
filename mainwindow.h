@@ -30,7 +30,7 @@ private slots:
 
     void on_ExitButton_clicked();
 
-    void on_BackButton_clicked();
+    void on_StartButton_cpu_clicked();
 
     void on_PlayButton2_clicked();
 
