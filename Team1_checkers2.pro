@@ -55,14 +55,21 @@ DISTFILES += \
     image/celebrate2.jpg \
     image/crumpled_paper.jpg \
     image/flag1.png \
+    image/flag1_king.png \
     image/flag2.png \
+    image/flag2_king.png \
     image/flag3.png \
+    image/flag3_king.png \
     image/flag4.png \
+    image/flag4_king.png \
     image/flag5.png \
+    image/flag5_king.png \
     image/flag6.png \
     image/flag7.png \
+    image/flag7_king.png \
     image/green_piece.png \
     image/navy_piece.png \
+    image/new_king.png \
     image/orange_piece.png \
     image/red_piece.png \
     image/tropy.jpg \
