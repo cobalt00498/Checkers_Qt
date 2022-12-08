@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QLabel" name="Board1">
@@ -2878,7 +2878,7 @@ performed and every enemy piece can be jumped over only once.
       </property>
       <property name="icon">
        <iconset resource="resource2.qrc">
-        <normaloff>:/image/flag6_king.png</normaloff>:/image/flag6_king.png</iconset>
+        <normaloff>:/image/flag6.png</normaloff>:/image/flag6.png</iconset>
       </property>
       <property name="iconSize">
        <size>

@@ -1,14 +1,19 @@
-#include "Move.h"
+#include "CurrentMove.h"
 extern bool isPlayer1Turn;
-extern string moveFromButtonName;
-extern string moveToButtonName;
-extern QLabel* movingLabelPtr;
 extern map<string, QLabel*> map_s_Q;
 extern int hitPieceCount_player1;
 extern int hitPieceCount_player2;
 
+
+// Constuctor of CurrentMove
+CurrentMove::CurrentMove() {
+    moveFromButtonName = "";
+    moveToButtonName = "";
+    movingLabelPtr = nullptr;
+}
+
 // The implementation of the 'pickPiece' method from Class Move.
-void Move::pickPiece(std::string pickedButtonName, QLabel*& pickedLabelPtr) {
+void CurrentMove::pickPiece(std::string pickedButtonName, QLabel*& pickedLabelPtr) {
     if (pickedLabelPtr != nullptr) { // When the label exists...
         string pickedLabelcolor = pickedLabelPtr->objectName().toStdString().substr(0,1);
         if (isPlayer1Turn && pickedLabelcolor== "y") { // When it is Player1's turn of picked Label is player2's, thow an exception.
@@ -16,8 +21,8 @@ void Move::pickPiece(std::string pickedButtonName, QLabel*& pickedLabelPtr) {
         } else if (!isPlayer1Turn && pickedLabelcolor== "b") { // When it is Player2's turn of picked Label is Player1, thow an exception.
             throw invalid_argument("This is Player2's turn!");
         } else {
-            moveFromButtonName = pickedButtonName; // Store the name as starting point of the move.
-            movingLabelPtr = pickedLabelPtr; // Store the pointer of moved piece.
+            setMoveFromButtonName(pickedButtonName); // Store the name as starting point of the move.
+            setMovingLabelPtr(pickedLabelPtr); // Store the pointer of moved piece.
         }
     } else { // If the label does not exist, throw and exception.
         throw invalid_argument("You clicked empty space!");
@@ -25,10 +30,10 @@ void Move::pickPiece(std::string pickedButtonName, QLabel*& pickedLabelPtr) {
 }
 
 // The implementation of the 'movePiece' method from Class Move.
-void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string pickedButtonName){
+void CurrentMove::movePiece(string pickedButtonName){
     // Extract the coordinate of the starting point and potential reaching point from button names.
-    int fromX = stoi(moveFromButtonName.substr(2,1));
-    int fromY = stoi(moveFromButtonName.substr(4,1));
+    int fromX = stoi(getMoveFromButtonName().substr(2,1));
+    int fromY = stoi(getMoveFromButtonName().substr(4,1));
 
     int toX = stoi(pickedButtonName.substr(2,1));
     int toY = stoi(pickedButtonName.substr(4,1));
@@ -90,11 +95,11 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
         }
 
         // If not filered by the conditions above, it is simply a move(not catching any piece).
-        moveToButtonName = pickedButtonName;
-        movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+        setMoveToButtonName(pickedButtonName);
+        getMovingLabelPtr()->move(35+(toX-1)*64, 30+(toY-1)*64);
         QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
-        map_s_Q[moveFromButtonName] = nullptr;
-        map_s_Q[moveToButtonName] = tempLabelPtr;
+        map_s_Q[getMoveFromButtonName()] = nullptr;
+        map_s_Q[getMoveToButtonName()] = tempLabelPtr;
         return;
     }
     else { // When the piece is King....
@@ -112,12 +117,12 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
             // If the label located on the button in between has different color, remove it and move the picked picked.
             if (midLabelPtr != nullptr) {
                 string color = midLabelPtr->objectName().toStdString().substr(0,1);
-                moveToButtonName = pickedButtonName;
+                setMoveToButtonName(pickedButtonName);
                 if (isPlayer1Turn && color=="y"){
-                    movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
+                    getMovingLabelPtr()->move(35+(toX-1)*64, 30+(toY-1)*64);
                     QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
-                    map_s_Q[moveFromButtonName] = nullptr;
-                    map_s_Q[moveToButtonName] = tempLabelPtr;
+                    map_s_Q[getMoveFromButtonName()] = nullptr;
+                    map_s_Q[getMoveToButtonName()] = tempLabelPtr;
 
                     map_s_Q.at(midButtonName)->setVisible(false);
                     map_s_Q[midButtonName] = nullptr;
@@ -125,9 +130,9 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
                     return;
                 } else if (!isPlayer1Turn && color=="b") {
                     movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
-                    QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
-                    map_s_Q[moveFromButtonName] = nullptr;
-                    map_s_Q[moveToButtonName] = tempLabelPtr;
+                    QLabel* tempLabelPtr = map_s_Q.at(getMoveFromButtonName());
+                    map_s_Q[getMoveFromButtonName()] = nullptr;
+                    map_s_Q[getMoveToButtonName()] = tempLabelPtr;
 
                     map_s_Q.at(midButtonName)->setVisible(false);
                     map_s_Q[midButtonName] = nullptr;
@@ -137,11 +142,11 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
             }
         }
         // If not filered by the conditions above, it is simply a move(not catching any piece).
-        moveToButtonName = pickedButtonName;
-        movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
-        QLabel* tempLabelPtr = map_s_Q.at(moveFromButtonName);
-        map_s_Q[moveFromButtonName] = nullptr;
-        map_s_Q[moveToButtonName] = tempLabelPtr;
+        setMoveToButtonName(pickedButtonName);
+        getMovingLabelPtr()->move(35+(toX-1)*64, 30+(toY-1)*64);
+        QLabel* tempLabelPtr = map_s_Q.at(getMoveFromButtonName());
+        map_s_Q[getMoveFromButtonName()] = nullptr;
+        map_s_Q[getMoveToButtonName()] = tempLabelPtr;
         return;
     }
 }

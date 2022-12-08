@@ -6,34 +6,29 @@
 #include <QPushButton>
 #include <QLabel>
 #include <stdexcept>
+#include "CurrentMove.h"
+#include "Option.h"
 
 namespace Ui { class MainWindow; }
 using namespace std;
 
 extern bool isLiftTurn;
 extern bool isPlayer1Turn;
-extern int choiceOfPlayer1Piece;
-extern int choiceOfPlayer2Piece;
-//extern bool endGameNow;
 extern int hitPieceCount_player1;
 extern int hitPieceCount_player2;
-
-extern string moveFromButtonName;
-extern string moveToButtonName;
-extern QLabel* movingLabelPtr;
 
 extern map<string, QLabel*> map_s_Q;
 extern map<int, QPixmap> map_pieceidx_kingsource;
 
 // Check if the movingPiece(=movingLabel) should be King ( = reaches the end line). And if yes, handle it.
-void handleKingPiece(QLabel* movingLabelPtr, string moveToButtonName) {
-    int moveToButtonY = stoi(moveToButtonName.substr(4,1));
+void handleKingPiece(CurrentMove& currentMove1, Option& option1) {
+    int moveToButtonY = stoi(currentMove1.getMoveToButtonName().substr(4,1));
     if (isPlayer1Turn && moveToButtonY == 1) {
-        movingLabelPtr->setPixmap(map_pieceidx_kingsource[choiceOfPlayer1Piece]);
-        movingLabelPtr->setProperty("king", true); // Set the 'king' property to true.
+        currentMove1.getMovingLabelPtr()->setPixmap(map_pieceidx_kingsource[option1.getChoiceOfPlayer1Piece()]);
+        currentMove1.getMovingLabelPtr()->setProperty("king", true); // Set the 'king' property to true.
     } else if (!isPlayer1Turn && moveToButtonY == 8) {
-        movingLabelPtr->setPixmap(map_pieceidx_kingsource[choiceOfPlayer2Piece]);
-        movingLabelPtr->setProperty("king", true); // Set the 'king' property to true.
+        currentMove1.getMovingLabelPtr()->setPixmap(map_pieceidx_kingsource[option1.getChoiceOfPlayer2Piece()]);
+        currentMove1.getMovingLabelPtr()->setProperty("king", true); // Set the 'king' property to true.
     }
 }
 
