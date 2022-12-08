@@ -9,7 +9,6 @@
 
 using namespace std;
 
-//QSound bells(":/image/steppinstone.wav");
 bool isPlayer1PieceChoice = true; // This is the flag reprensenting whether the click is meant to set the color of player1's or player2's.
 bool isSoundMuted = false; // This is the flag representing whether to play the sound. default value is true, therefore muted. TODO
 int choiceOfBoard = 1; // This variable stores the choice of board.
@@ -32,6 +31,7 @@ map<int, QPixmap> map_pieceidx_kingsource; // This is map containing the key(pie
 map<int, QLabel*> map_boardidx_underbarptr; // This is map containing the key(board idx: 1-9) and mapped value(pointer to the underbar label of the board idx)
 map<int, QLabel*> map_pieceidx_underbarptr; // This is map containing the key(piece idx: 1-9) and mapped value(pointer to the underbar label of the piece idx)
 vector<string> boardButton_vec; // It is used when the computer picks and drops a piece
+
 // Constructor of the mainWindow
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -360,13 +360,14 @@ void MainWindow::on_RuleButton_clicked()
 // When 'VS Player'(in page) is clicked, redict user to page_3 that enables users to play game.
 void MainWindow::on_PlayButton_clicked()
 {
-    resetGameStatus();
+    resetGameStatus(); // Reset the game status.
     ui->stackedWidget->setCurrentWidget(ui->page_3);
 }
 // When 'VS Computer'(in page) is clicked, redict user to page_3 that enables users to play with a computer.
 void MainWindow::on_CPUPlayButton_clicked()
 {
-    isComputer = true; // change the status
+    resetGameStatus(); // Reset the game status.
+    isComputer = true; // Change the status.
     // Change the label
     ui->player2Turn->setText("Computer Player");
     ui->player2Turn->setFont(QFont("Cooper Black", 13));
@@ -434,9 +435,9 @@ void MainWindow::on_ResetButton_clicked()
 // When ExitButton2(in page4) is clicked, ask user again with floating message.
 void MainWindow::on_ExitButton2_clicked()
 {
-        ui->messageTextLabel->setText("Do you want to quit the game?");
-        ui->messageBackgroundLabel->setVisible(true);
-        ui->messageTextLabel->setVisible(true);
+        ui->messageTextLabel3->setText("Do you want to quit the game?");
+        ui->messageBackgroundLabel3->setVisible(true);
+        ui->messageTextLabel3->setVisible(true);
         ui->CloseButton->setVisible(false);
         ui->CloseButton->setEnabled(false);
         ui->YesButton3->setVisible(true);
@@ -514,7 +515,7 @@ void MainWindow::on_button_clicked(){
             return;
         }
 
-    } else { // when user drops a piece...
+    } else { // When user drops a piece...
             if (pickedLabelPtr != nullptr) { // If the place button the piece is to drop on is not empty (has another piece)...
 
                 try {
@@ -531,7 +532,7 @@ void MainWindow::on_button_clicked(){
                 try {
                   Move::movePiece(movingLabelPtr, moveFromButtonName, pickedButtonName); // Do 'movePiece' and If the 'movePiece' function throws and exception, show the exception message.
                   moveToButtonName = pickedButtonName;
-                  handleKingPiece(movingLabelPtr, moveToButtonName); // if movePiece is done, check if the moved piece is King and handle it.
+                  handleKingPiece(movingLabelPtr, moveToButtonName); // If movePiece is done, check if the moved piece is King and handle it.
                 } catch (invalid_argument& e) {
                     ui->messageTextLabel->setText(e.what());
                     ui->messageBackgroundLabel->setVisible(true);
