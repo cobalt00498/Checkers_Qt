@@ -4,6 +4,7 @@
 #include "ui_mainwindow.h"
 #include "CurrentMove.h"
 #include "Option.h"
+#include "Game.h"
 #include <map>
 #include <vector>
 #include <algorithm>
@@ -12,11 +13,9 @@ using namespace std;
 
 Option option1 = Option::createOption(); // Create the default instance of class Option.
 CurrentMove currentMove1 = CurrentMove(); // Create the default instance of class Option.
-
+Game game1 = Game::createGame(); // Create the default instance of class Game.
 bool isLiftTurn = true; // This is the flag representing whether the click is Lifting the piece or Dropping the piece.
 bool isPlayer1Turn = true; // This is the flag representing whether the turn is player1's or player2's.
-int hitPieceCount_player1 = 0; // This shows the number of pieces that player1 captued.
-int hitPieceCount_player2 = 0; // This shows the number of pieces that player2 captued.
 
 // This maps the Button name(string) to the Labels(QLabel ptr) located on the button.
 map<string, QLabel*> map_s_Q;
@@ -239,8 +238,8 @@ void MainWindow::resetGameStatus(){
     // Set the default value When the MainWindow is initialized.
     isLiftTurn = true; // Start with the action 'lift'.
     isPlayer1Turn = true; // Player1 starts first.
-    hitPieceCount_player1 = 0; // Player1 captured nothing when the game starts.
-    hitPieceCount_player2 = 0; // Player2 captured nothing hwen the game starts.
+    game1.setHitPieceCountZero_player1(); // Player1 captured nothing when the game starts.
+    game1.setHitPieceCountZero_player2(); // Player2 captured nothing hwen the game starts.
     currentMove1.setMoveFromButtonName(""); // Since not moved any piece, the name of the starting button should be empty string.
     currentMove1.setMoveToButtonName(""); // Since not moved any piece, the name of the ending button should be empty string.
     currentMove1.setMovingLabelPtr(nullptr);
@@ -544,7 +543,7 @@ void MainWindow::on_button_clicked(){
                 isPlayer1Turn = !isPlayer1Turn;
                 ui->player1Turn->setChecked(isPlayer1Turn);
                 ui->player2Turn->setChecked(!isPlayer1Turn);
-                CheckAndHandleWinCase(ui); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
+                CheckAndHandleWinCase(ui, game1); // Check if the winner is decided, and if decided redirect user to page for winner celebration.
 
                 QMetaObject::invokeMethod(ui->ComputerMoveButton, "clicked"); // Sequetially invoking the move of computer player.
                 }
@@ -587,7 +586,7 @@ void MainWindow::on_ComputerMoveButton_clicked()
               currentMove1.setMoveToButtonName(droppedButtonName);
               handleKingPiece(currentMove1, option1); // if movePiece is done, check if the moved piece is King and handle it.
 
-              CheckAndHandleWinCase(ui); // check if the game ends or not
+              CheckAndHandleWinCase(ui, game1); // check if the game ends or not
               // change the status
               isLiftTurn = true;
               isPlayer1Turn = true;

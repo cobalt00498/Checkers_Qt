@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-// Move class contains two major movement, pick and move(drop).
+// CurrentMove class contains two major movement, pick and move(drop).
 class CurrentMove
 {
 public:

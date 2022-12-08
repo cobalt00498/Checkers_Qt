@@ -1,8 +1,8 @@
 #include "CurrentMove.h"
+#include "Game.h"
 extern bool isPlayer1Turn;
 extern map<string, QLabel*> map_s_Q;
-extern int hitPieceCount_player1;
-extern int hitPieceCount_player2;
+extern Game game1;
 
 
 // Constuctor of CurrentMove
@@ -78,7 +78,7 @@ void CurrentMove::movePiece(string pickedButtonName){
 
                 map_s_Q.at(midButtonName)->setVisible(false);
                 map_s_Q[midButtonName] = nullptr;
-                hitPieceCount_player1++; // Increase the hit count.
+                game1.increaseHitPieceCount_player1(); // Increase the hit count.
                 return;
             } else if (!isPlayer1Turn && color=="b") {
                 movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
@@ -88,7 +88,7 @@ void CurrentMove::movePiece(string pickedButtonName){
 
                 map_s_Q.at(midButtonName)->setVisible(false);
                 map_s_Q[midButtonName] = nullptr;
-                hitPieceCount_player2++; // Increase the hit count
+                game1.increaseHitPieceCount_player2(); // Increase the hit count
                 return;
             //  If not, throw an exception. (When trying to eat up their own piece.)
             } else{throw invalid_argument("This is invalid movement!");}
@@ -126,7 +126,7 @@ void CurrentMove::movePiece(string pickedButtonName){
 
                     map_s_Q.at(midButtonName)->setVisible(false);
                     map_s_Q[midButtonName] = nullptr;
-                    hitPieceCount_player1++; // Increate the count.
+                    game1.increaseHitPieceCount_player1(); // Increate the count.
                     return;
                 } else if (!isPlayer1Turn && color=="b") {
                     movingLabelPtr->move(35+(toX-1)*64, 30+(toY-1)*64);
@@ -136,7 +136,7 @@ void CurrentMove::movePiece(string pickedButtonName){
 
                     map_s_Q.at(midButtonName)->setVisible(false);
                     map_s_Q[midButtonName] = nullptr;
-                    hitPieceCount_player2++; // Increate the count.
+                    game1.increaseHitPieceCount_player2(); // Increate the count.
                     return;
                 }
             }
