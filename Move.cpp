@@ -44,7 +44,7 @@ void Move::movePiece(QLabel* movingLabelPtr, string moveFromButtonName, string p
     if (movingLabelPtr->property("king") == false){
         // If the moveing is not, forward move, throw an exception.
         if (isPlayer1Turn? toY>=fromY: toY<=fromY){
-            throw invalid_argument("Non-king pieces can move only forward!");
+            throw invalid_argument("Move non-king piece forward!");
         }
         // If user try to move 2 diagonal squares...
         if (abs(toX-fromX) ==2 && abs(toY-fromY)==2){

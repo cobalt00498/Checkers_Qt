@@ -28,6 +28,7 @@ QLabel* movingLabelPtr; // This variable stores the pointer to the label(piece).
 map<string, QLabel*> map_s_Q;
 map<int, QPixmap> map_boardidx_source; // This is map containing the key(board idx: 1-9) and mapped value(imgae source)
 map<int, QPixmap> map_pieceidx_source; // This is map containing the key(piece idx: 1-9) and mapped value(image source to the idexed pieace, which will be show up in main game screen)
+map<int, QPixmap> map_pieceidx_kingsource; // This is map containing the key(piece idx: 1-9) and mapped value(king imgae source)
 map<int, QLabel*> map_boardidx_underbarptr; // This is map containing the key(board idx: 1-9) and mapped value(pointer to the underbar label of the board idx)
 map<int, QLabel*> map_pieceidx_underbarptr; // This is map containing the key(piece idx: 1-9) and mapped value(pointer to the underbar label of the piece idx)
 vector<string> boardButton_vec; // It is used when the computer picks and drops a piece
@@ -189,14 +190,33 @@ MainWindow::MainWindow(QWidget *parent)
     map_pieceidx_source.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5.png")));
     map_pieceidx_source.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7.png")));
 
+    // Insert mapped pair of a piece idx(1-9) and the QPixamp of the piece idexed.
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(1, QPixmap(":/image/white_piece.png"))); // TODO
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(2, QPixmap(":/image/blue_piece.png"))); //TODO
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(3, QPixmap(":/image/black_piece.png"))); //TODO
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(4, QPixmap(":/image/flag1_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(5, QPixmap(":/image/flag2_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(6, QPixmap(":/image/flag3_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(7, QPixmap(":/image/flag4_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(8, QPixmap(":/image/flag5_king.png")));
+    map_pieceidx_kingsource.insert(pair<int, QPixmap>(9, QPixmap(":/image/flag7_king.png")));
+
     ui->player2Turn->setChecked(false);
     ui->player1Turn->setChecked(true);
 
     ui->messageBackgroundLabel->setVisible(false);
     ui->messageTextLabel->setVisible(false);
+
     ui->CloseButton->setVisible(false);
-    ui->YesButton->setVisible(false);
-    ui->NoButton->setVisible(false);
+    ui->messageBackgroundLabel2->setVisible(false);
+    ui->messageTextLabel2->setVisible(false);
+    ui->YesButton2->setVisible(false);
+    ui->NoButton2->setVisible(false);
+
+    ui->messageBackgroundLabel3->setVisible(false);
+    ui->messageTextLabel3->setVisible(false);
+    ui->YesButton3->setVisible(false);
+    ui->NoButton3->setVisible(false);
 
     ui->stackedWidget->setCurrentWidget(ui->page);
 }
@@ -213,11 +233,13 @@ void MainWindow::resetGameStatus(){
     QPixmap player1_piece = map_pieceidx_source[choiceOfPlayer1Piece];
     for(QLabel* label: player1PieceLabels) {
         label->setPixmap(player1_piece);
+        label->setVisible(true);
     }
 
     QPixmap player2_piece = map_pieceidx_source[choiceOfPlayer2Piece];
     for(QLabel* label: player2PieceLabels) {
         label->setPixmap(player2_piece);
+        label->setVisible(true);
     }
 
     // Set the default vaue When the MainWindow is initialized.
@@ -229,14 +251,15 @@ void MainWindow::resetGameStatus(){
     moveToButtonName = ""; // Since not moved any piece, the name of the ending button should be empty string.
     movingLabelPtr = nullptr;
     isComputer = false;
-    // reset the labels
+
+    // Reset the labels.
     ui->player2Turn->setChecked(false);
     ui->player1Turn->setChecked(true);
     ui->player2Turn->setFont(QFont("Cooper Black", 16));
     ui->player2Turn->setText("Player2");
     ui->player1Turn->setText("Player1");
 
-    //Place the pieces in the original position(matching the buttons' names) by setting them in map_s_Q
+    // Place the pieces in the original position(matching the buttons' names) by setting them in map_s_Q
    /*Since the labels are not actually moving. But set to visible/invisible, which means respectively 'existing' or 'removed from the place'.
    We utilized the map to move the labels logically, but not visually, by mapping them with the buttons' names.*/
 
@@ -300,75 +323,9 @@ void MainWindow::resetGameStatus(){
     ui->b4Label->move(483, 478);
 }
 
-// When RuleButton(in page) is clicked, redict user to page_2 that shows rules.
-void MainWindow::on_RuleButton_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page_2);
-
-}
-// When StartButton(in page) is clicked, redict user to page_3 that enables users to play game.
-void MainWindow::on_StartButton_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
-}
-// When 'VS Computer'(in page) is clicked, redict user to page_3 that enables users to play with a computer.
-void MainWindow::on_StartButton_cpu_clicked()
-{
-    isComputer = true; // change the status
-    // Change the label
-    ui->player2Turn->setText("Computer Player");
-    ui->player2Turn->setFont(QFont("Cooper Black", 13));
-    ui->player1Turn->setText("Player");
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
-}
-// When BackeButton(in page_2) clicked, redict user to page that shows back page(Home page).
-void MainWindow::on_BackButton_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page);
-}
-// When HomeButton(in page_2) is clicked, redict user to page that shows Home page and reset game status.
-void MainWindow::on_HomeButton_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page);
-    resetGameStatus();
-}
-
-// When HomeButton2(in page_3) is clicked, redict user to page that shows Home page and reset game status.
-void MainWindow::on_HomeButton2_clicked()
-{
-    resetGameStatus();
-    ui->stackedWidget->setCurrentWidget(ui->page);
-}
-
-// When PlayAgainButton(in page_3) is clicked, redict user to page_3 that enables users to play game and reset gane status.
-void MainWindow::on_PlayAgainButton_clicked()
-{
-    resetGameStatus();
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
-}
-
-// When EndGameButton(in page_3) is clicked, close the window and end game.
-void MainWindow::on_EndGameButton_clicked()
-{
-    this->close();
-}
-
-// When BackeButton(in page_5) clicked, redict user to page that shows back page(Home page).
-void MainWindow::on_BackButton_2_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page);
-}
-
-// When StartButton_3(in page) is clicked, redict user to page_3 that enables users to play game.
-void MainWindow::on_StartButton_3_clicked()
-{
-    ui->stackedWidget->setCurrentWidget(ui->page_3);
-
-}
-
 // When SettingsButton(in page) is clicked, show the the chosen option(or default option if the user hasn't set it).
 void MainWindow::on_SettingsButton_clicked()
-{   
+{
     // Set all the underbars to invisible, and then set the underbar of the board the user chose visible.
     for (auto iter = map_boardidx_underbarptr.begin(); iter != map_boardidx_underbarptr.end(); ++iter){
         iter->second->setVisible(false);
@@ -392,6 +349,147 @@ void MainWindow::on_SettingsButton_clicked()
                                      "border-radius: 20px;");
     ui->stackedWidget->setCurrentWidget(ui->page_5);
 }
+
+
+// When RuleButton(in page) is clicked, redict user to page_2 that shows rules.
+void MainWindow::on_RuleButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page_2);
+
+}
+// When 'VS Player'(in page) is clicked, redict user to page_3 that enables users to play game.
+void MainWindow::on_PlayButton_clicked()
+{
+    resetGameStatus();
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+}
+// When 'VS Computer'(in page) is clicked, redict user to page_3 that enables users to play with a computer.
+void MainWindow::on_CPUPlayButton_clicked()
+{
+    isComputer = true; // change the status
+    // Change the label
+    ui->player2Turn->setText("Computer Player");
+    ui->player2Turn->setFont(QFont("Cooper Black", 13));
+    ui->player1Turn->setText("Player");
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+}
+
+// When ExitButton(in page) is clicked, ask user again with floating message.
+void MainWindow::on_ExitButton_clicked()
+{
+        ui->messageTextLabel2->setText("Do you want to quit the game?");
+        ui->messageBackgroundLabel2->setVisible(true);
+        ui->messageTextLabel2->setVisible(true);
+        ui->CloseButton->setVisible(false);
+        ui->CloseButton->setEnabled(false);
+        ui->YesButton2->setVisible(true);
+        ui->YesButton2->setEnabled(true);
+        ui->NoButton2->setVisible(true);
+        ui->NoButton2->setEnabled(true);
+}
+
+// When user clicks ExitButton, it asks users if he wants to quit.
+// If answered 'Yes', close the game.
+void MainWindow::on_YesButton2_clicked()
+{
+    this->close();
+}
+
+// When user clicks ExitButton, it asks users if he wants to quit.
+// If answered 'No', make the message invisble.
+void MainWindow::on_NoButton2_clicked()
+{
+    ui->messageBackgroundLabel2->setVisible(false);
+    ui->messageTextLabel2->setVisible(false);
+    ui->YesButton2->setVisible(false);
+    ui->NoButton2->setVisible(false);
+}
+
+
+// When BackeButton(in page_2) clicked, redict user to page that shows back page(Home page).
+void MainWindow::on_BackButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+// When PlayButton2(in page_2) is clicked, redict user to page3 and reset game status.
+void MainWindow::on_PlayButton2_clicked()
+{
+    resetGameStatus();
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+}
+
+// When HomeButton2(in page_3) is clicked, redict user to page that shows Home page and reset game status.
+void MainWindow::on_HomeButton_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+// When PlayAgainButton(in page_3) is clicked, redict user to page_3 that enables users to play game and reset gane status.
+void MainWindow::on_ResetButton_clicked()
+{
+    resetGameStatus();
+}
+
+// When ExitButton2(in page4) is clicked, ask user again with floating message.
+void MainWindow::on_ExitButton2_clicked()
+{
+        ui->messageTextLabel->setText("Do you want to quit the game?");
+        ui->messageBackgroundLabel->setVisible(true);
+        ui->messageTextLabel->setVisible(true);
+        ui->CloseButton->setVisible(false);
+        ui->CloseButton->setEnabled(false);
+        ui->YesButton3->setVisible(true);
+        ui->YesButton3->setEnabled(true);
+        ui->NoButton3->setVisible(true);
+        ui->NoButton3->setEnabled(true);
+}
+
+// When user clicks Exit Button2, it asks users if he wants to quit.
+// If answered 'Yes', close the game.
+void MainWindow::on_YesButton3_clicked()
+{
+    this->close();
+}
+
+// When user clicks ExitButton2, it asks users if he wants to quit.
+// If answered 'No', make the message invisble.
+void MainWindow::on_NoButton3_clicked()
+{
+    ui->messageBackgroundLabel3->setVisible(false);
+    ui->messageTextLabel3->setVisible(false);
+    ui->YesButton3->setVisible(false);
+    ui->NoButton3->setVisible(false);
+}
+
+
+// When HomeButton2(in page4) is clicked, redirect user to page.
+void MainWindow::on_HomeButton2_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+// When ReplayButton(in page_4) is clicked, redict user to page_3 that enables users to play game and reset gane status.
+void MainWindow::on_ReplayButton_clicked()
+{
+    resetGameStatus();
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+}
+
+// When BackeButton(in page_5) clicked, redict user to page that shows back page(Home page).
+void MainWindow::on_BackButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(ui->page);
+}
+
+// When PlayButton3(in page_5) is clicked, redict user to page_3 that enables users to play game.
+void MainWindow::on_PlayButton3_clicked()
+{
+    resetGameStatus();
+    ui->stackedWidget->setCurrentWidget(ui->page_3);
+
+}
+
 
 // When the square of the board are clicker, execute the below.
 void MainWindow::on_button_clicked(){
@@ -500,23 +598,6 @@ void MainWindow::on_button_clicked(){
             cout << "============ Computer END =================" << endl;
 
     }
-}
-
-
-
-
-// When StopButton is clicked (in page3), the floating message asks if he wants to quit, and then If answered 'Yes', end the game.
-void MainWindow::on_StopButton_clicked()
-{
-    ui->messageTextLabel->setText("Do you want to quit the game?");
-    ui->messageBackgroundLabel->setVisible(true);
-    ui->messageTextLabel->setVisible(true);
-    ui->CloseButton->setVisible(false);
-    ui->CloseButton->setEnabled(false);
-    ui->YesButton->setVisible(true);
-    ui->YesButton->setEnabled(true);
-    ui->NoButton->setVisible(true);
-    ui->NoButton->setEnabled(true);
 }
 
 // When BoardButton_1 is chosen from user, set the underbar to the BoarButton_1 and set the board in the main game page.
@@ -1022,24 +1103,10 @@ void MainWindow::on_PieceButton_9_clicked()
     }
 }
 
-// When user error message floats, user
+// If user clicks 'Close' on the alert message, make the message invisible so that he can play game.
 void MainWindow::on_CloseButton_clicked()
 {
     ui->messageBackgroundLabel->setVisible(false);
     ui->messageTextLabel->setVisible(false);
     ui->CloseButton->setVisible(false);
 }
-
-void MainWindow::on_YesButton_clicked()
-{
-    this->close();
-}
-
-void MainWindow::on_NoButton_clicked()
-{
-    ui->messageBackgroundLabel->setVisible(false);
-    ui->messageTextLabel->setVisible(false);
-    ui->YesButton->setVisible(false);
-    ui->NoButton->setVisible(false);
-}
-
