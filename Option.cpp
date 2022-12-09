@@ -3,7 +3,7 @@
 #include <string>
 
 using namespace std;
-
+// Implementation of the constructor of class Option
 Option::Option(){ // Constructor
     isPlayer1PieceChoice = 1;
     choiceOfBoard = 1;
